@@ -18,7 +18,6 @@
             <option value="C" id="buy-option-C">C (+ 0.5$)</option>
           </select>
         </li>
-        <br />
         <li>
           <p>How many would you like to order?</p>
           <!-- <ol>
@@ -47,9 +46,8 @@
           <input type="radio" name="order-quantity" id="option-3" value="25" />
           <label for="option-1">3 - $25</label>
         </li>
-        <br />
         <li>
-          <p>Name</p>
+          <p>Name <span id="red-marked">*</span></p>
           <input
             type="text"
             name="name"
@@ -63,19 +61,33 @@
             placeholder="LastName"
           />
         </li>
-        <br />
         <li>
           <p>Email</p>
-          <textarea name="email" id="email" cols="50" rows="1"></textarea>
+          <textarea name="email" id="email" rows="1"></textarea>
         </li>
-        <br />
         <li>
           <p>Phone Number</p>
-          <input type="number" name="phone-number" id="phone-number-1" /> -
-          <input type="number" name="phone-number" id="phone-number-2" /> -
-          <input type="number" name="phone-number" id="phone-number-3" />
+          <input
+            type="number"
+            name="phone-number"
+            class="phone-number-input"
+            id="phone-number-1"
+          />
+          -
+          <input
+            type="number"
+            name="phone-number"
+            class="phone-number-input"
+            id="phone-number-2"
+          />
+          -
+          <input
+            type="number"
+            name="phone-number"
+            class="phone-number-input"
+            id="phone-number-3"
+          />
         </li>
-        <br />
       </ul>
       <button type="submit">Submit</button>
     </form>
