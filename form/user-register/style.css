@@ -1,0 +1,22 @@
+body {
+  margin: 50px;
+  font-size: 20px;
+}
+form {
+  border: 1px solid gainsboro;
+  border-radius: 10px;
+}
+
+ul {
+  list-style-type: none;
+}
+
+li {
+  margin: 20px;
+}
+
+input[type="submit"] {
+  border-radius: 5px;
+  padding: 3px 10px;
+  background-color: white;
+}
