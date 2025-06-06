@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Form thong tin them</title>
+  </head>
+  <body>
+    <form action="" method="post">
+      <ul>
+        <li>
+          <label for="yourname" class="form-field" id="yourname-field">
+            Họ và tên
+          </label>
+          <div class="form-input-container">
+            <input type="text" name="yourname" id="yourname" />
+          </div>
+        </li>
+        <li>
+          <label for="email-input" class="form-field"> Email </label>
+          <div class="form-input-container">
+            <input type="email" id="email-input" />
+          </div>
+        </li>
+        <li>
+          <label for="" class="form-field" id="hobby-field">Sở thích </label>
+          <div class="form-input-container">
+            <label class="options" for="sports-option"
+              ><input
+                type="checkbox"
+                name="hobby-choice"
+                id="sports-option"
+              />Thể thao</label
+            >
+          </div>
+        </li>
+        <li>
+          <!-- <label for="submit">
+            Gửi thông tin
+            <input type="submit" name="submit" id="submit" />
+          </label> -->
+          <div class="form-input-container">
+            <button type="submit" name="submit" id="submit">
+              Gửi thông tin
+            </button>
+            <button type="submit" name="submit" id="submit">Nhập lại</button>
+          </div>
+        </li>
+      </ul>
+      <table>
+        <thead>
+          <tr>
+            <h2>SỞ THÍCH CỦA BẠN</h2>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th>
+              <label for="yourname" class="form-field" id="yourname-field">
+                Họ và tên
+              </label>
+            </th>
+            <td colspan="2">
+              <div class="form-input-container">
+                <input type="text" name="yourname" id="yourname" />
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <th><label for="email-input" class="form-field"> Email </label></th>
+            <td colspan="2">
+              <div class="form-input-container">
+                <input type="email" id="email-input" />
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <th rowspan="3">
+              <label for="" class="form-field" id="hobby-field"
+                >Sở thích
+              </label>
+            </th>
+            <td>
+              <div class="form-input-container">
+                <label class="options" for="sports-option"
+                  ><input
+                    type="checkbox"
+                    name="hobby-choice"
+                    id="sports-option"
+                  />Thể thao</label
+                >
+              </div>
+            </td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr></tr>
+        </tbody>
+      </table>
+    </form>
+  </body>
+</html>

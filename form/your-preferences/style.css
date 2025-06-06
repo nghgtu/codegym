@@ -1,0 +1,28 @@
+body {
+  background-color: rgba(0, 255, 255, 0.301);
+}
+h2 {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: whitesmoke;
+  background-color: rgba(255, 68, 0, 0.914);
+  text-align: center;
+}
+
+ul {
+  list-style-type: none;
+}
+
+.form-field {
+  padding-right: 20px;
+  margin-right: 10px;
+  /* max-height: auto; */
+  max-width: 50px;
+}
+.form-input-container {
+}
+table {
+  border: 1px;
+}
+th {
+  text-align: right;
+}
