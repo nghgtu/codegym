@@ -8,46 +8,6 @@
   </head>
   <body>
     <form action="" method="post">
-      <ul>
-        <li>
-          <label for="yourname" class="form-field" id="yourname-field">
-            Họ và tên
-          </label>
-          <div class="form-input-container">
-            <input type="text" name="yourname" id="yourname" />
-          </div>
-        </li>
-        <li>
-          <label for="email-input" class="form-field"> Email </label>
-          <div class="form-input-container">
-            <input type="email" id="email-input" />
-          </div>
-        </li>
-        <li>
-          <label for="" class="form-field" id="hobby-field">Sở thích </label>
-          <div class="form-input-container">
-            <label class="options" for="sports-option"
-              ><input
-                type="checkbox"
-                name="hobby-choice"
-                id="sports-option"
-              />Thể thao</label
-            >
-          </div>
-        </li>
-        <li>
-          <!-- <label for="submit">
-            Gửi thông tin
-            <input type="submit" name="submit" id="submit" />
-          </label> -->
-          <div class="form-input-container">
-            <button type="submit" name="submit" id="submit">
-              Gửi thông tin
-            </button>
-            <button type="submit" name="submit" id="submit">Nhập lại</button>
-          </div>
-        </li>
-      </ul>
       <table>
         <thead>
           <tr>
@@ -62,40 +22,103 @@
               </label>
             </th>
             <td colspan="2">
-              <div class="form-input-container">
-                <input type="text" name="yourname" id="yourname" />
-              </div>
+              <input type="text" name="yourname" id="yourname" />
             </td>
           </tr>
           <tr>
-            <th><label for="email-input" class="form-field"> Email </label></th>
+            <th><label for="email-input" class="form-field">Email</label></th>
             <td colspan="2">
-              <div class="form-input-container">
-                <input type="email" id="email-input" />
-              </div>
+              <input type="email" id="email-input" />
             </td>
           </tr>
           <tr>
-            <th rowspan="3">
+            <th>
               <label for="" class="form-field" id="hobby-field"
                 >Sở thích
               </label>
             </th>
             <td>
-              <div class="form-input-container">
-                <label class="options" for="sports-option"
-                  ><input
-                    type="checkbox"
-                    name="hobby-choice"
-                    id="sports-option"
-                  />Thể thao</label
-                >
-              </div>
+              <label class="options" for="sports-option"
+                ><input
+                  type="checkbox"
+                  name="hobby-choice"
+                  id="sports-option"
+                />Thể thao</label
+              >
             </td>
-            <td></td>
-            <td></td>
+            <td>
+              <label class="options" for=""
+                ><input
+                  type="checkbox"
+                  name="hobby-choice"
+                  id="music-option"
+                />Âm nhạc</label
+              >
+            </td>
+            <td>
+              <label class="options" for=""
+                ><input
+                  type="checkbox"
+                  name="hobby-choice"
+                  id="books-reading-option"
+                />Đọc sách</label
+              >
+            </td>
           </tr>
-          <tr></tr>
+          <tr>
+            <td></td>
+
+            <td>
+              <label class="options" for=""
+                ><input
+                  type="checkbox"
+                  name="hobby-choice"
+                  id="Web-surfing-option"
+                />Lướt web</label
+              >
+            </td>
+            <td>
+              <label class="options" for=""
+                ><input
+                  type="checkbox"
+                  name="hobby-choice"
+                  id="playing-games-option"
+                />Chơi game</label
+              >
+            </td>
+            <td>
+              <label class="options" for=""
+                ><input
+                  type="checkbox"
+                  name="hobby-choice"
+                  id="movie-option"
+                />Điện ảnh</label
+              >
+            </td>
+          </tr>
+          <tr>
+            <td></td>
+            <td colspan="3">
+              <label class="options" for=""
+                ><input
+                  type="checkbox"
+                  name="hobby-choice"
+                  id="travelling-option"
+                />Du lịch</label
+              >
+            </td>
+          </tr>
+          <tr>
+            <td></td>
+            <td>
+              <button type="submit" name="submit" id="submit">
+                Gửi thông tin
+              </button>
+            </td>
+            <td>
+              <button type="submit" name="submit" id="submit">Nhập lại</button>
+            </td>
+          </tr>
         </tbody>
       </table>
     </form>
