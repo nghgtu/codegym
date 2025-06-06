@@ -1,0 +1,24 @@
+body {
+  background-color: rgba(251, 255, 0, 0.389);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+form {
+  max-width: 500px;
+}
+
+h2 {
+  text-transform: uppercase;
+  color: blue;
+  background-color: rgba(0, 255, 255, 0.573);
+}
+
+th.form-field {
+  font-weight: 400;
+  color: blue;
+  margin-left: 0;
+  padding-left: 0;
+  width: auto;
+  text-align: left;
+  padding-right: 30px;
+}
