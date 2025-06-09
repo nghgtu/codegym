@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>May tinh nang cao</title>
+  </head>
+  <body>
+    <header>
+      <h1>Advanced Calculator</h1>
+    </header>
+    <form action="">
+      <input
+        type="number"
+        name="first-operand"
+        id="first-operand"
+        placeholder="Enter the first operand"
+      />
+      <input
+        type="number"
+        name="second-operand"
+        id="second-operand"
+        placeholder="Enter the second operand"
+      />
+      <br />
+      <table>
+        <tr>
+          <td colspan="7">
+            <input type="text" name="full-expression" id="full-expression" />
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <button
+              type="button"
+              id="rad-deg"
+              value="Rad"
+              onclick="toggleRadnDeg()"
+            >
+              Rad
+            </button>
+          </td>
+          <td></td>
+          <td><button type="button" onclick="factorial()">x!</button></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td><button type="button" onclick="clearAll()">AC</button></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td><button type="button" onclick="logE()">ln</button></td>
+          <td><button type="button" class="numerical" value="7">7</button></td>
+          <td><button type="button" class="numerical" value="8">8</button></td>
+          <td><button type="button" class="numerical" value="9">9</button></td>
+          <td><button type="button" onclick="divide()">/</button></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td><button type="button" onclick="log10()">log</button></td>
+          <td><button type="button" class="numerical" value="4">4</button></td>
+          <td><button type="button" class="numerical" value="5">5</button></td>
+          <td><button type="button" class="numerical" value="6">6</button></td>
+          <td><button type="button" onclick="multiply()">X</button></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td><button type="button" onclick="sqrt()">&radic;</button></td>
+          <td><button type="button" class="numerical" value="1">1</button></td>
+          <td><button type="button" class="numerical" value="2">2</button></td>
+          <td><button type="button" class="numerical" value="3">3</button></td>
+          <td><button type="button" onclick="subtract()">&minus;</button></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td>
+            <button type="button" onclick="xToThePowerY()">
+              X<sup>y</sup>
+            </button>
+          </td>
+          <td><button type="button" value="0">0</button></td>
+          <td><button type="button" value=".">.</button></td>
+          <td>
+            <button
+              type="button"
+              id="show-result"
+              value="="
+              onclick="showResult()"
+            >
+              =
+            </button>
+          </td>
+          <td><button type="button" onclick="add()">+</button></td>
+        </tr>
+      </table>
+
+      <!-- <button type="button" onclick="modulo()">mod</button> -->
+    </form>
+    Result:
+    <p id="result"></p>
+    <script src="app.js"></script>
+  </body>
+</html>

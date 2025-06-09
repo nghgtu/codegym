@@ -1,0 +1,28 @@
+button {
+  border: 1px solid lightslategray;
+  /* padding: 15px 20px; */
+  width: 70px;
+  height: 45px;
+  background-color: lightgray;
+}
+
+button.numerical {
+  background-color: lavender;
+}
+
+button:first-child {
+  font-size: large;
+  font-weight: bold;
+  color: azure;
+}
+
+button#show-result {
+  background-color: rgba(0, 0, 255, 0.642);
+  color: white;
+  font-size: x-large;
+  font-weight: bold;
+}
+
+td {
+  margin: 5px 10px;
+}
