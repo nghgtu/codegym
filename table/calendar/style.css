@@ -1,0 +1,52 @@
+body {
+  background-color: white;
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+table {
+  border: none;
+  margin: 10px auto;
+  border-collapse: collapse;
+}
+
+header {
+  font-size: 36px;
+  font-weight: 900;
+  color: blue;
+  margin-bottom: 20px;
+}
+
+th {
+  padding: 10px;
+}
+
+thead tr th {
+  background-color: orange;
+  border: 3px solid white;
+}
+
+tbody tr th {
+  font-weight: 500;
+}
+
+td {
+  background-color: white;
+  padding: 30px 40px;
+  font-size: xx-large;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  border: 5px solid lightslategray;
+}
+
+td:nth-child(1) {
+  color: red;
+}
+
+td:nth-child(7) {
+  color: blue;
+}
+
+sub {
+  font-size: small;
+  color: black;
+}

@@ -1,0 +1,15 @@
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  max-width: 1000px;
+  min-width: 600px;
+}
+td,
+th {
+  border: 1px solid #dddddd;
+  padding: 8px;
+}
+
+tr:nth-child(odd) {
+  background-color: lightgrey;
+}

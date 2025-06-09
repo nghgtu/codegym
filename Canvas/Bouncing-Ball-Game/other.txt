@@ -1,0 +1,119 @@
+Learn Canvas:
+
+// the filled rectangle
+        // the filled rectangle
+        // ctx.fillStyle = "rgb(0 255 0 / 50%)";
+        // ctx.fillRect(10,10, 100,100);
+
+        // // the outline rectangle
+        // ctx.strokeStyle = "rgb(0 0 255 / 50%)";
+        // ctx.lineWidth = 5;
+        // ctx.strokeRect(10,10, 100,100);
+
+        // ctx.moveTo(75, 50);
+        // ctx.lineTo(100, 75);
+        // ctx.lineWidth = 10;
+        // ctx.stroke();
+
+        // ctx.moveTo(75, 50);
+        // ctx.lineTo(100, 75);
+        // ctx.lineTo(100, 25);
+        // ctx.lineTo(200, 100);
+        // ctx.lineCap = "round";
+        // ctx.fill(); 
+
+        // ctx.arc(75, 75, 50, 0, Math.PI * 2, true); // Outer circle
+        // ctx.moveTo(110, 75);
+        // ctx.arc(75, 75, 35, 0, Math.PI, false); // Mouth (clockwise)
+        // ctx.moveTo(65, 65);
+        // ctx.arc(60, 65, 5, 0, Math.PI * 2, true); // Left eye
+        // ctx.moveTo(95, 65);
+        // ctx.arc(90, 65, 5, 0, Math.PI * 2, true); // Right eye
+        // ctx.stroke();
+
+        // Red rectangle
+        // ctx.beginPath();
+        // ctx.lineWidth = "6";
+        // ctx.strokeStyle = "red";
+        // ctx.rect(5, 5, 290, 140);
+        // ctx.stroke();
+
+        // Green rectangle
+        // ctx.beginPath();
+        // ctx.lineWidth = "4";
+        // ctx.strokeStyle = "green";
+        // ctx.rect(30, 30, 50, 50);
+        // ctx.stroke();
+
+        // Blue rectangle
+        // ctx.beginPath();
+        // ctx.lineWidth = "10";
+        // ctx.strokeStyle = "blue";
+        // ctx.rect(50, 50, 150, 80);
+        // ctx.stroke();
+
+        // ctx.font = "50px Arial";
+        // ctx.fillText("Hello World",10,80, 300);
+
+        // ctx.font = "50px Arial";
+        // ctx.strokeText("Hello World",10,80);
+
+        // ctx.font = "bold italic 50px Arial";
+        // ctx.strokeText("Hello World",10,80);
+
+         // Create a line
+ctx.strokeStyle = "black";
+ctx.lineWidth = 2;
+ctx.beginPath();
+ctx.moveTo(0,75);
+ctx.lineTo(500,75);
+ctx.stroke();
+ctx.closePath();
+
+ctx.font = "20px Arial";
+ctx.fillStyle = "purple";
+
+ctx.textBaseline = "top";
+ctx.fillText("top", 5, 75);
+
+ctx.textBaseline = "hanging";
+ctx.fillText("hanging", 40, 75);
+
+ctx.textBaseline = "middle";
+ctx.fillText("middle", 120, 75);
+
+ctx.textBaseline = "alphabetic";
+ctx.fillText("alphabetic", 190, 75);
+
+ctx.textBaseline = "ideographic";
+ctx.fillText("ideographic", 295, 75);
+
+ctx.textBaseline = "bottom";
+ctx.fillText("bottom", 410, 75);
+
+// Create a line
+ctx.strokeStyle = "black";
+ctx.lineWidth = 2;
+ctx.beginPath();
+ctx.moveTo(250,0);
+ctx.lineTo(250,250);
+ctx.stroke();
+ctx.closePath();
+
+ctx.font = "20px Arial";
+ctx.fillStyle = "purple";
+
+ctx.textAlign = "center";
+ctx.fillText("center", 250, 20);
+
+ctx.textAlign = "start";
+ctx.fillText("start", 250, 50);
+
+ctx.textAlign = "end";
+ctx.fillText("end", 250, 80);
+
+ctx.textAlign = "left";
+ctx.fillText("left", 250, 110);
+
+ctx.textAlign = "right";
+ctx.fillText("right", 250, 135);

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Form dang ky sinh vien</title>
+  </head>
+  <body>
+    <form action="" method="post" name="enrollment-form" id="enrollment-form">
+      <h2>đăng ký học viên</h2>
+      <table>
+        <thead>
+          <th></th>
+        </thead>
+        <tbody>
+          <tr>
+            <th class="form-field">Họ và tên</th>
+            <td colspan="2">
+              <input
+                type="text"
+                name="fullname"
+                id="fullname-input"
+                autofocus
+              />
+            </td>
+          </tr>
+          <tr>
+            <th class="form-field">Ngày sinh</th>
+            <td colspan="2">
+              <input
+                type="date"
+                name="dob"
+                id="dob-input"
+                value="2010-11-15"
+                min="1950-01-01"
+                max="2015-12-31"
+              />
+            </td>
+          </tr>
+          <tr>
+            <th class="form-field">Giới tính</th>
+            <td>
+              <input type="radio" name="gender" id="male" />
+              <label for="male">Nam</label>
+            </td>
+            <td>
+              <input type="radio" name="gender" id="female" />
+              <label for="male">Nữ</label>
+            </td>
+          </tr>
+          <tr>
+            <th class="form-field">Địa chỉ</th>
+            <td colspan="2">
+              <textarea
+                name="address"
+                id="address"
+                cols="30"
+                rows="5"
+              ></textarea>
+            </td>
+          </tr>
+          <tr>
+            <th class="form-field">Lớp</th>
+            <td colspan="2">
+              <select name="" id="">
+                <option value="" disabled selected>&minus; Lớp &minus;</option>
+                <option value="A">A</option>
+                <option value="B">B</option>
+                <option value="C">C</option>
+              </select>
+            </td>
+          </tr>
+          <tr>
+            <th class="form-field">Email</th>
+            <td colspan="2">
+              <input type="email" name="email" id="email" />
+            </td>
+          </tr>
+          <tr>
+            <th class="form-field">Điện thoại</th>
+            <td colspan="2">
+              <input type="email" name="phone" id="phone" />
+            </td>
+          </tr>
+        </tbody>
+        <tfoot>
+          <td></td>
+          <td><button type="submit">Đăng ký</button></td>
+          <td><button type="reset">Nhập lại</button></td>
+        </tfoot>
+      </table>
+    </form>
+  </body>
+</html>

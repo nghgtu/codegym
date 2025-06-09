@@ -1,0 +1,20 @@
+button {
+  padding: 5px;
+  margin: 5px;
+}
+
+#btn-1 {
+  background-color: red;
+}
+
+#btn-2 {
+  background-color: blue;
+}
+
+#btn-3 {
+  background-color: green;
+}
+
+#btn-4 {
+  background-color: yellow;
+}

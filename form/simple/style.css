@@ -1,0 +1,32 @@
+body {
+  font-family: "Lucida Grande", "Lucida Sans Unicode", Tahoma, sans-serif;
+}
+
+p {
+  font-size: 20px;
+}
+
+ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+ol {
+  list-style-type: decimal;
+}
+
+ol li::before {
+  content: " - ";
+}
+
+#red-marked {
+  color: red;
+}
+
+#email {
+  width: 250px;
+}
+
+.phone-number-input {
+  width: 70px;
+}

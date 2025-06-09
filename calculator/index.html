@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>May tinh don gian</title>
+  </head>
+  <body>
+    <header>
+      <h1>Calculator</h1>
+    </header>
+    <form action="">
+      <input
+        type="number"
+        name="first-operand"
+        id="first-operand"
+        placeholder="Enter the first operand"
+      />
+      <input
+        type="number"
+        name="second-operand"
+        id="second-operand"
+        placeholder="Enter the second operand"
+      />
+
+      <br />
+      <button type="button" onclick="add()">Addition (+)</button>
+      <button type="button" onclick="subtract()">Substraction (-)</button>
+      <button type="button" onclick="multiply()">Multiplication (*)</button>
+      <button type="button" onclick="divide()">Division (/)</button>
+      <button type="button" onclick="modulo()">Modulus (%)</button>
+    </form>
+    Result:
+    <p id="result"></p>
+    <script src="app.js"></script>
+  </body>
+</html>

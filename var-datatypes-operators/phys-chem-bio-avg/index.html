@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="app.js"></script>
+    <title>Tính điểm trung bình 3 môn Lý Hóa Sinh</title>
+  </head>
+  <body>
+    <h2>Tính điểm trung bình 3 môn Lý Hóa Sinh</h2>
+    <label for="phys">Nhập điểm môn Lý:</label>
+    <!-- min="0"
+      max="10" -->
+    <input type="number" id="phys" placeholder="Nhập điểm môn Lý:" autofocus />
+    <label for="chem">Nhập điểm môn Hoá:</label>
+    <input type="number" id="chem" placeholder="Nhập điểm môn Hoá:" />
+    <label for="bio">Nhập điểm môn Lý:</label>
+    <input type="number" id="bio" placeholder="Nhập điểm môn Sinh:" />
+    <button onclick="calculateAvgScore()">Tính điểm trung bình</button>
+    <p id="result"></p>
+  </body>
+</html>
