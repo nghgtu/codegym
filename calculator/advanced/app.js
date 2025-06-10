@@ -2,63 +2,40 @@ isInvalid = (operand) => {
     return isNaN(operand);
 }
 
-add = () => {
-    if (isInvalid(firstOperand) || isInvalid(secondOperand))
-    {
-        document.getElementById("result").innerText =
-        "Please enter valid number input";
-        document.getElementById("result").style.color = "red";
-        return;
-    }
+Add = () => {
+    
+    document.getElementById("full-expression").value += " + ";
 
-    let result = firstOperand + secondOperand;
-    document.getElementById("result").innerText = `${firstOperand} + ${secondOperand} = ${result.toFixed(1)}` ;
-    document.getElementById("result").style.color = "green";
+    // let val = document.getElementById("full-expression").value;
+
+    // if (isInvalid(firstOperand) || isInvalid(secondOperand))
+    // {
+    //     document.getElementById("result").innerText =
+    //     "Please enter valid number input";
+    //     document.getElementById("result").style.color = "red";
+    //     return;
+    // }
+
+
+    // let result = firstOperand + secondOperand;
+    // document.getElementById("result").innerText = `${firstOperand} + ${secondOperand} = ${result.toFixed(1)}` ;
+    // document.getElementById("result").style.color = "green";
 }
 
-subtract = () => {
-    
-    if (isInvalid(firstOperand) || isInvalid(secondOperand))
-    {
-        document.getElementById("result").innerText =
-        "Please enter valid number input";
-        document.getElementById("result").style.color = "red";
-        return;
-    }
+Subtract = () => {
+    document.getElementById("full-expression").value += " - ";
+    // let val = document.getElementById("full-expression").value;
 
-    let result = firstOperand - secondOperand;
-    document.getElementById("result").innerText = `${firstOperand} - ${secondOperand} = ${result.toFixed(1)}` ;
-    document.getElementById("result").style.color = "green";
 }
 
-multiply = () => {
-    
-    if (isInvalid(firstOperand) || isInvalid(secondOperand))
-    {
-        document.getElementById("result").innerText =
-        "Please enter valid number input";
-        document.getElementById("result").style.color = "red";
-        return;
-    }
-
-    let result = firstOperand * secondOperand;
-    document.getElementById("result").innerText = `${firstOperand} * ${secondOperand} = ${result.toFixed(1)}` ;
-    document.getElementById("result").style.color = "green";
+Multiply = () => {
+    document.getElementById("full-expression").value += " * ";
+    // let val = document.getElementById("full-expression").value;
 }
 
-divide = () => {
+Divide = () => {
+    document.getElementById("full-expression").value += " / ";  
     
-    if (isInvalid(firstOperand) || isInvalid(secondOperand) || (secondOperand == 0))
-    {
-        document.getElementById("result").innerText =
-        "Please enter valid number input";
-        document.getElementById("result").style.color = "red";
-        return;
-    }
-
-    let result = firstOperand / secondOperand;
-    document.getElementById("result").innerText = `${firstOperand} / ${secondOperand} = ${result.toFixed(1)}` ;
-    document.getElementById("result").style.color = "green";
 }
 
 // modulo = () => {
@@ -77,17 +54,8 @@ clearAll = () => {
 }
 
 xToThePowerY = () => {
-    if (isInvalid(firstOperand) || isInvalid(secondOperand))
-    {
-        document.getElementById("result").innerText =
-        "Please enter valid number input";
-        document.getElementById("result").style.color = "red";
-        return;
-    }
+    document.getElementById("full-expression").value += " ** ";
 
-    let result = Math.pow(firstOperand, secondOperand);
-    document.getElementById("result").innerText = `${firstOperand} ^ ${secondOperand} = ${result.toFixed(2)}` ;
-    document.getElementById("result").style.color = "green";
 }
 
 // only accept one operand
@@ -175,6 +143,10 @@ toggleRadnDeg = () => {
 
 showResult = () => {
     // eval()
+    let expression = document.getElementById("full-expression").value;
+    let result = eval(expression);
+    document.getElementById("result").innerHTML = `${expression} = ${result.toFixed(2)}` ;
+    document.getElementById("result").style.color = "green";
     return;
 }
 
@@ -192,6 +164,7 @@ showResult = () => {
 
 appendExp = (number) => {
     document.getElementById("full-expression").value += `${number}`;
+    
 }
 
 // trig functions
@@ -230,7 +203,20 @@ cos = () => {
 }
 
 tan = () => {
+let angleUnit = document.getElementById("rad-deg").value;
+    let angleVal = document.getElementById("full-expression").value;
+    
+    if (angleUnit === "Rad") {
+        let result = Math.cos(angleVal);
+        document.getElementById("result").innerHTML = `cos(${angleVal}) = ${result.toFixed(2)}` ;
+        document.getElementById("result").style.color = "green";
+    }
 
+    if (angleUnit === "Deg") {
+        let result = Math.tan(angleVal * (Math.PI / 180));
+        document.getElementById("result").innerHTML = `tan(${angleVal}°) = ${result.toFixed(2)}` ;
+        document.getElementById("result").style.color = "green";
+    }
 }
 
 
