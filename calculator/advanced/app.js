@@ -162,9 +162,12 @@ showResult = () => {
 //     // }
 // })
 
-appendExp = (number) => {
-    document.getElementById("full-expression").value += `${number}`;
-    
+appendExp = (exp) => {
+    if (isNaN(exp)) {
+        document.getElementById("full-expression").value += `${exp} `;
+    } else {
+        document.getElementById("full-expression").value += `${exp}`;
+    }
 }
 
 // trig functions
