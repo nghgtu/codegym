@@ -1,0 +1,16 @@
+button {
+  border: 1px solid lightslategray;
+  width: 120px;
+  height: 45px;
+  background-color: lightgray;
+}
+
+button:first-child {
+  font-size: normal;
+  font-weight: bold;
+  color: azure;
+}
+
+td {
+  margin: 5px 10px;
+}
