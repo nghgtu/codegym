@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kiem tra nam nhuam</title>
+  </head>
+  <body>
+    <header>
+      <h1>KIEM TRA NAM NHUAN</h1>
+    </header>
+    <form action="">
+      <!-- onchange="isLeapYear()" -->
+      <input
+        type="number"
+        name="year"
+        id="year"
+        min="1"
+        placeholder="Nhap vao nam can kiem tra:"
+        autofocus
+        required
+      />
+    </form>
+    <script>
+      let year = 1;
+      /*
+            Những năm chia hết cho 4 và không chia hết cho 100 là năm nhuận.
+      Những năm chia hết cho 100 nhưng không chia hết cho 400 thì không phải là năm nhuận.
+      Những năm chia hết đồng thời cho 100 và 400 là năm nhuận.*/
+      let isLeapYear = false;
+      document.getElementById("year").addEventListener("keypress", (event) => {
+        if (event.key === "Enter") {
+          event.preventDefault();
+          year = parseInt(document.getElementById("year").value);
+          if (isNaN(year) || year <= 0) isLeapYear = false;
+          if (year % 4 === 0 && year % 100 !== 0) isLeapYear = true;
+          if (year % 100 === 0 && year % 400 !== 0) isLeapYear = false;
+          if (year % 400 === 0) isLeapYear = true;
+
+          alert(`${year} la nam ${isLeapYear ? "nhuan" : "khong nhuan"}`);
+        }
+      });
+    </script>
+  </body>
+</html>
