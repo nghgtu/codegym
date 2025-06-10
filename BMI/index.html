@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Tính chỉ số cân nặng của cơ thể</title>
+  </head>
+  <body>
+    <header>
+      <h1>Tính chỉ số cân nặng của cơ thể</h1>
+    </header>
+    <table>
+      <tr>
+        <td class="label">Nhap can nang:</td>
+        <td>
+          <input
+            type="number"
+            name="weight"
+            id="weight"
+            min="1"
+            placeholder="50"
+            step="0.1"
+            required
+            autofocus
+          />
+        </td>
+        <td class="label">kg</td>
+      </tr>
+      <tr>
+        <td class="label">Nhap chieu cao</td>
+        <td>
+          <input
+            type="number"
+            name="height"
+            id="height"
+            min="0.6"
+            placeholder="1.5"
+            required
+            step="0.01"
+          />
+        </td>
+        <td class="label">m</td>
+      </tr>
+
+      <tr>
+        <td>
+          <button
+            type="button"
+            value="Kiem tra"
+            id="submit"
+            onclick="calcBMI()"
+          >
+            Kiem tra
+          </button>
+        </td>
+      </tr>
+    </table>
+    <script>
+      calcBMI = () => {
+        const weight = parseFloat(document.getElementById("weight").value);
+        const height = parseFloat(document.getElementById("height").value);
+        if (isNaN(weight) || isNaN(height) || height <= 0.6 || weight <= 1) {
+          alert("Vui lòng nhập cân nặng và chiều cao hợp lệ.");
+          return;
+        }
+        const bmi = weight / (height * height);
+        let result = "";
+        if (bmi < 18.5) {
+          result = "Thiếu cân";
+        } else if (bmi < 24.9) {
+          result = "Bình thường";
+        } else if (bmi < 29.9) {
+          result = "Thừa cân";
+        } else {
+          result = "Béo phì";
+        }
+        alert(`Chỉ số BMI là: ${bmi.toFixed(2)}\nTrạng thái: ${result}`);
+      };
+    </script>
+  </body>
+</html>

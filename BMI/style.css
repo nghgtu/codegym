@@ -1,0 +1,8 @@
+td {
+  padding: 10px 5px;
+  margin: 5px;
+}
+
+button[type="button"] {
+  padding: 5px 10px;
+}
