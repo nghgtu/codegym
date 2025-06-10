@@ -33,10 +33,13 @@
           event.preventDefault();
           year = parseInt(document.getElementById("year").value);
           if (isNaN(year) || year <= 0) isLeapYear = false;
+          debugger;
           if (year % 4 === 0 && year % 100 !== 0) isLeapYear = true;
+          debugger;
           if (year % 100 === 0 && year % 400 !== 0) isLeapYear = false;
+          debugger;
           if (year % 400 === 0) isLeapYear = true;
-
+          debugger;
           alert(`${year} la nam ${isLeapYear ? "nhuan" : "khong nhuan"}`);
         }
       });

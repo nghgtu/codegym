@@ -11,7 +11,7 @@
       <h1>Advanced Calculator</h1>
     </header>
     <form action="">
-      <input
+      <!-- <input
         type="number"
         name="first-operand"
         id="first-operand"
@@ -22,14 +22,19 @@
         name="second-operand"
         id="second-operand"
         placeholder="Enter the second operand"
-      />
-      <br />
+      /> -->
+
       <table>
         <tr>
           <td colspan="7">
-            <input type="text" name="full-expression" id="full-expression" />
+            <textarea
+              id="full-expression"
+              placeholder="Enter some expression here..."
+              autofocus
+            ></textarea>
           </td>
         </tr>
+        <br />
         <tr>
           <td>
             <button
@@ -41,7 +46,9 @@
               Rad
             </button>
           </td>
-          <td></td>
+          <td>
+            <button type="button" onclick="sin()">sin</button>
+          </td>
           <td><button type="button" onclick="factorial()">x!</button></td>
           <td></td>
           <td></td>
@@ -50,29 +57,110 @@
         </tr>
         <tr>
           <td></td>
-          <td></td>
+          <td><button type="button" onclick="cos()">cos</button></td>
           <td><button type="button" onclick="logE()">ln</button></td>
-          <td><button type="button" class="numerical" value="7">7</button></td>
-          <td><button type="button" class="numerical" value="8">8</button></td>
-          <td><button type="button" class="numerical" value="9">9</button></td>
+          <td>
+            <button
+              type="button"
+              class="numerical"
+              value="7"
+              onclick="appendExp(7)"
+            >
+              7
+            </button>
+          </td>
+          <td>
+            <button
+              type="button"
+              class="numerical"
+              value="8"
+              onclick="appendExp(8)"
+            >
+              8
+            </button>
+          </td>
+          <td>
+            <button
+              type="button"
+              class="numerical"
+              value="9"
+              onclick="appendExp(9)"
+            >
+              9
+            </button>
+          </td>
           <td><button type="button" onclick="divide()">/</button></td>
         </tr>
         <tr>
           <td></td>
-          <td></td>
+          <td><button type="button" onclick="tan()">tan</button></td>
           <td><button type="button" onclick="log10()">log</button></td>
-          <td><button type="button" class="numerical" value="4">4</button></td>
-          <td><button type="button" class="numerical" value="5">5</button></td>
-          <td><button type="button" class="numerical" value="6">6</button></td>
+          <td>
+            <button
+              type="button"
+              class="numerical"
+              value="4"
+              onclick="appendExp(4)"
+            >
+              4
+            </button>
+          </td>
+          <td>
+            <button
+              type="button"
+              class="numerical"
+              value="5"
+              onclick="appendExp(5)"
+            >
+              5
+            </button>
+          </td>
+          <td>
+            <button
+              type="button"
+              class="numerical"
+              value="6"
+              onclick="appendExp(6)"
+            >
+              6
+            </button>
+          </td>
           <td><button type="button" onclick="multiply()">X</button></td>
         </tr>
         <tr>
           <td></td>
           <td></td>
           <td><button type="button" onclick="sqrt()">&radic;</button></td>
-          <td><button type="button" class="numerical" value="1">1</button></td>
-          <td><button type="button" class="numerical" value="2">2</button></td>
-          <td><button type="button" class="numerical" value="3">3</button></td>
+          <td>
+            <button
+              type="button"
+              class="numerical"
+              value="1"
+              onclick="appendExp(1)"
+            >
+              1
+            </button>
+          </td>
+          <td>
+            <button
+              type="button"
+              class="numerical"
+              value="2"
+              onclick="appendExp(2)"
+            >
+              2
+            </button>
+          </td>
+          <td>
+            <button
+              type="button"
+              class="numerical"
+              value="3"
+              onclick="appendExp(3)"
+            >
+              3
+            </button>
+          </td>
           <td><button type="button" onclick="subtract()">&minus;</button></td>
         </tr>
         <tr>
@@ -83,8 +171,26 @@
               X<sup>y</sup>
             </button>
           </td>
-          <td><button type="button" value="0">0</button></td>
-          <td><button type="button" value=".">.</button></td>
+          <td>
+            <button
+              type="button"
+              class="numerical"
+              value="0"
+              onclick="appendExp(0)"
+            >
+              0
+            </button>
+          </td>
+          <td>
+            <button
+              type="button"
+              class="numerical"
+              value="."
+              onclick="appendExp('.')"
+            >
+              .
+            </button>
+          </td>
           <td>
             <button
               type="button"
