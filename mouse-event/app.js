@@ -13,7 +13,7 @@ function moveRight() {
 
 window.onload = init;
 
-document.addEventListener("keydown", (event) => {
+window.addEventListener("keydown", (event) => {
     if (event.key === "ArrowRight") {
         event.preventDefault();
         moveRight();
