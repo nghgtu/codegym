@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Luyện tập với cấu trúc switch-case</title>
+  </head>
+  <body>
+    <header>
+      <h1>[Thực hành] Luyện tập với cấu trúc switch-case</h1>
+      <h2>Bai 1</h2>
+    </header>
+    <script>
+      let browser = prompt("Enter browser name!");
+      // let user_agent = navigator.userAgent;
+      switch (browser) {
+        case "Edge":
+          alert("You've got the Edge!");
+          break;
+        case "Chrome":
+        case "Firefox":
+        case "Safari":
+        case "Opera":
+          alert("Okay we support these browsers too");
+          break;
+        default:
+          alert("We hope that this page looks ok!");
+      }
+    </script>
+  </body>
+</html>
