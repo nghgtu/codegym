@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Luyện tập cấu trúc điều kiện 02</title>
+  </head>
+  <body>
+    <header>
+      <h1>[&ast;Bài tập] Luyện tập cấu trúc điều kiện 02</h1>
+      <h2>Bài 12</h2>
+    </header>
+    <script>
+      let soTienGoc = parseFloat(prompt("Nhập số tiền ban đầu (VND):"));
+      let soThang = parseInt(prompt("Nhập số tháng gửi:"));
+      let laiSuatPhanTram = parseFloat(prompt("Nhập lãi suất hàng tháng (%):"));
+
+      if (
+        isNaN(soTienGoc) ||
+        isNaN(soThang) ||
+        isNaN(laiSuatPhanTram) ||
+        soTienGoc <= 0 ||
+        soThang <= 0 ||
+        laiSuatPhanTram <= 0
+      ) {
+        console.log("Dữ liệu nhập không hợp lệ.");
+      } else {
+        let r = laiSuatPhanTram / 100; // chuyển phần trăm thành số thập phân
+        let tongTien = soTienGoc * Math.pow(1 + r, soThang);
+        let tienLai = tongTien - soTienGoc;
+
+        console.log(
+          "Tổng số tiền sau " +
+            soThang +
+            " tháng là: " +
+            tongTien.toLocaleString("vi-VN") +
+            " VND"
+        );
+        console.log(
+          "Tổng tiền lãi là: " + tienLai.toLocaleString("vi-VN") + " VND"
+        );
+      }
+    </script>
+  </body>
+</html>

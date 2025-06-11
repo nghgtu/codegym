@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Luyện tập cấu trúc điều kiện 02</title>
+  </head>
+  <body>
+    <header>
+      <h1>[&ast;Bài tập] Luyện tập cấu trúc điều kiện 02</h1>
+      <h2>Bài 11</h2>
+    </header>
+    <script>
+      let tongThuNhap = parseFloat(
+        prompt("Nhập tổng thu nhập tháng (triệu VND):")
+      );
+      let soNguoiPhuThuoc = parseInt(prompt("Nhập số người phụ thuộc:"));
+
+      if (
+        isNaN(tongThuNhap) ||
+        isNaN(soNguoiPhuThuoc) ||
+        tongThuNhap <= 0 ||
+        soNguoiPhuThuoc < 0
+      ) {
+        console.log("Dữ liệu nhập không hợp lệ.");
+      } else {
+        let giamTruBanThan = 11;
+        let giamTruNguoiPhuThuoc = soNguoiPhuThuoc * 4.4;
+        let thuNhapChiuThue =
+          tongThuNhap - giamTruBanThan - giamTruNguoiPhuThuoc;
+
+        if (thuNhapChiuThue <= 0) {
+          console.log("Không phải nộp thuế.");
+        } else {
+          let thue = 0;
+          let muc = [5, 10, 18, 32, 52, 80];
+          let tyLe = [0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35];
+          let thueTungBac = [0, 0, 0, 0, 0, 0, 0];
+          let thuNhapConLai = thuNhapChiuThue;
+
+          for (let i = 0; i < muc.length; i++) {
+            let khoang = i === 0 ? muc[i] : muc[i] - muc[i - 1];
+            if (thuNhapConLai > khoang) {
+              thueTungBac[i] = khoang * tyLe[i];
+              thuNhapConLai -= khoang;
+            } else {
+              thueTungBac[i] = thuNhapConLai * tyLe[i];
+              thuNhapConLai = 0;
+              break;
+            }
+          }
+
+          if (thuNhapConLai > 0) {
+            thueTungBac[6] = thuNhapConLai * tyLe[6];
+          }
+
+          thue = thueTungBac.reduce((a, b) => a + b, 0);
+
+          console.log(
+            "Thu nhập chịu thuế: " + thuNhapChiuThue.toFixed(2) + " triệu VND"
+          );
+          console.log(
+            "Thuế thu nhập cá nhân phải nộp: " + thue.toFixed(2) + " triệu VND"
+          );
+        }
+      }
+    </script>
+  </body>
+</html>

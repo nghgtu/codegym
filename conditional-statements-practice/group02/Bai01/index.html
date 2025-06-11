@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Luyện tập cấu trúc điều kiện 02</title>
+  </head>
+  <body>
+    <header>
+      <h1>[&ast;Bài tập] Luyện tập cấu trúc điều kiện 02</h1>
+      <h2>Bài 1</h2>
+    </header>
+    <script>
+      let doC = parseFloat(prompt("Nhập nhiệt độ (°C):"));
+
+      if (!isNaN(doC)) {
+        let doF = (doC * 9) / 5 + 32;
+        console.log(doC + "°C = " + doF.toFixed(2) + "°F");
+      } else {
+        console.log("Giá trị nhập không hợp lệ.");
+      }
+    </script>
+  </body>
+</html>

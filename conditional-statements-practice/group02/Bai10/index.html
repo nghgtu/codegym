@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Luyện tập cấu trúc điều kiện 02</title>
+  </head>
+  <body>
+    <header>
+      <h1>[&ast;Bài tập] Luyện tập cấu trúc điều kiện 02</h1>
+      <h2>Bài 10</h2>
+    </header>
+    <script>
+      let kwh = parseFloat(prompt("Nhập số điện (kWh) đã tiêu thụ:"));
+      let tongTien = 0;
+
+      if (isNaN(kwh) || kwh <= 0) {
+        console.log("Số điện không hợp lệ.");
+      } else {
+        if (kwh <= 50) {
+          tongTien = kwh * 1678;
+        } else if (kwh <= 100) {
+          tongTien = 50 * 1678 + (kwh - 50) * 1734;
+        } else if (kwh <= 200) {
+          tongTien = 50 * 1678 + 50 * 1734 + (kwh - 100) * 2014;
+        } else if (kwh <= 300) {
+          tongTien = 50 * 1678 + 50 * 1734 + 100 * 2014 + (kwh - 200) * 2536;
+        } else if (kwh <= 400) {
+          tongTien =
+            50 * 1678 +
+            50 * 1734 +
+            100 * 2014 +
+            100 * 2536 +
+            (kwh - 300) * 2834;
+        } else {
+          tongTien =
+            50 * 1678 +
+            50 * 1734 +
+            100 * 2014 +
+            100 * 2536 +
+            100 * 2834 +
+            (kwh - 400) * 2927;
+        }
+
+        console.log(
+          "Tổng tiền điện phải trả: " +
+            tongTien.toLocaleString("vi-VN") +
+            " VNĐ"
+        );
+      }
+    </script>
+  </body>
+</html>

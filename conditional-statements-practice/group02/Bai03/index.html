@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Luyện tập cấu trúc điều kiện 02</title>
+  </head>
+  <body>
+    <header>
+      <h1>[&ast;Bài tập] Luyện tập cấu trúc điều kiện 02</h1>
+      <h2>Bài 3</h2>
+    </header>
+    <script>
+      let a = parseFloat(prompt("Nhập độ dài cạnh hình vuông (a):"));
+
+      if (!isNaN(a) && a > 0) {
+        let dienTich = a * a;
+        console.log("Diện tích hình vuông là: " + dienTich.toFixed(2));
+      } else {
+        console.log("Giá trị cạnh a không hợp lệ. Vui lòng nhập số lớn hơn 0.");
+      }
+    </script>
+  </body>
+</html>

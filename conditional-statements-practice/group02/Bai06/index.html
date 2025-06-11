@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Luyện tập cấu trúc điều kiện 02</title>
+  </head>
+  <body>
+    <header>
+      <h1>[&ast;Bài tập] Luyện tập cấu trúc điều kiện 02</h1>
+      <h2>Bài 6</h2>
+    </header>
+    <script>
+      let a = parseFloat(prompt("Nhập hệ số a:"));
+      let b = parseFloat(prompt("Nhập hệ số b:"));
+
+      if (isNaN(a) || isNaN(b)) {
+        console.log("Giá trị nhập không hợp lệ.");
+      } else if (a === 0) {
+        if (b === 0) {
+          console.log("Phương trình có vô số nghiệm.");
+        } else {
+          console.log("Phương trình vô nghiệm.");
+        }
+      } else {
+        let x = -b / a;
+        console.log("Nghiệm của phương trình là x = " + x.toFixed(2));
+      }
+    </script>
+  </body>
+</html>

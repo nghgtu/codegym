@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Luyện tập cấu trúc điều kiện 02</title>
+  </head>
+  <body>
+    <header>
+      <h1>[&ast;Bài tập] Luyện tập cấu trúc điều kiện 02</h1>
+      <h2>Bài 7</h2>
+    </header>
+    <script>
+      let a = parseFloat(prompt("Nhập hệ số a:"));
+      let b = parseFloat(prompt("Nhập hệ số b:"));
+      let c = parseFloat(prompt("Nhập hệ số c:"));
+
+      if (isNaN(a) || isNaN(b) || isNaN(c)) {
+        console.log("Giá trị nhập không hợp lệ.");
+      } else if (a === 0) {
+        // Nếu a = 0, phương trình trở thành bậc nhất: bx + c = 0
+        if (b === 0) {
+          if (c === 0) {
+            console.log("Phương trình có vô số nghiệm.");
+          } else {
+            console.log("Phương trình vô nghiệm.");
+          }
+        } else {
+          let x = -c / b;
+          console.log("Phương trình có một nghiệm: x = " + x.toFixed(2));
+        }
+      } else {
+        let delta = b * b - 4 * a * c;
+
+        if (delta < 0) {
+          console.log("Phương trình vô nghiệm.");
+        } else if (delta === 0) {
+          let x = -b / (2 * a);
+          console.log("Phương trình có nghiệm kép: x = " + x.toFixed(2));
+        } else {
+          let x1 = (-b + Math.sqrt(delta)) / (2 * a);
+          let x2 = (-b - Math.sqrt(delta)) / (2 * a);
+          console.log("Phương trình có 2 nghiệm phân biệt:");
+          console.log("x₁ = " + x1.toFixed(2));
+          console.log("x₂ = " + x2.toFixed(2));
+        }
+      }
+    </script>
+  </body>
+</html>

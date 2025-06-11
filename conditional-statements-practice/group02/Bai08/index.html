@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Luyện tập cấu trúc điều kiện 02</title>
+  </head>
+  <body>
+    <header>
+      <h1>[&ast;Bài tập] Luyện tập cấu trúc điều kiện 02</h1>
+      <h2>Bài 8</h2>
+    </header>
+    <script>
+      let tuoi = parseInt(prompt("Nhập vào một số nguyên:"));
+
+      if (isNaN(tuoi)) {
+        console.log("Giá trị nhập không phải là số.");
+      } else if (tuoi > 0 && tuoi < 120) {
+        console.log("Đây là một tuổi hợp lệ của con người.");
+      } else {
+        console.log("Không phải là tuổi hợp lệ (phải > 0 và < 120).");
+      }
+    </script>
+  </body>
+</html>

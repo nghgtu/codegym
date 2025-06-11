@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Luyện tập cấu trúc điều kiện 02</title>
+  </head>
+  <body>
+    <header>
+      <h1>[&ast;Bài tập] Luyện tập cấu trúc điều kiện 02</h1>
+      <h2>Bài 5</h2>
+    </header>
+    <script>
+      let a = parseFloat(prompt("Nhập cạnh góc vuông a:"));
+      let b = parseFloat(prompt("Nhập cạnh góc vuông b:"));
+
+      if (!isNaN(a) && !isNaN(b) && a > 0 && b > 0) {
+        let dienTich = (a * b) / 2;
+        console.log("Diện tích tam giác vuông là: " + dienTich.toFixed(2));
+      } else {
+        console.log("Giá trị nhập không hợp lệ.");
+      }
+    </script>
+  </body>
+</html>
