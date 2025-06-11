@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Luyện tập cấu trúc điều kiện 01</title>
+  </head>
+  <body>
+    <header>
+      <h1>[&ast;Bài tập] Luyện tập cấu trúc điều kiện 01</h1>
+      <h2>Bài 7</h2>
+    </header>
+    <script>
+      let noiMang = parseInt(prompt("Nhập số phút gọi nội mạng trong tháng:"));
+      let ngoaiMang = parseInt(
+        prompt("Nhập số phút gọi ngoại mạng trong tháng:")
+      );
+
+      let phiCoDinh = 25000;
+
+      let cuocNoiMang = 0;
+      let cuocNgoaiMang = 0;
+
+      if (noiMang <= 50) {
+        cuocNoiMang = noiMang * 1000;
+      } else {
+        cuocNoiMang = 50 * 1000 + (noiMang - 50) * 800;
+      }
+
+      if (ngoaiMang <= 50) {
+        cuocNgoaiMang = ngoaiMang * 1500;
+      } else {
+        cuocNgoaiMang = 50 * 1500 + (ngoaiMang - 50) * 1200;
+      }
+
+      let tongCuoc = phiCoDinh + cuocNoiMang + cuocNgoaiMang;
+
+      console.log("Phí cố định: " + phiCoDinh.toLocaleString() + " VNĐ");
+      console.log(
+        "Cước gọi nội mạng: " + cuocNoiMang.toLocaleString() + " VNĐ"
+      );
+      console.log(
+        "Cước gọi ngoại mạng: " + cuocNgoaiMang.toLocaleString() + " VNĐ"
+      );
+      console.log("Tổng cước phải trả: " + tongCuoc.toLocaleString() + " VNĐ");
+    </script>
+  </body>
+</html>

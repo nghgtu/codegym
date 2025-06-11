@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Luyện tập cấu trúc điều kiện 01</title>
+  </head>
+  <body>
+    <header>
+      <h1>[&ast;Bài tập] Luyện tập cấu trúc điều kiện 01</h1>
+      <h2>Bài 5</h2>
+    </header>
+    <script>
+      let diemKT = parseFloat(prompt("Nhập điểm bài kiểm tra:"));
+      let diemGK = parseFloat(prompt("Nhập điểm thi giữa kỳ:"));
+      let diemCK = parseFloat(prompt("Nhập điểm thi cuối kỳ:"));
+
+      let diemTB = (diemKT + diemGK * 2 + diemCK * 3) / 6;
+
+      let xepLoai;
+
+      if (diemTB >= 8) {
+        xepLoai = "Giỏi";
+      } else if (diemTB >= 6.5) {
+        xepLoai = "Khá";
+      } else if (diemTB >= 5) {
+        xepLoai = "Trung bình";
+      } else {
+        xepLoai = "Yếu";
+      }
+
+      console.log("Điểm trung bình: " + diemTB.toFixed(2));
+      console.log("Xếp loại học lực: " + xepLoai);
+    </script>
+  </body>
+</html>

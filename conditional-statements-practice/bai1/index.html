@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Luyện tập cấu trúc điều kiện 01</title>
+  </head>
+  <body>
+    <header>
+      <h1>[&ast;Bài tập] Luyện tập cấu trúc điều kiện 01</h1>
+      <h2>Bài 1</h2>
+    </header>
+    <script>
+      let a = parseInt(prompt("Nhập số a:"));
+      let b = parseInt(prompt("Nhập số b:"));
+
+      if (b === 0) {
+        console.log("Không thể chia cho 0.");
+      } else {
+        if (a % b === 0) {
+          console.log(a + " chia hết cho " + b);
+        } else {
+          console.log(a + " không chia hết cho " + b);
+        }
+      }
+    </script>
+  </body>
+</html>
