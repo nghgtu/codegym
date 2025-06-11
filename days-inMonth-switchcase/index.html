@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Câu lệnh switch-case</title>
+  </head>
+  <body>
+    <header>
+      <h1>[Bài tập] Câu lệnh switch-case</h1>
+    </header>
+    <input
+      type="number"
+      id="month"
+      placeholder="Nhập tháng (1-12):"
+      min="1"
+      max="12"
+      required
+      autofocus
+    />
+    <!--Further application -->
+    <input
+      type="number"
+      id="year"
+      placeholder="Nhập năm (>= 0):"
+      min="0"
+      autofocus
+    />
+    <br />
+    <button type="button" id="check">Tính số ngày</button>
+    <p id="result"></p>
+    <script>
+      document.getElementById("check").addEventListener("click", function () {
+        const month = parseInt(document.getElementById("month").value);
+        const year = parseInt(document.getElementById("year").value);
+        let days;
+
+        switch (month) {
+          case 1: // January
+          case 3: // March
+          case 5: // May
+          case 7: // July
+          case 8: // August
+          case 10: // October
+          case 12: // December
+            days = 31;
+            break;
+          case 4: // April
+          case 6: // June
+          case 9: // September
+          case 11: // November
+            days = 30;
+            break;
+          case 2: // February
+            if ((year % 4 === 0 && year % 100 !== 0) || year % 400 === 0) {
+              days = 29; // Leap year
+            } else {
+              days = 28; // Non-leap year
+            }
+            break;
+          default:
+            alert("Tháng không hợp lệ! Vui lòng nhập tháng từ 1 đến 12.");
+            return;
+        }
+
+        document.getElementById(
+          "result"
+        ).innerText = `Số ngày trong tháng ${month} năm ${year} là ${days} ngày.`;
+      });
+    </script>
+  </body>
+</html>
