@@ -48,72 +48,74 @@
         let ctx = myCanvas.getContext("2d");
         let score = 0;
         
-class Ball {
-    color = "gray";
-    radius = 15;
-    dx;
-    dy;
-    constructor(xpos, ypos, speed) {
-        this.xpos = xpos;
-        this.ypos = ypos;
-        // this.angle = angle;
-        this.speed = speed;
+// class Ball {
+//     color = "gray";
+//     radius = 15;
+//     dx;
+//     dy;
+//     constructor(xpos, ypos, speed) {
+//         this.xpos = xpos;
+//         this.ypos = ypos;
+//         // this.angle = angle;
+//         this.speed = speed;
 
-        this.dx = 1 * speed;
-        this.dy = 1 * speed;
-    }
+//         this.dx = 1 * speed;
+//         this.dy = 1 * speed;
+//     }
 
-    draw(context) {
-        context.beginPath();
+//     draw(context) {
+//         context.beginPath();
         
-        context.fillStyle = this.color;
-        context.arc(this.xpos, this.ypos, this.radius, 0, Math.PI * 2, false);
-        context.fill();
+//         context.fillStyle = this.color;
+//         context.arc(this.xpos, this.ypos, this.radius, 0, Math.PI * 2, false);
+//         context.fill();
 
-        context.closePath();
-    }
+//         context.closePath();
+//     }
 
 
-    move(context) {
-        context.clearRect(0, 0, WINDOW_WIDTH, WINDOW_HEIGHT);
+//     move(context) {
+//         context.clearRect(0, 0, WINDOW_WIDTH, WINDOW_HEIGHT);
 
-        this.draw(context);
+//         this.draw(context);
         
-        // Bounce off the right border
-        if ( (this.xpos + this.radius) > WINDOW_WIDTH) {
-            this.dx = -this.dx;
-        }
+//         // Bounce off the right border
+//         if ( (this.xpos + this.radius) > WINDOW_WIDTH) {
+//             this.dx = -this.dx;
+//         }
 
-        // Bounce off the left border
-        if ( (this.xpos + this.radius) < 0) {
-            this.dx = -this.dx;
-        }
+//         // Bounce off the left border
+//         if ( (this.xpos + this.radius) < 0) {
+//             this.dx = -this.dx;
+//         }
 
-        // Bounce off the upper border
-        if ( (this.ypos + this.radius) < 0) {
-            this.dy = -this.dy;
-        }
+//         // Bounce off the upper border
+//         if ( (this.ypos + this.radius) < 0) {
+//             this.dy = -this.dy;
+//         }
 
-        // Bounce off the bottom border (or Bar)
-        if ( (this.ypos + this.radius) > WINDOW_HEIGHT) {
-            this.dy = -this.dy;
-        }
+//         // Bounce off the bottom border (or Bar)
+//         if ( (this.ypos + this.radius) > WINDOW_HEIGHT) {
+//             this.dy = -this.dy;
+//         }
 
-        this.xpos += this.dx;
-        this.ypos += this.dy;
-    }
+//         this.xpos += this.dx;
+//         this.ypos += this.dy;
+//     }
 
-}
+// }
 
-class GameBoard {
-    constructor(width, height) {
-        this.width = width;
-        this.height = height;
-    }
+// class GameBoard {
+//     constructor(width, height) {
+//         this.width = width;
+//         this.height = height;
+//     }
 
-}
+// }
 
 class Bar {
+    top = WINDOW_HEIGHT - 50;
+    // left = 300;
     bHeight = 10;
     bWidth = WINDOW_WIDTH / 5;
     constructor(currXPos) {
@@ -141,26 +143,26 @@ class Bar {
 
 // window.addEventListener("load", draw);
 
-let ball_counter = 1;
-let random_x = Math.random() * WINDOW_WIDTH;
-let random_y = Math.random() * WINDOW_HEIGHT;
+// let ball_counter = 1;
+// let random_x = Math.random() * WINDOW_WIDTH;
+// let random_y = Math.random() * WINDOW_HEIGHT;
 
-let myBall = new Ball(random_x, random_y, 10);
+// let myBall = new Ball(random_x, random_y, 10);
 
-myBall.draw(ctx);
+// myBall.draw(ctx);
 
-let updateBall = function() {
-    requestAnimationFrame(updateBall);
-    myBall.update();
-}
+// let updateBall = function() {
+//     requestAnimationFrame(updateBall);
+//     myBall.update();
+// }
 
-updateBall();
+// updateBall();
 
-function updateScore() {
-    ctx.font = "16px Arial";
-    ctx.fillStyle = "red";
-    ctx.fillText("SCORE: " + score, 0, 0);
-}
+// function updateScore() {
+//     ctx.font = "16px Arial";
+//     ctx.fillStyle = "red";
+//     ctx.fillText("SCORE: " + score, 0, 0);
+// }
 
 
-document.addEventListener("")
+// document.addEventListener("")
