@@ -17,9 +17,7 @@ toggle = (id) => {
         closest = curr;
         curr = id;
         document.getElementById(dropped).checked = false;
-    } else {
-        alert("unsolved cases")
-    }
+    } 
 }
 
 
