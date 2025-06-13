@@ -1,0 +1,5 @@
+#img1 {
+  clip-path: inset(240px 0px 0px 0px);
+  overflow: hidden;
+  cursor: pointer;
+}
