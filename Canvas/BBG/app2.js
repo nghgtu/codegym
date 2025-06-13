@@ -36,8 +36,8 @@ class Ball {
       let gw = gboard.width;
       let gh = gboard.height;
       // gboard.context = gboard.gboard.context;
+      requestAnimationFrame(() => this.updateBall(gboard));
 
-      requestAnimationFrame(updateBall(gboard));
       gboard.context.clearRect(0, 0, gw, gh);
 
       // Draw the game board
@@ -53,9 +53,10 @@ class Ball {
       gboard.context.fillStyle = "yellow";
       gboard.context.fill();
       
-      this.dx = (this.startDirection === 1) ? (this.dx) : -(this.dx);
+      // this.dx = (this.startDirection === 1) ? (this.dx) : -(this.dx);
 
       this.cx += this.dx;
+      this.cx += (this.startDirection === 1) ? (this.dx) : -(this.dx);
       this.cy += this.dy;
 
       // bounce off the walls
@@ -81,7 +82,7 @@ class Ball {
 
       gboard.context.font = "20px Arial";
       gboard.context.fillStyle = 'black';
-      gboard.context.fillText(`Score: ${score}`, 30, 30);
+      gboard.context.fillText(`Score: ${gboard.score}`, 30, 30);
   } 
     restart(gboard){
       gw = gboard.width;
@@ -107,7 +108,7 @@ class Bar {
     }
 
     moveBar(gboard) {
-      requestAnimationFrame(moveBar(gboard));
+      requestAnimationFrame(() => this.moveBar(gboard));
       gboard.context.fillStyle = 'blue';
       gboard.context.fillRect(this.rx, this.ry, this.rw, this.rh);
     }
@@ -142,7 +143,7 @@ let r_speed = Math.floor(Math.random() * 10) + 1; // Random speed between 1 and 
 let sDir = Math.round(Math.random() * 1);
 
 let nball = new Ball(Math.floor(Math.random() * (WIDTH - 80)) + 40, 15, r_speed, sDir);
-let nbar = new Bar(300, 210, 8, 80);
+let nbar = new Bar(300, 210, 80, 8);
 
 nGame.init(nball, nbar);
 
