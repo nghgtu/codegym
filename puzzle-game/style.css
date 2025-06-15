@@ -1,5 +1,41 @@
+/* :root {
+  --_1fifthHeight: calc(480 / 5) px; 
+} */
+/*
+inset (top, right, bottom, left)
+*/
+
 #img1 {
-  clip-path: inset(240px 0px 0px 0px);
+  position: absolute;
+  clip-path: inset(0px 0px calc(96px * 4) 0px);
+  overflow: hidden;
+  cursor: pointer;
+}
+
+#img2 {
+  position: absolute;
+  clip-path: inset(96px 0px calc(96px * 3) 0px);
+  overflow: hidden;
+  cursor: pointer;
+}
+
+#img3 {
+  position: absolute;
+  clip-path: inset(calc(96px * 2) 0px calc(96px * 2) 0px);
+  overflow: hidden;
+  cursor: pointer;
+}
+
+#img4 {
+  position: absolute;
+  clip-path: inset(calc(96px * 3) 0px 96px 0px);
+  overflow: hidden;
+  cursor: pointer;
+}
+
+#img5 {
+  position: absolute;
+  clip-path: inset(calc(96px * 4) 0px 0px 0px);
   overflow: hidden;
   cursor: pointer;
 }
