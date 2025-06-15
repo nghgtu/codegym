@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>[Bài tập] Sử dụng các hàm có sẵn của mảng</title>
+  </head>
+  <body>
+    <header>
+      <h1>Bài 1: Nối các phần tử trong mảng thành chuỗi</h1>
+    </header>
+    <input type="text" id="txtValue" />
+    <input
+      type="button"
+      id="btnAdd"
+      value="Add"
+      onclick="add_element_to_array();"
+    />
+    <input
+      type="button"
+      id="btnDisplay"
+      value="Display"
+      onclick="display_array();"
+    />
+    <div id="result"></div>
+
+    <script>
+      let x = 0;
+      let array = Array();
+
+      function add_element_to_array() {
+        let element = document.getElementById("txtValue").value;
+        if (element === "") {
+          alert("Please enter a value");
+          return;
+        }
+        array[x] = element;
+        alert("Element: " + array[x] + " Added at index " + x);
+        x++;
+        document.getElementById("txtValue").value = "";
+      }
+
+      function display_array() {
+        let e = "<hr/>";
+        e += array.join(", ");
+        document.getElementById("result").innerHTML = e;
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>[Bài tập] Sử dụng các hàm có sẵn của mảng</title>
+  </head>
+  <body>
+    <header>
+      <h1>Bài 2: Chèn dấu "-" giữa các số chẵn</h1>
+    </header>
+    <input type="text" id="txtValue" autofocus />
+    <input
+      type="button"
+      id="btnDisplay"
+      value="Display"
+      onclick="displayString();"
+    />
+    <div id="result"></div>
+
+    <script>
+      let str;
+
+      function displayString() {
+        let str = document.getElementById("txtValue").value;
+        if (str === "" || !Number(str) || str.length <= 1) {
+          alert("Please enter a number-value string");
+          document.getElementById("txtValue").value = "";
+          document.getElementById("txtValue").focus();
+          return;
+        }
+        document.getElementById("txtValue").value = "";
+        let e = "<hr/>";
+        e += insertDash(str);
+        document.getElementById("result").innerHTML = e;
+      }
+
+      function insertDash(str) {
+        let result = str[0]; // Khong bao gio co dau - o truoc ki tu dau tien
+
+        for (let i = 1; i < str.length; i++) {
+          if (parseInt(str[i - 1]) % 2 === 0 && parseInt(str[i]) % 2 === 0) {
+            result += "-" + str[i];
+          } else {
+            result += str[i];
+          }
+        }
+
+        return result;
+      }
+    </script>
+  </body>
+</html>

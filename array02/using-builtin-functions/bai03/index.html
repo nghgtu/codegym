@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>[Bài tập] Sử dụng các hàm có sẵn của mảng</title>
+  </head>
+  <body>
+    <header>
+      <h1>Bài 3: Chuyển đổi chữ thường sang chữ hoa và ngược lại</h1>
+    </header>
+    <input type="text" id="txtValue" autofocus />
+    <input
+      type="button"
+      id="btnDisplay"
+      value="Display"
+      onclick="displayString();"
+    />
+    <div id="result"></div>
+
+    <script>
+      let str;
+
+      function displayString() {
+        let str = document.getElementById("txtValue").value;
+        if (str === "" || str.length <= 0) {
+          alert("Please enter a valid string");
+          document.getElementById("txtValue").value = "";
+          document.getElementById("txtValue").focus();
+          return;
+        }
+        document.getElementById("txtValue").value = "";
+        document.getElementById("txtValue").focus();
+        let e = "<hr/>";
+        e += swapCase(str);
+        document.getElementById("result").innerHTML = e;
+      }
+
+      function swapCase(str) {
+        let result = "";
+
+        for (let i = 0; i < str.length; i++) {
+          let char = str[i];
+
+          if (char === char.toUpperCase()) {
+            result += char.toLowerCase();
+          } else {
+            result += char.toUpperCase();
+          }
+        }
+
+        return result;
+      }
+    </script>
+  </body>
+</html>
