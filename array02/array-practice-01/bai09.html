@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>[*Bài tập] Luyện tập mảng 01</title>
+  </head>
+  <body>
+    <header>
+      <h1>Nối hai mảng số nguyên</h1>
+    </header>
+
+    <label>Nhập mảng a (10 phần tử, cách nhau bằng dấu phẩy):</label><br />
+    <input
+      type="text"
+      id="arrayA"
+      placeholder="Ví dụ: 1,2,3,4,5,6,7,8,9,10"
+    /><br /><br />
+
+    <label>Nhập mảng b (10 phần tử, cách nhau bằng dấu phẩy):</label><br />
+    <input
+      type="text"
+      id="arrayB"
+      placeholder="Ví dụ: 11,12,13,14,15,16,17,18,19,20"
+    /><br /><br />
+
+    <button onclick="mergeArrays()">Nối mảng</button>
+
+    <p id="resultC"></p>
+
+    <script>
+      function mergeArrays() {
+        let a = document
+          .getElementById("arrayA")
+          .value.split(",")
+          .map((item) => parseInt(item.trim()));
+        let b = document
+          .getElementById("arrayB")
+          .value.split(",")
+          .map((item) => parseInt(item.trim()));
+
+        if (
+          a.length !== 10 ||
+          b.length !== 10 ||
+          a.some(isNaN) ||
+          b.some(isNaN)
+        ) {
+          alert("Vui lòng nhập đúng 10 số nguyên cho mỗi mảng.");
+          document.getElementById("arrayA").value = "";
+          document.getElementById("arrayB").value = "";
+          document.getElementById("arrayA").focus();
+          return;
+        }
+
+        // Nối mảng: b trước, a sau
+        let c = b.concat(a);
+
+        document.getElementById("resultC").innerHTML =
+          "Mảng c (nối b + a):<br>" + c.join(", ");
+      }
+    </script>
+  </body>
+</html>

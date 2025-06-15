@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>[*Bài tập] Luyện tập mảng 01</title>
+  </head>
+  <body>
+    <header>
+      <h1>Kiểm tra phần tử V có trong mảng không</h1>
+    </header>
+    <p id="array"></p>
+
+    <button onclick="checkValue()">Kiểm tra</button>
+
+    <p id="result"></p>
+
+    <script>
+      let numbers = new Array();
+      let counter = 0;
+      let int;
+      do {
+        int = +prompt("Enter the integer: ");
+        if (isNaN(parseInt(int))) {
+          alert("Bạn vào nhập vào số hợp lệ!");
+          continue;
+        }
+        numbers.push(parseInt(int));
+        counter++;
+      } while (counter < 10);
+
+      document.getElementById("array").innerHTML =
+        "Array: " + numbers.join(", ");
+      let V;
+      do {
+        V = +prompt("Enter the integer V to check: ");
+        if (isNaN(parseInt(V))) {
+          alert("Bạn vào nhập vào số hợp lệ!");
+          continue;
+        }
+        break;
+      } while (true);
+
+      if (numbers.includes(V)) {
+        document.getElementById("result").innerHTML = V + " is in the array.";
+      } else {
+        document.getElementById("result").innerHTML =
+          V + " is not in the array.";
+      }
+    </script>
+  </body>
+</html>

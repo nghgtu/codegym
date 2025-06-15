@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>[*Bài tập] Luyện tập mảng 01</title>
+  </head>
+  <body>
+    <header>
+      <h1>Đếm số nguyên âm trong chuỗi</h1>
+    </header>
+
+    <label>Nhập chuỗi bất kỳ:</label><br />
+    <input type="text" id="string" autofocus /><br /><br />
+    <button onclick="countNegativeInteger()">Đếm số âm</button>
+
+    <p id="result"></p>
+
+    <script>
+      function splitIntFromString(str) {
+        // let numbers = new Arr();
+        // let n;
+        str = str.trim();
+        const iterator = str.matchAll(/(\-?[0-9]+)/g);
+        console.log(iterator);
+        let numbers = Array.from(iterator);
+        return numbers;
+      }
+
+      function countNegativeInteger() {
+        let input = document.getElementById("string").value;
+
+        let numbers = splitIntFromString(input);
+        console.log(numbers);
+
+        let count = 0;
+        for (let i = 0; i < numbers.length; i++) {
+          if (parseInt(numbers[i]) < 0) {
+            count++;
+          }
+        }
+
+        document.getElementById("result").innerHTML =
+          "Số lượng số nguyên âm: " + count;
+      }
+    </script>
+  </body>
+</html>

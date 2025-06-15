@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>[*Bài tập] Luyện tập mảng 01</title>
+  </head>
+  <body>
+    <header>
+      <h1>Đảo ngược mảng số nguyên</h1>
+    </header>
+    <p id="original"></p>
+    <p id="reversed"></p>
+
+    <script>
+      let numbers = new Array();
+      let counter = 0;
+      let int;
+      do {
+        int = +prompt("Enter the integer: ");
+        if (isNaN(parseInt(int))) continue;
+        numbers.push(int);
+        counter++;
+      } while (counter < 10);
+
+      document.getElementById("original").innerHTML =
+        "Mảng ban đầu: " + numbers.join(", ");
+
+      let reversed = numbers.slice().reverse();
+
+      document.getElementById("reversed").innerHTML =
+        "Mảng sau khi đảo ngược: " + reversed.join(", ");
+    </script>
+  </body>
+</html>

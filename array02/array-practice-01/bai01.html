@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>[*Bài tập] Luyện tập mảng 01</title>
+  </head>
+  <body>
+    <header>
+      <h1>Đếm số nguyên lớn hơn hoặc bằng 10</h1>
+    </header>
+    <p id="array"></p>
+    <p id="result"></p>
+
+    <script>
+      let numbers = new Array();
+      let counter = 0;
+      let int;
+      do {
+        int = +prompt("Enter the integer: ");
+        if (isNaN(parseInt(int))) continue;
+        numbers.push(parseInt(int));
+        counter++;
+      } while (counter < 10);
+
+      document.getElementById("array").innerHTML =
+        "Array: " + numbers.join(", ");
+
+      let count = 0;
+      for (let i = 0; i < numbers.length; i++) {
+        if (numbers[i] >= 10) {
+          count++;
+        }
+      }
+
+      document.getElementById("result").innerHTML =
+        "number of elements >= 10: " + count;
+    </script>
+  </body>
+</html>

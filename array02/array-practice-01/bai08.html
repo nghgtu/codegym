@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>[*Bài tập] Luyện tập mảng 01</title>
+  </head>
+  <body>
+    <header>
+      <h1>Sắp xếp mảng số nguyên theo thứ tự giảm dần</h1>
+    </header>
+    <p id="array"></p>
+    <p id="result"></p>
+
+    <script>
+      let numbers = new Array();
+      let counter = 0;
+      let int;
+      do {
+        int = +prompt("Enter the integer: ");
+        if (isNaN(parseInt(int))) {
+          alert("Bạn vào nhập vào số hợp lệ!");
+          continue;
+        }
+        numbers.push(parseInt(int));
+        counter++;
+      } while (counter < 10);
+
+      document.getElementById("array").innerHTML =
+        "Array: " + numbers.join(", ");
+
+      numbers.sort((a, b) => b - a);
+
+      document.getElementById("result").innerHTML =
+        "Mảng sau khi sắp xếp giảm dần: " + numbers.join(", ");
+    </script>
+  </body>
+</html>
