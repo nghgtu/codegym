@@ -1,6 +1,15 @@
+body {
+  text-align: center;
+}
+
 form {
   border: 5px solid blue;
   border-radius: 10px;
+  display: inline-block;
+}
+
+label {
+  font-size: large;
 }
 
 input#word {
@@ -14,4 +23,11 @@ button {
   padding: 10px 10px;
   border-radius: 5px;
   margin: 5px 5px;
+  font-size: x-large;
+}
+
+#_search {
+  color: blue;
+  background-color: azure;
+  font-weight: bold;
 }
