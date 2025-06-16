@@ -1,32 +1,28 @@
-    // const WIDTH = 640;
-    // const HEIGHT = 480;
-// let w = document.getElementById("img2").width;
-// let h = document.getElementById("img2").height;
-// document.getElementById("img2").height = '480px'
-// alert(w);
-// alert(h);
-// // document.getElementById("img1").style.clip = `rect(0px,${w}px,${h/2}px,0px)`;
-// // document.getElementById("img1").style.clip = "rect(0px,640px,240px,0px)";
-// // document.getElementById("img1").style.clipPath = "inset(0%,100%,50%,0%)";
-// using css position and z-index
-// switchImg = () => {
-//     document.getElementById("img1").innerHTML = IMG2;
-// }
+const img1 = "images/random_img_1.jpg";
+const img2 = "images/random_img_2.jpg";
+const img3 = "images/random_img_3.jpg";
+const img4 = "images/random_img_4.jpg";  
+const img5 = "images/random_img_5.jpg";
 
-function switchImg() {
-    let rSeed = Math.floor(Math.random() * 5) + 1;
-    
-}
+document.getElementById("_container").addEventListener("click", check = () => {
+    // const images = ["", img1, img2, img3, img4, img5];
+    let correct = false;
+    let swapSrc1 = document.getElementById("imgswap1").src;
+    for(let i = 2; i <= 5; i++) {
+        const imgsrc = document.getElementById(`imgswap${i}`).src;
+        if (imgsrc === swapSrc1 && i === 5) {
+            correct = true;
+            break;
+        }
+    }
 
-let IMG1 = document.getElementById("img1").src;
-let IMG2 =  document.getElementById("img2").src;
-let IMG3 = document.getElementById("img3").src;
-let IMG4 = document.getElementById("img4").src;
-let IMG5 = document.getElementById("img5").src;
-
-document.getElementById("img1").style.cursor = "pointer";
-document.getElementById("img1").onclick = () => {
-    document.getElementById("img1").src = IMG2;
-    console.log(document.getElementById("img1"));
-};
-
+    if (correct) {
+        // document.getElementById("result").innerHTML = "Correct!";
+        // document.getElementById("result").style.color = "green";
+        alert("Congratulations! You solved the puzzle!");
+    } 
+    // else {
+    //     document.getElementById("result").innerHTML = "Try again!";
+    //     document.getElementById("result").style.color = "red";
+    // }
+});

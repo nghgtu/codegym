@@ -4,38 +4,42 @@
 /*
 inset (top, right, bottom, left)
 */
+div.container {
+  margin-top: 100px;
+  margin-left: 100px;
+  display: flex;
+}
 
-#img1 {
+img {
   position: absolute;
+  overflow: hidden;
+  cursor: pointer;
+  /* padding: 10px auto; */
+}
+
+#imgswap1 {
   clip-path: inset(0px 0px calc(96px * 4) 0px);
-  overflow: hidden;
-  cursor: pointer;
 }
 
-#img2 {
-  position: absolute;
+#imgswap2 {
   clip-path: inset(96px 0px calc(96px * 3) 0px);
-  overflow: hidden;
-  cursor: pointer;
 }
 
-#img3 {
-  position: absolute;
+#imgswap3 {
   clip-path: inset(calc(96px * 2) 0px calc(96px * 2) 0px);
-  overflow: hidden;
-  cursor: pointer;
 }
 
-#img4 {
-  position: absolute;
+#imgswap4 {
   clip-path: inset(calc(96px * 3) 0px 96px 0px);
-  overflow: hidden;
-  cursor: pointer;
 }
 
-#img5 {
-  position: absolute;
+#imgswap5 {
   clip-path: inset(calc(96px * 4) 0px 0px 0px);
-  overflow: hidden;
-  cursor: pointer;
+}
+
+p#result {
+  color: greenyellow;
+  font-size: 30px;
+  font-weight: bold;
+  text-transform: uppercase;
 }

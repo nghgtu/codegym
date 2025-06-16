@@ -7,13 +7,39 @@
     <title>Game puzzle</title>
   </head>
   <body>
-    <div class="container">
-      <img src="images/random_img_1.jpg" alt="Random Image 1" id="img1" />
-      <img src="images/random_img_2.jpg" alt="Random Image 2" id="img2" />
-      <img src="images/random_img_3.jpg" alt="Random Image 3" id="img3" />
-      <img src="images/random_img_4.jpg" alt="Random Image 4" id="img4" />
-      <img src="images/random_img_5.jpg" alt="Random Image 5" id="img5" />
+    <script>
+      function rImgSwap() {
+        let imgSwap = "images/random_img_";
+        let rSeed = Math.floor(Math.random() * 5) + 1;
+        imgSwap += rSeed + ".jpg";
+        // alert("Image source: " + imgSwap);
+        return imgSwap;
+      }
+
+      window.onload = function () {
+        // Initialize the images with random sources
+        document.getElementById("imgswap1").src = rImgSwap();
+        document.getElementById("imgswap2").src = rImgSwap();
+        document.getElementById("imgswap3").src = rImgSwap();
+        document.getElementById("imgswap4").src = rImgSwap();
+        document.getElementById("imgswap5").src = rImgSwap();
+      };
+
+      function switchImg(imgElem) {
+        let rSeed = Math.floor(Math.random() * 5) + 1;
+        let source = `images/random_img_${rSeed}.jpg`;
+        imgElem.src = source;
+        // alert("Image source: " + source);
+      }
+    </script>
+    <div class="container" id="_container">
+      <img alt="Random Image Swap 1" id="imgswap1" onclick="switchImg(this)" />
+      <img alt="Random Image Swap 2" id="imgswap2" onclick="switchImg(this)" />
+      <img alt="Random Image Swap 3" id="imgswap3" onclick="switchImg(this)" />
+      <img alt="Random Image Swap 4" id="imgswap4" onclick="switchImg(this)" />
+      <img alt="Random Image Swap 5" id="imgswap5" onclick="switchImg(this)" />
     </div>
+    <p id="result"></p>
+    <script src="app.js"></script>
   </body>
-  <script src="app.js"></script>
 </html>
