@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Simple Dict</title>
+  </head>
+  <body>
+    <form action="">
+      <h1>Simple Dict</h1>
+      <label for="word">Word:</label>
+      <input type="text" id="word" name="word" required autofocus />
+      <button type="button" id="_search" onclick="search('word')">
+        Search
+      </button>
+      <button type="reset">Clear</button>
+      <hr />
+      <div id="definition"></div>
+    </form>
+    <script src="app.js"></script>
+  </body>
+</html>
