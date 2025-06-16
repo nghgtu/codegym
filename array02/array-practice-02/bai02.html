@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>[*Bài tập] Luyện tập mảng 02</title>
+  </head>
+  <body>
+    <header>
+      <h1>Hiển thị ra mảng theo thứ tự đảo ngược</h1>
+    </header>
+
+    <script>
+      let str = prompt("Nhập vào các phần tử của chuỗi:");
+      str = str.replaceAll(" ", "").split("");
+      let res = str.reverse();
+      res = res.join("");
+      console.log("Chuoi sau khi đảo ngược:" + res);
+    </script>
+  </body>
+</html>
