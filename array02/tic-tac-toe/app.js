@@ -16,19 +16,85 @@ for (let i = 0; i < 5; i++) {
 
 b.innerHTML = data;
 
-function checkWinner() {
-    for (let i = 0; i < 5; i++) {
-            for (let j = 0; j < 5; j++) {
-        }
+// function checkAdjacent(i, j) {  
+//     if (i < 0 || i >= 5 || j < 0 || j >= 5) {
+//         return false;
+//     }
+//     return board[i][j] !== "(.)";
+// }
+
+function checkWinner(player, x, y) {
+    // horizontal
+    if (board[x][y-2] === player && board[x][y-1] === player) {
+        alert(`Nguoi choi ${player} da thang!!!`);
+            return;
+    }
+    if (board[x][y-1] === player && board[x][y+1] === player)  {
+        alert(`Nguoi choi ${player} da thang!!!`);
+            return;
+    }
+    if (board[x][y+1] === player && board[x][y+2] === player)  {
+        alert(`Nguoi choi ${player} da thang!!!`);
+            return;
+    }
+    
+    // vertical
+    if (board[x-2][y] === player && board[x-1][y] === player)  {
+        alert(`Nguoi choi ${player} da thang!!!`);
+            return;
+    }
+    if (board[x-1][y] === player && board[x+1][y] === player)  {
+        alert(`Nguoi choi ${player} da thang!!!`);
+            return;
+    }
+    if (board[x+1][y] === player && board[x+2][y] === player)  {
+        alert(`Nguoi choi ${player} da thang!!!`);
+            return;
+    }
+
+    // diagonal 
+    if (board[x-2][y-2] === player && board[x-1][y-1] === player)  {
+        alert(`Nguoi choi ${player} da thang!!!`);
+            return;
+    }
+    if (board[x-1][y+1] === player && board[x+1][y-1] === player)  {
+        alert(`Nguoi choi ${player} da thang!!!`);
+            return;
+    }
+    if (board[x-2][y+2] === player && board[x-1][y+1] === player)  {
+        alert(`Nguoi choi ${player} da thang!!!`);
+            return;
+    }
+    if (board[x+2][y-2] === player && board[x+1][y-1] === player)  {
+        alert(`Nguoi choi ${player} da thang!!!`);
+            return;
+    }
+    if (board[x-1][y-1] === player && board[x+1][y+1] === player)  {
+        alert(`Nguoi choi ${player} da thang!!!`);
+            return;
+    }
+    if (board[x+1][y+1] === player && board[x+2][y+2] === player)  {
+        alert(`Nguoi choi ${player} da thang!!!`);
+            return;
     }
 }
 
 function changeValue() {
     if (turn === 0) {
-        let positionX = +prompt("Player 1 move X: ");
-        let positionY = +prompt("Player 1 move Y: ");
-            data = "";
-            board[positionX][positionY] = "o";
+        let positionX, positionY;
+        do {
+            positionX = +prompt("Player 1 move X: ");
+            positionY = +prompt("Player 1 move Y: ");
+            if (board[positionX][positionY] !== "(.)") {
+                alert("Vi tri ${positionX} , ${positionY} ko hop le. Vui long nhap lai.");
+                continue;
+            }
+            break;
+        }
+        while (true);
+
+        data = "";
+        board[positionX][positionY] = "o";
         for (let i = 0; i < 5; i++) {
             data += "<br/>";
             for (let j = 0; j < 5; j++) {
@@ -37,10 +103,19 @@ function changeValue() {
         }
         b.innerHTML = "<hr/>" + data;
         turn = 1;
-        checkWinner();
+        checkWinner("o", positionX, positionY);
         } else {
-            let positionX = +prompt("Player 2 move X: ");
-            let positionY = +prompt("Player 2 move Y: ");
+            let positionX, positionY;
+            do {
+                positionX = +prompt("Player 1 move X: ");
+                positionY = +prompt("Player 1 move Y: ");
+                if (board[positionX][positionY] !== "(.)") {
+                    alert("Vi tri ${positionX} , ${positionY} ko hop le. Vui long nhap lai.");
+                    continue;
+                }
+                break;
+            }
+            while (true);
                 data = "";
                 board[positionX][positionY] = "x";
             for (let i = 0; i < 5; i++) {
@@ -51,6 +126,6 @@ function changeValue() {
             }
             b.innerHTML = "<hr/>" + data;
             turn = 0;
-            checkWinner();
+            checkWinner("x", positionX, positionY);
     }
 }
