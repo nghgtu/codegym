@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>[Bài tập] Luyện tập tạo và sử dụng hàm 02</title>
+  </head>
+  <body>
+    <h2>Đảo Ngược Mảng Số Nguyên</h2>
+
+    <label>Nhập mảng số nguyên (cách nhau bởi dấu phẩy): </label><br />
+    <input type="text" id="mang" autofocus required /><br /><br />
+
+    <button onclick="daoNguocMang()">Đảo ngược</button>
+
+    <p id="ketQua"></p>
+
+    <script>
+      // function daoNguoc(arr) {
+      //   return arr.reverse();
+      // }
+
+      function daoNguoc(arr) {
+        let left = 0;
+        let right = arr.length - 1;
+        while (left < right) {
+          let temp = arr[left];
+          arr[left] = arr[right];
+          arr[right] = temp;
+          left++;
+          right--;
+        }
+        return arr;
+      }
+
+      function daoNguocMang() {
+        let input = document.getElementById("mang").value;
+        //let arr = input.split(",").map(Number);
+        let arr = input.split(",");
+        for (let i = 0; i < arr.length; i++) {
+          arr[i] = Number(arr[i]);
+        }
+
+        if (arr.some(isNaN)) {
+          document.getElementById("ketQua").innerText =
+            "Vui lòng nhập đúng định dạng các số nguyên, cách nhau bằng dấu phẩy.";
+          return;
+        }
+
+        let ketQua = daoNguoc(arr);
+        document.getElementById("ketQua").innerText =
+          "Mảng sau khi đảo ngược: " + ketQua.join(", ");
+      }
+    </script>
+  </body>
+</html>

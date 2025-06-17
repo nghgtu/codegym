@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>[Bài tập] Luyện tập tạo và sử dụng hàm 02</title>
+  </head>
+  <body>
+    <h2>Tính Diện Tích và Chu Vi Hình Tròn</h2>
+
+    <label>Nhập bán kính (r): </label>
+    <input type="number" id="banKinh" oninput="tinhToan()" autofocus required />
+    <!-- <button onclick="tinhToan()">Tính</button> -->
+
+    <p id="ketQua"></p>
+
+    <script>
+      function tinhDienTich(r) {
+        return Math.PI * r * r;
+      }
+
+      function tinhChuVi(r) {
+        return 2 * Math.PI * r;
+      }
+
+      function tinhToan() {
+        let r = parseFloat(document.getElementById("banKinh").value);
+
+        if (isNaN(r) || r <= 0) {
+          document.getElementById("ketQua").innerHTML =
+            "Vui lòng nhập bán kính hợp lệ (> 0).";
+          return;
+        }
+
+        let dienTich = tinhDienTich(r);
+        let chuVi = tinhChuVi(r);
+
+        document.getElementById("ketQua").innerHTML =
+          "Diện tích hình tròn: " +
+          dienTich.toFixed(2) +
+          "<br>" +
+          "Chu vi hình tròn: " +
+          chuVi.toFixed(2);
+      }
+    </script>
+  </body>
+</html>

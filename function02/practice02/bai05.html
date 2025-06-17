@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>[Bài tập] Luyện tập tạo và sử dụng hàm 02</title>
+  </head>
+  <body>
+    <h2>Tìm Số Nguyên Nhỏ Nhất Trong 3 Số</h2>
+
+    <label>Nhập số thứ nhất: </label>
+    <input type="number" id="so1" autofocus required /><br /><br />
+
+    <label>Nhập số thứ hai: </label>
+    <input type="number" id="so2" required /><br /><br />
+
+    <label>Nhập số thứ ba: </label>
+    <input type="number" id="so3" required /><br /><br />
+
+    <button onclick="timSoNhoNhat()">Tìm số nhỏ nhất</button>
+
+    <p id="ketQua"></p>
+
+    <script>
+      function nhoNhat(a, b, c) {
+        return Math.min(a, b, c);
+      }
+
+      function timSoNhoNhat() {
+        let a = parseInt(document.getElementById("so1").value);
+        let b = parseInt(document.getElementById("so2").value);
+        let c = parseInt(document.getElementById("so3").value);
+
+        if (isNaN(a) || isNaN(b) || isNaN(c)) {
+          document.getElementById("ketQua").innerText =
+            "Vui lòng nhập đầy đủ 3 số nguyên.";
+          return;
+        }
+
+        let ketQua = nhoNhat(a, b, c);
+        document.getElementById("ketQua").innerText =
+          "Số nhỏ nhất là: " + ketQua;
+      }
+    </script>
+  </body>
+</html>

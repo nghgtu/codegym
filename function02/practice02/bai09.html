@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>[Bài tập] Luyện tập tạo và sử dụng hàm 02</title>
+  </head>
+  <body>
+    <h2>Kiểm Tra Ký Tự Có Trong Mảng Hay Không</h2>
+
+    <label>Nhập mảng ký tự (cách nhau bởi dấu phẩy): </label><br />
+    <input type="text" id="mang" placeholder="a,b,c,a,e" /><br /><br />
+
+    <label>Nhập ký tự cần kiểm tra: </label><br />
+    <input type="text" id="kyTu" maxlength="1" /><br /><br />
+
+    <button onclick="kiemTraKyTu()">Kiểm tra</button>
+
+    <p id="ketQua"></p>
+
+    <script>
+      function demKyTuTrongMang(arr, char) {
+        let count = 0;
+        for (let c of arr) {
+          if (c === char) count++;
+        }
+        return count > 0 ? count : -1;
+      }
+
+      function kiemTraKyTu() {
+        let input = document.getElementById("mang").value;
+        let char = document.getElementById("kyTu").value;
+
+        if (char.length !== 1) {
+          document.getElementById("ketQua").innerText =
+            "Vui lòng nhập đúng 1 ký tự để kiểm tra.";
+          return;
+        }
+
+        let arr = input.split(",").map((c) => c.trim());
+
+        // let ketQua = demKyTuTrongMang(arr, char);
+        let ketQua = arr.includes(char);
+
+        document.getElementById("ketQua").innerText =
+          // ketQua === -1
+          !ketQua
+            ? `Ký tự '${char}' không có trong mảng.`
+            : `Ký tự '${char}' xuất hiện ${ketQua} lần trong mảng.`;
+      }
+    </script>
+  </body>
+</html>

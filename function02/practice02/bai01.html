@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>[Bài tập] Luyện tập tạo và sử dụng hàm 02</title>
+  </head>
+  <body>
+    <h2>Tính Bình Phương của một số</h2>
+
+    <label>Nhập một số: </label>
+    <input type="number" id="inputNumber" autofocus required />
+    <button onclick="kiemTraBinhPhuong()">Tính</button>
+
+    <p id="ketQua"></p>
+
+    <script>
+      function binhPhuong(x) {
+        return x * x;
+      }
+
+      function kiemTraBinhPhuong() {
+        let so = document.getElementById("inputNumber").value;
+        let ketQua = binhPhuong(Number(so));
+        document.getElementById("ketQua").innerText =
+          "Bình phương của " + so + " là: " + ketQua;
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>[Bài tập] Luyện tập tạo và sử dụng hàm 02</title>
+  </head>
+  <body>
+    <h2>Kiểm Tra Ký Tự Có Phải Là Số</h2>
+
+    <label>Nhập một ký tự: </label>
+    <input
+      type="text"
+      id="kyTu"
+      maxlength="1"
+      oninput="kiemTraKyTu()"
+      autofocus
+      required
+    />
+    <!-- <button onclick="kiemTraKyTu()">Kiểm tra</button> -->
+
+    <p id="ketQua"></p>
+
+    <script>
+      function laKyTuSo(c) {
+        return c >= "0" && c <= "9";
+      }
+
+      function kiemTraKyTu() {
+        let c = document.getElementById("kyTu").value;
+
+        if (c.length !== 1) {
+          document.getElementById("ketQua").innerText =
+            "Vui lòng nhập đúng 1 ký tự.";
+          return;
+        }
+
+        let ketQua = laKyTuSo(c);
+        document.getElementById("ketQua").innerText = ketQua
+          ? "'" + c + "' là ký tự số."
+          : "'" + c + "' không phải là ký tự số.";
+      }
+    </script>
+  </body>
+</html>
