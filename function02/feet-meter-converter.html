@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>[Bài tập] Chuyển đổi giữa feet và meters</title>
+  </head>
+  <body>
+    <label>Nhập số feet:</label>
+    <input type="number" id="feetInput" />
+    <button onclick="chuyenFootSangMeter()">Chuyển sang meters</button>
+    <p id="ketQuaMeter"></p>
+
+    <label>Nhập số meters:</label>
+    <input type="number" id="meterInput" />
+    <button onclick="chuyenMeterSangFoot()">Chuyển sang feet</button>
+    <p id="ketQuaFoot"></p>
+
+    <script>
+      function footToMeter(foot) {
+        return foot * 0.305;
+      }
+
+      function meterToFoot(meter) {
+        return meter * 3.279;
+      }
+
+      function chuyenFootSangMeter() {
+        const foot = parseFloat(document.getElementById("feetInput").value);
+        const meter = footToMeter(foot);
+        document.getElementById(
+          "ketQuaMeter"
+        ).textContent = `${foot} feet = ${meter.toFixed(3)} meters`;
+      }
+
+      function chuyenMeterSangFoot() {
+        const meter = parseFloat(document.getElementById("meterInput").value);
+        const foot = meterToFoot(meter);
+        document.getElementById(
+          "ketQuaFoot"
+        ).textContent = `${meter} meters = ${foot.toFixed(3)} feet`;
+      }
+    </script>
+  </body>
+</html>
