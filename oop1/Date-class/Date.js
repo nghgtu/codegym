@@ -1,14 +1,12 @@
 let MyDate = function(day, month, year) {
 
     this.day = day;
-
     this.month = month;
-
     this.year = year;
     
     this.getDay = function() {
         return this.day;
-            }
+    }
     this.getMonth = function() {
         return this.month;
     }
@@ -23,6 +21,28 @@ let MyDate = function(day, month, year) {
     }
     this.setYear = function(year) {
         this.year  = year;
+    }
+    this.setDate = function(day, month, year) {
+        this.day = day;
+        this.month = month;
+        this.year = year;
+    }
+    this.toString = function() {
+        let dd = this.getDay();
+        let mm = this.getMonth();
+        let yyyy = this.getYear();
+
+        dd = (dd < 10) ? "0" + dd : dd;
+        mm = (mm < 10) ? "0" + mm : mm;
+                
+        if (yyyy <= 9) 
+            yyyy = "000" + yyyy;
+        else if (yyyy <= 99) 
+            yyyy = "00" + yyyy;
+        else if (yyyy <= 999) 
+            yyyy = "0" + yyyy;
+
+        return dd + "/" + mm + "/" + yyyy;
     }
 
 };
@@ -40,3 +60,7 @@ let month = date.getMonth();
 let year = date.getYear(); 
 
 alert(day + "/" + month + "/" + year);
+
+let date2 = new MyDate(0,0,0);
+date2.setDate(4, 6, 134);
+alert(date2);
