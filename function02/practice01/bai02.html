@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>[Bài tập] Luyện tập tạo và sử dụng hàm 01</title>
+  </head>
+  <script>
+    function tangMotDonVi(number) {
+      return number + 1;
+    }
+
+    function hienThiKetQua() {
+      const soNhap = parseFloat(document.getElementById("soInput").value);
+      if (isNaN(soNhap)) {
+        document.getElementById("ketQua").textContent =
+          "Vui lòng nhập một số hợp lệ.";
+        return;
+      }
+      const ketQua = tangMotDonVi(soNhap);
+      document.getElementById("ketQua").textContent =
+        "Kết quả sau khi tăng là: " + ketQua;
+    }
+  </script>
+  <body>
+    <header>
+      <h1>Bài 2</h1>
+    </header>
+
+    <label for="soInput">Nhập một số:</label>
+    <input type="number" id="soInput" />
+    <button onclick="hienThiKetQua()">Tăng lên 1</button>
+    <p id="ketQua"></p>
+  </body>
+</html>

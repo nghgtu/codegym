@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>[Bài tập] Luyện tập tạo và sử dụng hàm 01</title>
+  </head>
+  <script>
+    function xuLyHaiSo(a, b) {
+      if (a > b) {
+        alert("Số thứ nhất lớn hơn số thứ hai.");
+      } else {
+        return a + b;
+      }
+    }
+
+    function xuLyVaHienThi() {
+      const so1 = parseFloat(document.getElementById("so1").value);
+      const so2 = parseFloat(document.getElementById("so2").value);
+
+      if (isNaN(so1) || isNaN(so2)) {
+        document.getElementById("ketQua").textContent =
+          "Vui lòng nhập hai số hợp lệ.";
+        return;
+      }
+
+      const ketQua = xuLyHaiSo(so1, so2);
+
+      if (ketQua !== undefined) {
+        document.getElementById("ketQua").textContent =
+          "Tổng hai số là: " + ketQua;
+      } else {
+        document.getElementById("ketQua").textContent = "";
+      }
+    }
+  </script>
+  <body>
+    <header>
+      <h1>Bài 3</h1>
+    </header>
+
+    <label>Nhập số thứ nhất:</label>
+    <input type="number" id="so1" /><br /><br />
+
+    <label>Nhập số thứ hai:</label>
+    <input type="number" id="so2" /><br /><br />
+
+    <button onclick="xuLyVaHienThi()">Thực hiện</button>
+    <p id="ketQua"></p>
+  </body>
+</html>

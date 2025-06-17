@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>[Bài tập] Luyện tập tạo và sử dụng hàm 01</title>
+  </head>
+  <script>
+    const stars = [
+      "Polaris",
+      "Aldebaran",
+      "Deneb",
+      "Vega",
+      "Altair",
+      "Dubhe",
+      "Regulus",
+    ];
+
+    const constellations = [
+      "Ursa Minor",
+      "Taurus",
+      "Cygnus",
+      "Lyra",
+      "Aquila",
+      "Ursa Major",
+      "Leo",
+    ];
+
+    function timChomSao(tenNgoiSao) {
+      for (let i = 0; i < stars.length; i++) {
+        if (stars[i].toLowerCase() === tenNgoiSao.toLowerCase()) {
+          return constellations[i];
+        }
+      }
+      return null;
+    }
+
+    function nhapVaHienThi() {
+      const tenNhap = prompt("Nhập tên ngôi sao:");
+      if (tenNhap === null || tenNhap.trim() === "") {
+        document.getElementById("ketQua").textContent =
+          "Bạn chưa nhập tên ngôi sao.";
+        return;
+      }
+
+      const chomSao = timChomSao(tenNhap.trim());
+      if (chomSao) {
+        document.getElementById(
+          "ketQua"
+        ).textContent = `Ngôi sao ${tenNhap} thuộc chòm sao: ${chomSao}`;
+      } else {
+        document.getElementById(
+          "ketQua"
+        ).textContent = `Không tìm thấy ngôi sao "${tenNhap}" trong danh sách.`;
+      }
+    }
+  </script>
+  <body onload="nhapVaHienThi()">
+    <header>
+      <h1>Bài 5</h1>
+    </header>
+    <p id="ketQua"></p>
+  </body>
+</html>
