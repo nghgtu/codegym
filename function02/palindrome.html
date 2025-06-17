@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>[*Bài tập] Kiểm tra từ đối xứng</title>
+  </head>
+  <body>
+    <label>Nhập chuỗi cần kiểm tra: </label><br />
+    <input
+      type="text"
+      id="chuoi"
+      autofocus
+      required
+      oninput="kiemTraPalindrome()"
+    /><br /><br />
+
+    <!-- <button onclick="kiemTraPalindrome()">Kiểm tra</button> -->
+
+    <p id="ketQua"></p>
+
+    <script>
+      function laPalindrome(str) {
+        // chuyen ve chu thuong va loai bo khoang trang
+        str = str.toLowerCase().replace(/\s+/g, "");
+        /* let daoNguoc = str.split("").reverse().join("");
+         return str === daoNguoc; */
+
+        let arr = str.split("");
+        let n = arr.length;
+
+        for (let i = 0; i < Math.floor(n / 2); i++) {
+          if (arr[i] !== arr[n - 1 - i]) {
+            return false;
+          }
+        }
+
+        return true;
+      }
+
+      function kiemTraPalindrome() {
+        let chuoi = document.getElementById("chuoi").value;
+        if (chuoi === "") {
+          document.getElementById("ketQua").innerText = "Vui lòng nhập chuỗi.";
+          return;
+        }
+
+        let ketQua = laPalindrome(chuoi);
+        document.getElementById("ketQua").innerText = ketQua
+          ? `"${chuoi}" là chuỗi đối xứng (palindrome).`
+          : `"${chuoi}" không phải là chuỗi đối xứng.`;
+      }
+    </script>
+  </body>
+</html>

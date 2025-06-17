@@ -9,10 +9,16 @@
     <h2>Kiểm Tra Ký Tự Có Trong Mảng Hay Không</h2>
 
     <label>Nhập mảng ký tự (cách nhau bởi dấu phẩy): </label><br />
-    <input type="text" id="mang" placeholder="a,b,c,a,e" /><br /><br />
+    <input
+      type="text"
+      id="mang"
+      placeholder="a,b,c,a,e"
+      autofocus
+      required
+    /><br /><br />
 
     <label>Nhập ký tự cần kiểm tra: </label><br />
-    <input type="text" id="kyTu" maxlength="1" /><br /><br />
+    <input type="text" id="kyTu" maxlength="1" required /><br /><br />
 
     <button onclick="kiemTraKyTu()">Kiểm tra</button>
 
@@ -39,13 +45,13 @@
 
         let arr = input.split(",").map((c) => c.trim());
 
-        // let ketQua = demKyTuTrongMang(arr, char);
-        let ketQua = arr.includes(char);
+        let ketQua = demKyTuTrongMang(arr, char);
+        // let ketQua = arr.includes(char);
 
         document.getElementById("ketQua").innerText =
-          // ketQua === -1
-          !ketQua
-            ? `Ký tự '${char}' không có trong mảng.`
+          ketQua === -1
+            ? // !ketQua
+              `Ký tự '${char}' không có trong mảng.`
             : `Ký tự '${char}' xuất hiện ${ketQua} lần trong mảng.`;
       }
     </script>
