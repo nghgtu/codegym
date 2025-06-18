@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="fd247a43-bea9-4fcc-97b7-f73a86ce9102" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../../Canvas/BBG/app1.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Canvas/BBG/app2.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Canvas/BBG/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Canvas/BBG/style.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Case Study/bouncing-ball-game/app2.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../Case Study/bouncing-ball-game/app2.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Case Study/bouncing-ball-game/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../Case Study/bouncing-ball-game/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Case Study/bouncing-ball-game/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/../../Case Study/bouncing-ball-game/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../array/find-element/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../array/find-element/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../array/find-element/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../array/find-element/index.html" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 5
+}]]></component>
+  <component name="ProjectId" id="2ybFmhdGulTKYNBI6H8EryMDuvZ" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "E:/Codegym/codegym/array02/faking-textarea",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-js-predefined-d6986cc7102b-b26f3e71634d-JavaScript-WS-251.26094.131" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="fd247a43-bea9-4fcc-97b7-f73a86ce9102" name="Changes" comment="" />
+      <created>1750095526946</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1750095526946</updated>
+      <workItem from="1750095528160" duration="98000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>
