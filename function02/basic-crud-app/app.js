@@ -5,7 +5,19 @@ function updateDisplay() {
     const quantity = document.getElementById("quantity");
 
     display.innerHTML = "";
-    listProducts.forEach((product, index) => {
+    // listProducts.forEach((product, index) => {
+    //     display.innerHTML += `
+    //         <tr id="row-${index}">
+    //             <td id="product-${index}">${product}</td>
+    //             <td><button onclick="Edit(${index})">Edit</button></td>
+    //             <td><button onclick="Delete(${index})">Delete</button></td>
+    //             <td></td>
+    //         </tr>
+    //     `;
+    // });
+
+    for(let index = 0; index < listProducts.length; index++) {
+        const product = listProducts[index];
         display.innerHTML += `
             <tr id="row-${index}">
                 <td id="product-${index}">${product}</td>
@@ -14,7 +26,8 @@ function updateDisplay() {
                 <td></td>
             </tr>
         `;
-    });
+    }
+
     quantity.innerText = `${listProducts.length} products`;
 }
 
@@ -59,7 +72,7 @@ function Confirm(index) {
         alert("Value cannot be empty!");
         input.focus();
         return;
-    } else if (listProducts[index] = newValue) {
+    } else if (listProducts[index] === newValue) {
         alert("Please add a new value!");
         input.focus();
         input.setSelectionRange(input.value.length, input.value.length);
