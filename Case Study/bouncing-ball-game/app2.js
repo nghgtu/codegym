@@ -19,7 +19,9 @@ class Ball {
     } );
 
     let gw = gboard.width;
+    // alert(gw);
     let gh = gboard.height;
+    // alert(gh);
     let ctx = gboard.context;
 
     // // reDraw the game board
@@ -52,16 +54,17 @@ class Ball {
         this.dy = -(this.dy);
     }
 
-    if (this.cy + this.radius > bar.ry && this.cy + this.radius < bar.ry + bar.rh){
-        // Check if the ball hits the paddle
-      if(this.cx + this.radius > bar.rx && this.cx - this.radius < bar.rx + bar.rw ){
-        this.dy = -(this.dy);
-        gboard.score += 1;// gameboard score 
-      } 
-    }  else if (this.cy + this.radius > gh) {
+    // if (this.cy + this.radius > bar.ry /*&& this.cy + this.radius < bar.ry + bar.rh*/){
+    //     // Check if the ball hits the paddle
+    //   if (this.cx + this.radius > bar.rx && this.cx - this.radius < bar.rx + bar.rw ){
+    //     this.dy = -(this.dy);
+    //     gboard.score += 1;
+    //   } 
+    // }
+    if (this.cy + this.radius > gh) {
       // If it doesn't hit the paddle, restart the game
         this.restart(gboard);
-      }
+    }
 
     ctx.font = "20px Arial";
     ctx.fillStyle = 'black';
@@ -98,10 +101,10 @@ class Bar {
   }
 }
  
-function moveEHandler(e, bar){
+function moveEHandler(e, nGame, bar, r_speed){
       switch (e.key) {
       case "ArrowLeft":  
-          bar.rx -= 50;
+          bar.rx -= 40 * r_speed;
           // Prevent the bar from going out of left bound
         if (bar.rx - bar.rw < 0){
           bar.rx = 0;
@@ -110,7 +113,7 @@ function moveEHandler(e, bar){
 
       // Prevent the bar from going out of right bound
       case "ArrowRight": 
-          bar.rx += 50;
+          bar.rx += 40 * r_speed;
         if (bar.rx + bar.rw > nGame.width){
           bar.rx = nGame.width - bar.rw;
         }
@@ -158,9 +161,27 @@ class GameBoard {
   }
 }
 
+// window.innerWidth = "600";
+// window.innerHeight = "400";
+
+// window.resizeTo(600, 400);
+// alert(`Window Width: ${window.innerWidth}, Window Height: ${window.innerHeight}`);
+// window.addEventListener("resize", function() {
+//   const newWidth = window.width;
+//   const newHeight = window.height;
+//   alert(`New Window Width: ${newWidth}, New Window Height: ${newHeight}`);
+// }, true);
+
 const canvas = document.getElementById("canvas");
+// canvas.style = "width: 500px; height: 250px;";
+//  canvas.width = window.innerWidth;
+//  canvas.height = window.innerHeight;
+
 const WIDTH = canvas.width;
+// alert(WIDTH);
 const HEIGHT = canvas.height;
+// alert(HEIGHT);
+// alert(`Canvas Width: ${WIDTH}, Canvas Height: ${HEIGHT}`);
 
 let context = canvas.getContext('2d');
 
@@ -174,5 +195,5 @@ let nbar = new Bar(300, 210, 80, 8);
 
 nGame.init(nball, nbar);
 
-window.addEventListener("keydown", function(e) { moveEHandler(e, nbar); }, true);
+window.addEventListener("keydown", function(e) { moveEHandler(e, nGame, nbar, r_speed); }, true);
 // window.addEventListener("keydown", function(e) { spdEHander(e, nball); }, true);

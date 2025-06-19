@@ -1,0 +1,90 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+#background-image {
+  width: 100%;
+}
+
+#page-heading {
+  font-size: 50px;
+  font-weight: bold;
+  font-family: "Times New Roman", Times, serif;
+  background-color: #87cefa;
+}
+
+table {
+  border: 1px solid black;
+  border-collapse: separate;
+  border-spacing: 2px;
+  text-align: center;
+  padding: auto;
+  width: 100%;
+}
+
+td {
+  background-color: aliceblue;
+}
+
+#student-list {
+  background-color: aliceblue;
+}
+
+.info-input {
+  width: 200px;
+}
+
+#add-student-info > thead {
+  background-color: cornflowerblue;
+  color: brown;
+}
+
+#add-student-info > tbody > tr > th:first-child {
+  font-weight: bold;
+  font-family: "Times New Roman", Times, serif;
+  font-size: 16px;
+  padding: 1em;
+}
+
+button {
+  border: 2px solid rgba(0, 0, 0, 0.74);
+  padding: 2px 4px;
+}
+
+.add-btn {
+  background-color: limegreen;
+}
+
+.save-btn {
+  background-color: gold;
+}
+
+.del-btn {
+  background-color: red;
+  color: white;
+}
+
+.edit-btn {
+  background-color: orange;
+  color: white;
+}
+
+.profile-pic {
+  width: 100px;
+  height: 100px;
+}
+
+#add-info-url {
+  background-color: dodgerblue;
+}
+
+#add-info-url a {
+  text-decoration: none;
+  color: white;
+}
+
+#add-info-url a:visited {
+  text-decoration: none;
+  color: white;
+}

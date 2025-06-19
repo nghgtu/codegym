@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Student Management</title>
+  </head>
+  <body>
+    <header>
+      <img
+        src="images/hvhcqg.png"
+        alt="Logo Hoc Vien Hanh Chinh Quoc Gia"
+        id="background-image"
+      />
+      <h1 id="page-heading">QUẢN LÝ HỌC VIÊN</h1>
+    </header>
+    <div>
+      <table id="student-list">
+        <thead>
+          <tr>
+            <th colspan="7">Danh sách học viên</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th>Mã sinh viên</th>
+            <th>Họ tên</th>
+            <th>Mã CCCD</th>
+            <th>Quê quán</th>
+            <th>Điện thoại</th>
+            <th>Ngày sinh</th>
+            <th>Giới tính</th>
+            <th>Lớp</th>
+            <th>Ảnh</th>
+            <th>Điểm tích lũy (Hệ 4.0)</th>
+
+            <th>Tùy chọn</th>
+          </tr>
+          <tr>
+            <td>011</td>
+            <td>Tạ Thị Thùy</td>
+            <td>428715506371</td>
+            <td>Liên Bang Nga</td>
+            <td>1001909798</td>
+            <td>07/02/2002</td>
+            <td>Nữ</td>
+            <td>USSH112</td>
+            <td>
+              <img
+                class="profile-pic"
+                src="https://toplist.vn/images/800px/tiem-chup-anh-the-lay-ngay-dep-nhat-o-hue-chu-de-da-duoc-nhan-cua-kieu-nguyen-317636.jpg"
+                alt="Anh the Ta Thi Thuy"
+              />
+            </td>
+            <td>3.5</td>
+            <td>
+              <button type="button" class="del-btn">Delete</button
+              ><button type="button" class="edit-btn">Edit</button>
+            </td>
+          </tr>
+          <tr>
+            <td>012</td>
+            <td>Đàm Kiều Trinh</td>
+            <td>892054032051</td>
+            <td>Hà Tĩnh</td>
+            <td>5823279213</td>
+            <td>05/02/2002</td>
+            <td>Nữ</td>
+            <td>USSK113</td>
+            <td>
+              <img
+                class="profile-pic"
+                src="https://static2.yan.vn/YanNews/202005/202005220338210409-bee6f138-0608-4d56-bce3-27148a855654.png"
+                alt="Anh the Dam Kieu Trinh"
+              />
+            </td>
+            <td>3.0</td>
+            <td>
+              <button type="button" class="del-btn">Delete</button
+              ><button type="button" class="edit-btn">Edit</button>
+            </td>
+          </tr>
+          <tr>
+            <td>023</td>
+            <td>Bùi Thị Ánh</td>
+            <td>408907520055</td>
+            <td>Hà Nội</td>
+            <td>3949121061</td>
+            <td>22/01/2002</td>
+            <td>Nữ</td>
+            <td>USSL132</td>
+            <td>
+              <img
+                class="profile-pic"
+                src="https://znews-photo.zadn.vn/w660/Uploaded/lce_jwqqc/2019_05_30/61103071_2361422507447925_6222318223514140672_n_1.jpg"
+                alt="Anh the Bui Thi Anh"
+              />
+            </td>
+            <td>3.25</td>
+            <td>
+              <button type="button" class="del-btn">Delete</button
+              ><button type="button" class="edit-btn">Edit</button>
+            </td>
+          </tr>
+          <tr id="more-info-row">
+            <td colspan="8">
+              <button type="button" id="add-info-url">
+                <a href="edit.html">Thêm sinh viên</a>
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </body>
+  <script src="app.js"></script>
+</html>
