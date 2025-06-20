@@ -1,6 +1,7 @@
 * {
   padding: 0;
   margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 #background-image {
@@ -10,18 +11,22 @@
 #page-heading {
   font-size: 50px;
   font-weight: bold;
-  font-family: "Times New Roman", Times, serif;
   background-color: #87cefa;
 }
 
 table {
-  border: 1px solid black;
+  /* border: 1px solid black; */
   border-collapse: collapse;
   border-radius: 1em;
-  border-spacing: 2px;
+  border-spacing: 10px;
   text-align: center;
-  margin: 3em auto;
-  width: 95%;
+  margin: 1em auto;
+}
+
+table thead {
+  font-size: 24px;
+  /* border-spacing: 10px; */
+  height: 100px;
 }
 
 td {
@@ -30,6 +35,7 @@ td {
 
 #student-list {
   background-color: aliceblue;
+  width: 90%;
 }
 
 .info-input {
@@ -43,6 +49,10 @@ td {
   width: auto;
 }
 
+#add-student-info {
+  width: 30%;
+}
+
 #add-student-info tbody th {
   background-color: aliceblue;
 }
@@ -51,7 +61,7 @@ td {
   font-weight: bold;
   font-family: "Times New Roman", Times, serif;
   font-size: 16px;
-  padding: 1em;
+  text-align: right;
 }
 
 button {
@@ -63,7 +73,8 @@ button {
 
 .add-btn {
   background-color: limegreen;
-  width: 10%;
+  width: 20%;
+  margin: 10px;
 }
 
 .save-btn {

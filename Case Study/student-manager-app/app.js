@@ -88,19 +88,15 @@ function updateTable() {
           sData += "<br>";
     });
 
-    // sData += `<tr id="more-info-row">
-    //             <td colspan="11">
-    //             <button type="button" id="add-info-url">
-    //                 <a href="edit.html">Thêm sinh viên</a>
-    //             </button>   
-    //             </td>
-    //           </tr>`;
-
     sListTable.innerHTML += sData;
 }
 
 window.onload =  updateTable();
 
+
+Student.prototype.sAdd = function() {
+    
+}
 
  Student.prototype.sEdit = function() {
 
@@ -109,6 +105,16 @@ window.onload =  updateTable();
  Student.prototype.sDelete = function() {
 
 }
+
+Student.prototype.comfirm = function() {
+
+}
+
+Student.prototype.cancel = function() {
+
+}
+
+
 
 
 
