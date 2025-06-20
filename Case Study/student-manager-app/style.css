@@ -19,7 +19,7 @@ table {
   border-collapse: separate;
   border-spacing: 2px;
   text-align: center;
-  padding: auto;
+  margin: auto;
   width: 100%;
 }
 
