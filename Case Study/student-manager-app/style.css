@@ -16,11 +16,12 @@
 
 table {
   border: 1px solid black;
-  border-collapse: separate;
+  border-collapse: collapse;
+  border-radius: 1em;
   border-spacing: 2px;
   text-align: center;
-  margin: auto;
-  width: 100%;
+  margin: 3em auto;
+  width: 95%;
 }
 
 td {
@@ -33,11 +34,17 @@ td {
 
 .info-input {
   width: 200px;
+  border-radius: 0.5em;
 }
 
 #add-student-info > thead {
-  background-color: cornflowerblue;
+  background-color: aliceblue;
   color: brown;
+  width: auto;
+}
+
+#add-student-info tbody th {
+  background-color: aliceblue;
 }
 
 #add-student-info > tbody > tr > th:first-child {
@@ -49,11 +56,14 @@ td {
 
 button {
   border: 2px solid rgba(0, 0, 0, 0.74);
-  padding: 2px 4px;
+  border-radius: 2em;
+  padding: 0.2em 0.5em;
+  margin: auto 0.5em;
 }
 
 .add-btn {
   background-color: limegreen;
+  width: 10%;
 }
 
 .save-btn {
@@ -74,9 +84,13 @@ button {
   width: 100px;
   height: 100px;
 }
-
+/* 
 #add-info-url {
   background-color: dodgerblue;
+  margin: auto 0.5em;
+  width: fit-content;
+  border-radius: 0.5em;
+  font-size: large;
 }
 
 #add-info-url a {
@@ -87,4 +101,8 @@ button {
 #add-info-url a:visited {
   text-decoration: none;
   color: white;
+} */
+
+#back-to-index {
+  margin: 10px auto;
 }

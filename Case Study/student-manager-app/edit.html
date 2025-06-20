@@ -16,7 +16,15 @@
       <tbody>
         <tr>
           <th>Mã sinh viên</th>
-          <td><input class="info-input" type="number" name="" id="mssv" /></td>
+          <td>
+            <input
+              class="info-input"
+              type="number"
+              name=""
+              id="mssv"
+              autofocus
+            />
+          </td>
         </tr>
         <tr>
           <th>Họ tên</th>
@@ -61,13 +69,14 @@
         <tr>
           <td colspan="2">
             <button type="button" class="add-btn" onclick="sAdd()">Add</button>
-            <button type="button" class="save-btn" onclick="sSave()">
-              Save
-            </button>
           </td>
         </tr>
       </tbody>
     </table>
+    <br />
+    <button type="button" id="back-to-index">
+      <a href="index.html">Trở về trang chủ</a>
+    </button>
   </body>
   <script src="app.js"></script>
 </html>

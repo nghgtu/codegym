@@ -88,13 +88,13 @@ function updateTable() {
           sData += "<br>";
     });
 
-    sData += `<tr id="more-info-row">
-                <td colspan="8">
-                <button type="button" id="add-info-url">
-                    <a href="edit.html">Thêm sinh viên</a>
-                </button>   
-                </td>
-              </tr>`;
+    // sData += `<tr id="more-info-row">
+    //             <td colspan="11">
+    //             <button type="button" id="add-info-url">
+    //                 <a href="edit.html">Thêm sinh viên</a>
+    //             </button>   
+    //             </td>
+    //           </tr>`;
 
     sListTable.innerHTML += sData;
 }
