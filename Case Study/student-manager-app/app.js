@@ -63,9 +63,9 @@ function updateTable() {
         sData += `<tr id='${index}'>
             <td>${std.sId}</td>
             <td>${std.fullname}</td>
-            <td>${std.phone}</td>
-            <td>${std.hometown}</td>
             <td>${std.pId}</td>
+            <td>${std.hometown}</td>
+            <td>${std.phone}</td>
             <td>${std.dob}</td>
             <td>${std.gender}</td>
             <td>${std.sClass}</td>
@@ -90,6 +90,11 @@ function updateTable() {
 
 window.onload = updateTable();
 
+function isDuplicated(stdX) {
+  return students.some(function(s) {
+    return s.sId == stdX.sId || s.pId == stdX.pId || s.phone == stdX.phone || s.profile_pic == stdX.profile_pic;
+  });
+}
 
 function sAdd() {
   let _sId = document.getElementById("mssv").value;
@@ -104,6 +109,11 @@ function sAdd() {
   let _gpa = document.getElementById("dtl").value;
 
   let studentX = new Student(_sId, _fullname, _pId ,_hometown, _phone, _dob, _gender, _sClass, _profile_pic, _gpa);
+
+  if (isDuplicated(studentX)) {
+    alert("Vui long nhap du lieu hop le");
+    return;
+  }
   students.push(studentX);
   console.log(document.getElementById("ngaysinh").value);
   updateTable();
@@ -123,18 +133,19 @@ function sEdit(index) {
                 name=""
                 id="mssv"
                 value="${students[index].sId}"
+                required
                 autofocus
               />
             </td>
           </tr>
           <tr>
             <th>Họ tên</th>
-            <td><input class="info-input" type="text" name="" id="hoten" value="${students[index].fullname}"/></td>
+            <td><input class="info-input" type="text" name="" id="hoten" value="${students[index].fullname}" required /></td>
           </tr>
           <tr>
             <th>Mã CCCD</th>
             <td>
-              <input class="info-input" type="number" name="" id="cccd" value="${students[index].pId}"/>
+              <input class="info-input" type="number" name="" id="cccd" value="${students[index].pId}" required />
             </td>
           </tr>
           <tr>
@@ -148,12 +159,12 @@ function sEdit(index) {
           <tr>
             <th>Ngày sinh</th>
             <td>
-              <input class="info-input" type="date" name="" id="ngaysinh" value="${students[index].dob}"/>
+              <input class="info-input" type="date" name="" id="ngaysinh" value="${students[index].dob}" required />
             </td>
           </tr>
           <tr>
             <th>Giới tính</th>
-            <td><input class="info-input" type="text" name="" id="gt" value="${students[index].gender}"/></td>
+            <td><input class="info-input" type="text" name="" id="gt" value="${students[index].gender}" required /></td>
           </tr>
           <tr>
             <th>Lớp</th>
@@ -171,8 +182,11 @@ function sEdit(index) {
           </tr>
           <tr>
             <td colspan="2">
-              <button type="button" class="add-btn" onclick="sAdd()">
-                Add
+              <button type="button" class="add-btn" onclick="confirm()">
+                Confirm
+              </button>
+              <button type="button" class="add-btn" onclick="cancel()">
+                Cancel
               </button>
             </td>
           </tr>
@@ -192,7 +206,6 @@ function cancel() {
 
 }
 
-document.getElementById("hello").innerHTML = "hey";
 
 
 

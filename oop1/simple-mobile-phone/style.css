@@ -1,0 +1,13 @@
+div#mobile-container {
+  width: 200px;
+  height: 350px;
+  padding: 20px 10px;
+  border-radius: 20px;
+  border: 2px solid gray;
+  background-color: floralwhite;
+}
+
+button {
+  margin: 10px;
+  border-radius: 10px;
+}

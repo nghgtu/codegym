@@ -7,29 +7,60 @@
 //     }
 // }
 
-let oMessage = {
-    fromMobilePhone: "",
-    toMobilePhone: "",
-    content: [""]
+// let oMessage = {
+//     fromMobilePhone: "",
+//     toMobilePhone: "",
+//     content: [""]
+// }
+
+class InboxMessage {
+    constructor(msg="", fromMobile) {
+        this.msg = msg;
+        this.fromMobile = fromMobile;
+    }
+    viewInbox() {
+        console.log(`${this.msg} da duoc nhan boi ${this.fromMobile}`);
+    }
 }
 
-let  oInbox = {
-    fromMobilePhone: "",
-    msg: [""],
-    prevSentMsg: [""]
+class SentMessage {
+    constructor(msg="", toMobile) {
+        this.msg = msg;
+        this.toMobile = toMobile;
+    }
+    viewSentMsg() {
+        console.log(`${this.msg} da duoc gui den ${this.toMobile}`);
+    }
 }
 
-let oMemory = {
-    composingMsg: "",
-    inbox: oInbox,
-    sentMsg: oInbox.prevSentMsg
+class ComposingMessage {
+    constructor(msg="", toMobile) {
+        this.msg = msg;
+        this.toMobile = toMobile;
+    }
+    sendMsg(memory) {
+        memory.sentMsg = new SentMessage(this.msg, this.toMobile);
+    }
 }
+
+
+// let  oInbox = {
+//     fromMobilePhone: "",
+//     msg: [""],
+//     prevSentMsg: [""]
+// }
+
+// let oMemory = {
+//     composingMsg: "",
+//     inbox: oInbox,
+//     sentMsg: oInbox.prevSentMsg
+// }
 
 class Memory {
     constructor(composingMsg, inbox, sentMsg) {
-        this.composingMsg = composingMsg; // String
-        this.inbox = inbox; // may need another class or object
-        this.sentMsg = sentMsg; // may need another class or object
+        this.composingMsg = composingMsg; 
+        this.inbox = inbox; 
+        this.sentMsg = sentMsg;
     }
 }
 
@@ -44,18 +75,28 @@ class MobilePhone {
         return this.mode;
     }
 
-    setMode(mode) {
-        this.mode = mode;
+    setMode(_mode) {
+        this.mode = _mode;
     }
 
     decreaseBattery() {
-        this.decreaseBattery();
+        const btr = this.battery_energy;
+        if (btr <= 1) {
+            this.battery_energy = 0;
+            this.setMode("Off");
+        } else {
+            this.battery_energy -= 1;
+        }
     }
 
     getBatteryInfo() {
-        if (this.getMode() == "On")
-        this.decreaseBattery();
-        return this.battery_energy; // 0 - 100
+        if (this.getMode() == "On") {
+            this.decreaseBattery();
+            return this.battery_energy; // 1 - 100
+        }
+        else {
+            alert("May da het pin! Hay sac pin!!!");
+        }
     }
 
     switchOnOff() {
@@ -71,26 +112,25 @@ class MobilePhone {
         this.battery_energy = 100;
     }
 
-    msgCompose(text) {
-        this.memory.composingMsg = text;
+    msgCompose(text, mbphOther) {
+        this.memory.composingMsg = new ComposingMessage(text, mbphOther);
         this.decreaseBattery();
     }
 
     msgSend(text, mbphOther) {
-        // this.msgCompose(text); 
-        // this.memory.sentMsg.push(text, mbphOther);
-        this.memory.composingMsg = "";
+        this.memory.composingMsg = new ComposingMessage(text, mbphOther);
         this.decreaseBattery();
     }
 
     checkInbox() {
+        this.memory.inbox.viewInbox();
         this.decreaseBattery();
-        return this.memory.inbox.toString();
     }
 
     checkSentMsg() {
+        this.memory.sentMsg.viewSentMsg();
         this.decreaseBattery();
-        return this.memory.sentMsg.toString();
     }
 
 }
+
