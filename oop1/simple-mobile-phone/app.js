@@ -113,23 +113,44 @@ class MobilePhone {
     }
 
     msgCompose(text, mbphOther) {
-        this.memory.composingMsg = new ComposingMessage(text, mbphOther);
-        this.decreaseBattery();
+        if (this.getMode() == "On") {
+            this.memory.composingMsg = new ComposingMessage(text, mbphOther);
+            this.decreaseBattery();
+        }
+        else {
+            alert("May da het pin! Hoac tat nguon");
+        }
+        
     }
 
     msgSend(text, mbphOther) {
-        this.memory.composingMsg = new ComposingMessage(text, mbphOther);
+        if (this.getMode() == "On") {
+            this.memory.composingMsg = new ComposingMessage(text, mbphOther);
         this.decreaseBattery();
+        }
+        else {
+            alert("May da het pin! Hoac tat nguon");
+        }
     }
 
     checkInbox() {
-        this.memory.inbox.viewInbox();
-        this.decreaseBattery();
+        if (this.getMode() == "On") {
+            this.memory.inbox.viewInbox();
+            this.decreaseBattery();
+        }
+        else {
+            alert("May da het pin! Hoac tat nguon");
+        }   
     }
 
     checkSentMsg() {
-        this.memory.sentMsg.viewSentMsg();
-        this.decreaseBattery();
+        if (this.getMode() == "On") {
+            this.memory.sentMsg.viewSentMsg();
+            this.decreaseBattery();
+        }
+        else {
+            alert("May da het pin! Hoac tat nguon");
+        }
     }
 
 }
