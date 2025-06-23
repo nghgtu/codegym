@@ -1,44 +1,29 @@
-/**
- * Mô tả
-Viết một lớp Mobile đại diện cho các đối tượng điện thoại, với các đặc điểm và chức năng như sau:
+// class Inbox {
+//     // prevSentMsg maybe string array
+//     constructor(fromMobilePhone, msg, prevSentMsg) {
+//         this.fromMobilePhone = fromMobilePhone;
+//         this.msg = msg;
+//         this.prevSentMsg = prevSentMsg;
+//     }
+// }
 
-Đặc điểm:
-Trạng thái pin: Giá trị số nguyên, tối đa 100.
-Vùng nhớ:
-Tin nhắn đang soạn thảo.
-Hộp thư đến (inbox).
-Tin nhắn đã gửi.
-Chức năng:
-Kiểm tra trạng thái điện thoại (bật/tắt).
-Bật và tắt điện thoại.
-Sạc pin.
-Soạn tin nhắn.
-Gửi tin nhắn tới một chiếc Mobile khác.
-Nhận tin nhắn từ một chiếc Mobile khác.
-Xem tin nhắn trong hộp thư đến.
-Xem tin nhắn đã gửi.
-Lưu ý:
-Mỗi lần sử dụng chức năng, pin giảm 1 đơn vị.
-Các chức năng không hoạt động nếu điện thoại chưa bật.
-Yêu cầu bài tập
-Tạo một lớp Mobile:
-Khai báo các thuộc tính cần thiết.
-Bổ sung các phương thức xử lý.
-Tạo các đối tượng:
-Khởi tạo hai đối tượng: Nokia và iPhone.
-Nokia soạn tin nhắn và gửi cho iPhone.
-iPhone kiểm tra hộp thư đến và hiển thị tin nhắn.
- */
-
-class Inbox {
-    // prevSentMsg maybe string array
-    constructor(fromMobilePhone, msg, prevSentMsg) {
-        this.fromMobilePhone = fromMobilePhone;
-        this.msg = msg;
-        this.prevSentMsg = prevSentMsg;
-    }
+let oMessage = {
+    fromMobilePhone: "",
+    toMobilePhone: "",
+    content: [""]
 }
 
+let  oInbox = {
+    fromMobilePhone: "",
+    msg: [""],
+    prevSentMsg: [""]
+}
+
+let oMemory = {
+    composingMsg: "",
+    inbox: oInbox,
+    sentMsg: oInbox.prevSentMsg
+}
 
 class Memory {
     constructor(composingMsg, inbox, sentMsg) {
@@ -49,24 +34,37 @@ class Memory {
 }
 
 class MobilePhone {
-    mode = ""; // On or Off
+    mode = "On"; // On or Off
     constructor(battery_energy, memory) {
         this.battery_energy = battery_energy;
         this.memory = memory;
     }
 
+    getMode() {
+        return this.mode;
+    }
+
+    setMode(mode) {
+        this.mode = mode;
+    }
+
+    decreaseBattery() {
+        this.decreaseBattery();
+    }
+
     getBatteryInfo() {
-        this.battery_energy -= 1;
+        if (this.getMode() == "On")
+        this.decreaseBattery();
         return this.battery_energy; // 0 - 100
     }
 
     switchOnOff() {
-        if (mode == "Off" ) {
-            this.mode = "On";
-        } else if (mode == "On") {
-            this.mode = "Off";
+        if (this.getMode() == "Off" ) {
+            this.setMode("On");
+        } else if (this.getMode() == "On") {
+            this.setMode("Off");
         }
-        this.battery_energy -= 1;
+        this.decreaseBattery();
     }
 
     reCharged() {
@@ -75,23 +73,23 @@ class MobilePhone {
 
     msgCompose(text) {
         this.memory.composingMsg = text;
-        this.battery_energy -= 1;
+        this.decreaseBattery();
     }
 
     msgSend(text, mbphOther) {
         // this.msgCompose(text); 
         // this.memory.sentMsg.push(text, mbphOther);
         this.memory.composingMsg = "";
-        this.battery_energy -= 1;
+        this.decreaseBattery();
     }
 
     checkInbox() {
-        this.battery_energy -= 1;
+        this.decreaseBattery();
         return this.memory.inbox.toString();
     }
 
     checkSentMsg() {
-        this.battery_energy -= 1;
+        this.decreaseBattery();
         return this.memory.sentMsg.toString();
     }
 
