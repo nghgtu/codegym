@@ -78,8 +78,8 @@ function updateTable() {
             </td>
             <td>${std.gpa}</td>
             <td>
-              <button type="button" class="del-btn" onclick="sDelete('${index}')">Delete</button
-              ><button type="button" class="edit-btn" onclick="sEdit('${index}')">Edit</button>
+              <button type="button" class="edit-btn" onclick="Edit('${index}')">Edit</button>
+              <button type="button" class="del-btn" onclick="Delete('${index}')">Delete</button>
             </td>
           </tr>`
           sData += "<br>";
@@ -92,7 +92,7 @@ window.onload = updateTable();
 
 function isDuplicated(stdX) {
   return students.some(function(s) {
-    return s.sId == stdX.sId || s.pId == stdX.pId || s.phone == stdX.phone || s.profile_pic == stdX.profile_pic;
+    return s.sId == stdX.sId || s.pId == stdX.pId || s.phone == stdX.phone;
   });
 }
 
@@ -124,7 +124,7 @@ function sAdd() {
   resetInput();
 }
 
-function sEdit(index) {
+function Edit(index) {
   let input = document.getElementById("input-section");
   input.innerHTML = "";
   input.innerHTML += `
@@ -198,7 +198,7 @@ function sEdit(index) {
   
 }
 
-function sDelete(index) {
+function Delete(index) {
   let cf = confirm("Ban chac chan muon xoa du lieu nay?");
   if (cf) {
     students.splice(index, 1);
