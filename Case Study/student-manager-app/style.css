@@ -11,13 +11,14 @@
 #page-heading {
   font-size: 50px;
   font-weight: bold;
+  text-align: center;
   background-color: #87cefa;
 }
 
 table {
   /* border: 1px solid black; */
   border-collapse: collapse;
-  border-radius: 1em;
+  border-radius: 2em;
   border-spacing: 10px;
   text-align: center;
   margin: 1em auto;
@@ -38,19 +39,25 @@ td {
   width: 90%;
 }
 
+#student-list thead {
+  padding: 10px 20px;
+}
+
 .info-input {
   width: 200px;
   border-radius: 0.5em;
+  margin-bottom: 5px;
+}
+
+#add-student-info {
+  width: 30%;
+  /* border-radius: 2em; */
 }
 
 #add-student-info > thead {
   background-color: aliceblue;
   color: brown;
   width: auto;
-}
-
-#add-student-info {
-  width: 30%;
 }
 
 #add-student-info tbody th {
@@ -67,6 +74,7 @@ td {
 button {
   border: 2px solid rgba(0, 0, 0, 0.74);
   border-radius: 2em;
+  color: white;
   padding: 0.2em 0.5em;
   margin: auto 0.5em;
 }
@@ -77,24 +85,33 @@ button {
   margin: 10px;
 }
 
-.save-btn {
+/* .save-btn {
   background-color: gold;
-}
+} */
 
 .del-btn {
   background-color: red;
-  color: white;
 }
 
 .edit-btn {
   background-color: orange;
-  color: white;
+}
+
+.confirm-btn {
+  background-color: blue;
+  margin-top: 10px;
+}
+
+.cancel-btn {
+  background-color: gray;
+  margin-top: 10px;
 }
 
 .profile-pic {
   width: 100px;
   height: 100px;
 }
+
 /* 
 #add-info-url {
   background-color: dodgerblue;

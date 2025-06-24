@@ -96,7 +96,7 @@ function isDuplicated(stdX) {
   });
 }
 
-function sAdd() {
+function getInputData() {
   let _sId = document.getElementById("mssv").value;
   let _fullname = document.getElementById("hoten").value;
   let _pId = document.getElementById("cccd").value;
@@ -109,101 +109,143 @@ function sAdd() {
   let _gpa = document.getElementById("dtl").value;
 
   let studentX = new Student(_sId, _fullname, _pId ,_hometown, _phone, _dob, _gender, _sClass, _profile_pic, _gpa);
+  return studentX;
+}
+
+function sAdd() {
+  const studentX = getInputData();
 
   if (isDuplicated(studentX)) {
     alert("Vui long nhap du lieu hop le");
     return;
   }
   students.push(studentX);
-  console.log(document.getElementById("ngaysinh").value);
   updateTable();
+  resetInput();
 }
 
 function sEdit(index) {
-  // const d = new Date(students[index].dob);
   let input = document.getElementById("input-section");
   input.innerHTML = "";
   input.innerHTML += `
   <tr>
-            <th>Mã sinh viên</th>
-            <td>
-              <input
-                class="info-input"
-                type="number"
-                name=""
-                id="mssv"
-                value="${students[index].sId}"
-                required
-                autofocus
-              />
-            </td>
-          </tr>
-          <tr>
-            <th>Họ tên</th>
-            <td><input class="info-input" type="text" name="" id="hoten" value="${students[index].fullname}" required /></td>
-          </tr>
-          <tr>
-            <th>Mã CCCD</th>
-            <td>
-              <input class="info-input" type="number" name="" id="cccd" value="${students[index].pId}" required />
-            </td>
-          </tr>
-          <tr>
-            <th>Quê quán</th>
-            <td><input class="info-input" type="text" name="" id="qq" value="${students[index].hometown}"/></td>
-          </tr>
-          <tr>
-            <th>Điện thoại</th>
-            <td><input class="info-input" type="number" name="" id="dt" value="${students[index].phone}"/></td>
-          </tr>
-          <tr>
-            <th>Ngày sinh</th>
-            <td>
-              <input class="info-input" type="date" name="" id="ngaysinh" value="${students[index].dob}" required />
-            </td>
-          </tr>
-          <tr>
-            <th>Giới tính</th>
-            <td><input class="info-input" type="text" name="" id="gt" value="${students[index].gender}" required /></td>
-          </tr>
-          <tr>
-            <th>Lớp</th>
-            <td><input class="info-input" type="text" name="" id="lop" value="${students[index].sClass}"/></td>
-          </tr>
-          <tr>
-            <th>Ảnh</th>
-            <td>
-              <input class="info-input" type="url" name="" id="anh" value="${students[index].profile_pic}"/>
-            </td>
-          </tr>
-          <tr>
-            <th>Điểm tích lũy</th>
-            <td><input class="info-input" type="number" name="" id="dtl" value="${students[index].gpa}"/></td>
-          </tr>
-          <tr>
-            <td colspan="2">
-              <button type="button" class="add-btn" onclick="confirm()">
-                Confirm
-              </button>
-              <button type="button" class="add-btn" onclick="cancel()">
-                Cancel
-              </button>
-            </td>
-          </tr>
+    <th>Mã sinh viên</th>
+    <td>
+      <input
+        class="info-input"
+        type="number"
+        name=""
+        id="mssv"
+        value="${students[index].sId}"
+        required
+        autofocus
+      />
+    </td>
+  </tr>
+  <tr>
+    <th>Họ tên</th>
+    <td><input class="info-input" type="text" name="" id="hoten" value="${students[index].fullname}" required /></td>
+  </tr>
+  <tr>
+    <th>Mã CCCD</th>
+    <td>
+      <input class="info-input" type="number" name="" id="cccd" value="${students[index].pId}" required />
+    </td>
+  </tr>
+  <tr>
+    <th>Quê quán</th>
+    <td><input class="info-input" type="text" name="" id="qq" value="${students[index].hometown}"/></td>
+  </tr>
+  <tr>
+    <th>Điện thoại</th>
+    <td><input class="info-input" type="number" name="" id="dt" value="${students[index].phone}"/></td>
+  </tr>
+  <tr>
+    <th>Ngày sinh</th>
+    <td>
+      <input class="info-input" type="date" name="" id="ngaysinh" value="${students[index].dob}" required />
+    </td>
+  </tr>
+  <tr>
+    <th>Giới tính</th>
+    <td><input class="info-input" type="text" name="" id="gt" value="${students[index].gender}" required /></td>
+  </tr>
+  <tr>
+    <th>Lớp</th>
+    <td><input class="info-input" type="text" name="" id="lop" value="${students[index].sClass}"/></td>
+  </tr>
+  <tr>
+    <th>Ảnh</th>
+    <td>
+      <input class="info-input" type="url" name="" id="anh" value="${students[index].profile_pic}"/>
+    </td>
+  </tr>
+  <tr>
+    <th>Điểm tích lũy</th>
+    <td><input class="info-input" type="number" name="" id="dtl" value="${students[index].gpa}"/></td>
+  </tr>
+  <tr>
+    <td colspan="2">
+      <button type="button" class="confirm-btn" onclick="Confirm(${index})">
+        Confirm
+      </button>
+      <button type="button" class="cancel-btn" onclick="cancel()">
+        Cancel
+      </button>
+    </td>
+  </tr>
   `;
+  
 }
 
 function sDelete(index) {
-  students.splice(index, 1);
-  updateTable();
+  let cf = confirm("Ban chac chan muon xoa du lieu nay?");
+  if (cf) {
+    students.splice(index, 1);
+    updateTable();
+  } 
+  else {
+    return;
+  }
 }
 
-function comfirm() {
+function Confirm(index) {
 
+  const studentY = getInputData();
+  
+  if (students.some(function(s) {
+    return JSON.stringify(studentY) === JSON.stringify(s) ;
+  })) {
+    alert("Vui long nhap du lieu hop le");
+    return;
+  }
+
+  let cf = confirm("Ban co muon ghi nhan su thay doi?");
+  if (cf) {
+    students.splice(index, 1, studentY);
+    resetInput();
+  }
 }
 
 function cancel() {
+  let cf = confirm("Ban co muon huy het su thay doi?");
+  if (cf) {
+    resetInput();  
+  } 
+  return;
+}
 
+function resetInput() {
+  document.getElementById("mssv").value = "";
+  document.getElementById("hoten").value = "";
+  document.getElementById("cccd").value = "";
+  document.getElementById("qq").value = "";
+  document.getElementById("dt").value = "";
+  document.getElementById("ngaysinh").value = "";
+  document.getElementById("gt").value = "";
+  document.getElementById("lop").value = "";
+  document.getElementById("anh").value = "";
+  document.getElementById("dtl").value = "";
 }
 
 
