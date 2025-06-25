@@ -30,12 +30,12 @@ table thead {
   height: 100px;
 }
 
-td {
+table td {
   background-color: aliceblue;
 }
 
 #student-list {
-  background-color: aliceblue;
+  background-color: azure;
   width: 90%;
 }
 
@@ -134,7 +134,3 @@ button {
   text-decoration: none;
   color: white;
 } */
-
-#back-to-index {
-  margin: 10px auto;
-}
