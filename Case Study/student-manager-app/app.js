@@ -61,7 +61,8 @@ function updateTable() {
     let sData = "";
     
     students.forEach((std, index) => {
-        sData += `<tr id='${index}'>
+      //id='${index}'
+        sData += `<tr>
             <td>${std.sId}</td>
             <td>${std.fullname}</td>
             <td>${std.pId}</td>
