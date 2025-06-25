@@ -77,11 +77,13 @@ button {
   color: white;
   padding: 0.2em 0.5em;
   margin: auto 0.5em;
+  cursor: pointer;
+  width: 20%;
+  height: 10%;
 }
 
 .add-btn {
-  background-color: limegreen;
-  width: 20%;
+  background-color: blue;
   margin: 10px;
 }
 
@@ -91,14 +93,16 @@ button {
 
 .del-btn {
   background-color: red;
+  width: 40%;
 }
 
 .edit-btn {
   background-color: orange;
+  width: 40%;
 }
 
 .confirm-btn {
-  background-color: blue;
+  background-color: lime;
   margin-top: 10px;
 }
 

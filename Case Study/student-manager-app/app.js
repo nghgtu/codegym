@@ -89,7 +89,20 @@ function updateTable() {
     sListTable.innerHTML += sData;
 }
 
-window.onload = updateTable();
+function resetInput() {
+  let rand_mssv = Math.max(...students.map(s => s.sId)) + 1;
+
+  document.getElementById("mssv").value = "0" + rand_mssv;
+  document.getElementById("hoten").value = "";
+  document.getElementById("cccd").value = "";
+  document.getElementById("qq").value = "Hà Nội";
+  document.getElementById("dt").value = "";
+  document.getElementById("ngaysinh").value = "2005-01-01";
+  document.getElementById("gt").value = "Nữ";
+  document.getElementById("lop").value = "USSH110";
+  document.getElementById("anh").value = "";
+  document.getElementById("dtl").value = 2.0;
+}
 
 function isDuplicated(stdX) {
   return students.some(function(s) {
@@ -102,7 +115,7 @@ function checkValidInput(_sId, _fullname, _pId, _phone, _dob, _gender, _sClass, 
       && (_fullname.length >= 5)
       && (_pId >= "0010000000" && _pId <= "999999999999") 
       && ((_phone >= "0300000000" && _phone <= "0999999999") || _phone == "")
-      && (_dob >= "1950/01/01" && _dob <= "2007/12/31")
+      && (_dob >= "1950-01-01" && _dob <= "2007-12-31")
       && (["Nam", "Nữ", "nam", "nữ", "nu", "khác", "Khác", "khac"].some(g => g == _gender) )
       && (_sClass.substring(0, 3) == "USS")
       && (( Number(_gpa) >= 0.1 && Number(_gpa) <= 4.0) || Number(_gpa) == 0)  ) {
@@ -142,11 +155,27 @@ function sAdd() {
   if (!studentX || isDuplicated(studentX)) {
     alert("Vui long nhap du lieu hop le2");
     return;
-  }
+  } else {
+      if ((students.some(function(s) {
+              return JSON.stringify(studentX) === JSON.stringify(s);
+            })) 
+          || !(checkValidInput(studentX.sId, studentX.fullname, studentX.pId, 
+                          studentX.phone, studentX.dob, studentX.gender, 
+                          studentX.sClass, studentX.gpa))) {
+      alert("Vui long nhap du lieu hop le3");
+      return;
+    }
 
-  students.push(studentX);
-  updateTable();
-  resetInput();
+    let cf = confirm("Ban co muon ghi nhan su thay doi?");
+    
+      if (cf) {
+        students.push(studentX);
+        updateTable();
+        resetInput();
+      }
+    }
+
+  
 }
 
 function Edit(index) {
@@ -239,21 +268,22 @@ function Confirm(index) {
   const studentY = getInputData();
   
   if ((students.some(function(s) {
-    return JSON.stringify(studentY) === JSON.stringify(s) ;
+          return JSON.stringify(studentY) === JSON.stringify(s) ;
   })) 
   || !(checkValidInput(studentY.sId, studentY.fullname, studentY.pId, 
                         studentY.phone, studentY.dob, studentY.gender, 
                         studentY.sClass, studentY.gpa))) {
     alert("Vui long nhap du lieu hop le3");
     return;
+  } else {
+    let cf = confirm("Ban co muon ghi nhan su thay doi?");
+      if (cf) {
+        students.splice(index, 1, studentY);
+        updateTable();
+        resetInput();
+      }
   }
 
-  let cf = confirm("Ban co muon ghi nhan su thay doi?");
-  if (cf) {
-    students.splice(index, 1, studentY);
-    updateTable();
-    resetInput();
-  }
 }
 
 function cancel() {
@@ -264,19 +294,7 @@ function cancel() {
   return;
 }
 
-function resetInput() {
-  document.getElementById("mssv").value = "";
-  document.getElementById("hoten").value = "";
-  document.getElementById("cccd").value = "";
-  document.getElementById("qq").value = "";
-  document.getElementById("dt").value = "";
-  document.getElementById("ngaysinh").value = "";
-  document.getElementById("gt").value = "";
-  document.getElementById("lop").value = "";
-  document.getElementById("anh").value = "";
-  document.getElementById("dtl").value = "0";
-}
-
-
-
-
+window.onload = function() {
+  updateTable();
+  resetInput();
+};
