@@ -1,5 +1,5 @@
 let Student = function (sId="", fullname="", pId="", hometown="", 
-                        phone="", dob="", gender="", sClass="", profile_pic="", gpa="0") {
+                        phone="", dob="", gender="", sClass="", profilePic="", gpa="0") {
     this.sId = sId;
     this.fullname = fullname;
     this.pId = pId;
@@ -8,7 +8,7 @@ let Student = function (sId="", fullname="", pId="", hometown="",
     this.dob = dob;
     this.gender = gender;
     this.sClass = sClass;
-    this.profile_pic = profile_pic; // url
+    this.profilePic = profilePic; // url
     this.gpa = gpa;
 }
 
@@ -74,7 +74,7 @@ function updateTable() {
             <td>
               <img
                 class="profile-pic"
-                src='${std.profile_pic}'
+                src='${std.profilePic}'
                 alt="Anh the ${std.fullname}"
               />
             </td>
@@ -91,9 +91,9 @@ function updateTable() {
 }
 
 function resetInput() {
-  let rand_mssv = Math.max(...students.map(s => s.sId)) + 1;
+  let next_mssv = Math.max(...students.map(s => s.sId)) + 1;
 
-  document.getElementById("mssv").value = "0" + rand_mssv;
+  document.getElementById("mssv").value = "0" + next_mssv;
   document.getElementById("hoten").value = "";
   document.getElementById("cccd").value = "";
   document.getElementById("qq").value = "Hà Nội";
@@ -111,7 +111,7 @@ function isDuplicated(stdX) {
   });
 }
 
-function checkValidInput(_sId, _fullname, _pId, _phone, _dob, _gender, _sClass, _gpa) {
+function isValidInput(_sId, _fullname, _pId, _phone, _dob, _gender, _sClass, _gpa) {
   if ( (_sId >= "001" && _sId <= "99999") 
       && (_fullname.length >= 5)
       && (_pId >= "0010000000" && _pId <= "999999999999") 
@@ -119,7 +119,7 @@ function checkValidInput(_sId, _fullname, _pId, _phone, _dob, _gender, _sClass, 
       && (_dob >= "1950-01-01" && _dob <= "2007-12-31")
       && (["Nam", "Nữ", "nam", "nữ", "nu", "khác", "Khác", "khac"].some(g => g == _gender) )
       && (_sClass.substring(0, 3) == "USS")
-      && (( Number(_gpa) >= 0.1 && Number(_gpa) <= 4.0) || Number(_gpa) == 0)  ) {
+      && ( ( Number(_gpa) >= 0.1 && Number(_gpa) <= 4.0) || Number(_gpa) == 0)  ) {
         
         return true;
       }
@@ -138,11 +138,11 @@ function getInputData() {
   let _dob = document.getElementById("ngaysinh").value;
   let _gender = document.getElementById("gt").value;
   let _sClass = document.getElementById("lop").value;
-  let _profile_pic = document.getElementById("anh").value;
+  let _profilePic = document.getElementById("anh").value;
   let _gpa = document.getElementById("dtl").value;
 
-  if ( checkValidInput (_sId, _fullname, _pId, _phone, _dob, _gender, _sClass, _gpa) ) {
-        let studentX = new Student(_sId, _fullname, _pId ,_hometown, _phone, _dob, _gender, _sClass, _profile_pic, _gpa);
+  if ( isValidInput (_sId, _fullname, _pId, _phone, _dob, _gender, _sClass, _gpa) ) {
+        let studentX = new Student(_sId, _fullname, _pId ,_hometown, _phone, _dob, _gender, _sClass, _profilePic, _gpa);
         return studentX;
       }
       else {
@@ -151,7 +151,7 @@ function getInputData() {
       }
 }
 
-function sAdd() {
+function Add() {
   const studentX = getInputData() 
   if (!studentX || isDuplicated(studentX)) {
     alert("Vui long nhap du lieu hop le2");
@@ -160,7 +160,7 @@ function sAdd() {
       if ((students.some(function(s) {
               return JSON.stringify(studentX) === JSON.stringify(s);
             })) 
-          || !(checkValidInput(studentX.sId, studentX.fullname, studentX.pId, 
+          || !(isValidInput(studentX.sId, studentX.fullname, studentX.pId, 
                           studentX.phone, studentX.dob, studentX.gender, 
                           studentX.sClass, studentX.gpa))) {
       alert("Vui long nhap du lieu hop le3");
@@ -232,7 +232,7 @@ function Edit(index) {
   <tr>
     <th>Ảnh</th>
     <td>
-      <input class="info-input" type="url" name="" id="anh" value="${students[index].profile_pic}"/>
+      <input class="info-input" type="url" name="" id="anh" value="${students[index].profilePic}"/>
     </td>
   </tr>
   <tr>
@@ -244,7 +244,7 @@ function Edit(index) {
       <button type="button" class="confirm-btn" onclick="Confirm(${index})">
         Confirm
       </button>
-      <button type="button" class="cancel-btn" onclick="cancel()">
+      <button type="button" class="cancel-btn" onclick="Cancel()">
         Cancel
       </button>
     </td>
@@ -271,7 +271,7 @@ function Confirm(index) {
   if ((students.some(function(s) {
           return JSON.stringify(studentY) === JSON.stringify(s) ;
   })) 
-  || !(checkValidInput(studentY.sId, studentY.fullname, studentY.pId, 
+  || !(isValidInput(studentY.sId, studentY.fullname, studentY.pId, 
                         studentY.phone, studentY.dob, studentY.gender, 
                         studentY.sClass, studentY.gpa))) {
     alert("Vui long nhap du lieu hop le3");
@@ -287,7 +287,7 @@ function Confirm(index) {
 
 }
 
-function cancel() {
+function Cancel() {
   let cf = confirm("Ban co muon huy het su thay doi?");
   if (cf) {
     resetInput();  
