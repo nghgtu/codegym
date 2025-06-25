@@ -30,10 +30,6 @@ table thead {
   height: 100px;
 }
 
-table td {
-  background-color: aliceblue;
-}
-
 #student-list {
   background-color: azure;
   width: 90%;
@@ -42,6 +38,10 @@ table td {
 #student-list thead {
   padding: 10px 20px;
 }
+
+/* #student-list td {
+  background-color: aliceblue;
+} */
 
 .info-input {
   width: 200px;
@@ -55,20 +55,24 @@ table td {
 }
 
 #add-student-info > thead {
-  background-color: aliceblue;
+  /* background-color: aliceblue; */
   color: brown;
   width: auto;
 }
 
-#add-student-info tbody th {
+/* #add-student-info tbody th {
   background-color: aliceblue;
-}
+} */
 
 #add-student-info > tbody > tr > th:first-child {
   font-weight: bold;
   font-family: "Times New Roman", Times, serif;
   font-size: 16px;
   text-align: right;
+}
+
+#add-student-info {
+  background-color: dodgerblue;
 }
 
 button {
