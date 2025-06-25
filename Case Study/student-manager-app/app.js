@@ -1,4 +1,5 @@
-let Student = function (sId="", fullname="", pId="", hometown="", phone="", dob="", gender="", sClass="", profile_pic="", gpa="") {
+let Student = function (sId="", fullname="", pId="", hometown="", 
+                        phone="", dob="", gender="", sClass="", profile_pic="", gpa="0") {
     this.sId = sId;
     this.fullname = fullname;
     this.pId = pId;
@@ -18,7 +19,7 @@ let studentA = new Student(
   "Tạ Thị Thùy",
   "428715506371",
   "Liên Bang Nga",
-  "1001909798",
+  "0901909798",
   "2002-02-07",
   "Nữ",
   "USSH112",
@@ -31,7 +32,7 @@ let studentB = new Student(
   "Đàm Kiều Trinh",
   "892054032051",
   "Hà Tĩnh",
-  "5823279213",
+  "0823279213",
   "2002-02-05",
   "Nữ",
   "USSK113",
@@ -44,7 +45,7 @@ let studentC = new Student(
   "Bùi Thị Ánh",
   "408907520055",
   "Hà Nội",
-  "3949121061",
+  "0949121061",
   "2002-01-22",
   "Nữ",
   "USSL132",
@@ -96,6 +97,24 @@ function isDuplicated(stdX) {
   });
 }
 
+function checkValidInput(_sId, _fullname, _pId, _phone, _dob, _gender, _sClass, _gpa) {
+  if ( (_sId >= "001" && _sId <= "99999") 
+      && (_fullname.length >= 5)
+      && (_pId >= "0010000000" && _pId <= "999999999999") 
+      && ((_phone >= "0300000000" && _phone <= "0999999999") || _phone == "")
+      && (_dob >= "1950/01/01" && _dob <= "2007/12/31")
+      && (["Nam", "Nữ", "nam", "nữ", "nu", "khác", "Khác", "khac"].some(g => g == _gender) )
+      && (_sClass.substring(0, 3) == "USS")
+      && (( Number(_gpa) >= 0.1 && Number(_gpa) <= 4.0) || Number(_gpa) == 0)  ) {
+        
+        return true;
+      }
+      else {
+        
+        return false;
+      }
+}
+
 function getInputData() {
   let _sId = document.getElementById("mssv").value;
   let _fullname = document.getElementById("hoten").value;
@@ -108,17 +127,23 @@ function getInputData() {
   let _profile_pic = document.getElementById("anh").value;
   let _gpa = document.getElementById("dtl").value;
 
-  let studentX = new Student(_sId, _fullname, _pId ,_hometown, _phone, _dob, _gender, _sClass, _profile_pic, _gpa);
-  return studentX;
+  if ( checkValidInput (_sId, _fullname, _pId, _phone, _dob, _gender, _sClass, _gpa) ) {
+        let studentX = new Student(_sId, _fullname, _pId ,_hometown, _phone, _dob, _gender, _sClass, _profile_pic, _gpa);
+        return studentX;
+      }
+      else {
+        alert("Vui long nhap du lieu hop le1");
+        return;
+      }
 }
 
 function sAdd() {
-  const studentX = getInputData();
-
-  if (isDuplicated(studentX)) {
-    alert("Vui long nhap du lieu hop le");
+  const studentX = getInputData() 
+  if (!studentX || isDuplicated(studentX)) {
+    alert("Vui long nhap du lieu hop le2");
     return;
   }
+
   students.push(studentX);
   updateTable();
   resetInput();
@@ -172,7 +197,7 @@ function Edit(index) {
   </tr>
   <tr>
     <th>Lớp</th>
-    <td><input class="info-input" type="text" name="" id="lop" value="${students[index].sClass}"/></td>
+    <td><input class="info-input" type="text" name="" id="lop" value="${students[index].sClass}" required/></td>
   </tr>
   <tr>
     <th>Ảnh</th>
@@ -213,16 +238,20 @@ function Confirm(index) {
 
   const studentY = getInputData();
   
-  if (students.some(function(s) {
+  if ((students.some(function(s) {
     return JSON.stringify(studentY) === JSON.stringify(s) ;
-  })) {
-    alert("Vui long nhap du lieu hop le");
+  })) 
+  || !(checkValidInput(studentY.sId, studentY.fullname, studentY.pId, 
+                        studentY.phone, studentY.dob, studentY.gender, 
+                        studentY.sClass, studentY.gpa))) {
+    alert("Vui long nhap du lieu hop le3");
     return;
   }
 
   let cf = confirm("Ban co muon ghi nhan su thay doi?");
   if (cf) {
     students.splice(index, 1, studentY);
+    updateTable();
     resetInput();
   }
 }
@@ -245,7 +274,7 @@ function resetInput() {
   document.getElementById("gt").value = "";
   document.getElementById("lop").value = "";
   document.getElementById("anh").value = "";
-  document.getElementById("dtl").value = "";
+  document.getElementById("dtl").value = "0";
 }
 
 
