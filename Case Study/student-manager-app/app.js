@@ -1,5 +1,5 @@
-let Student = function (sId="", fullname="", pId="", hometown="", 
-                        phone="", dob="", gender="", sClass="", profilePic="", gpa="0") {
+let Student = function (sId="", fullname="", pId="", hometown="", phone="",
+                        dob="", gender="", sClass="", profilePic="", gpa="0") {
     this.sId = sId;
     this.fullname = fullname;
     this.pId = pId;
@@ -175,8 +175,6 @@ function Add() {
         resetInput();
       }
     }
-
-  
 }
 
 function Edit(index) {
@@ -269,7 +267,7 @@ function Confirm(index) {
   const studentY = getInputData();
   
   if ((students.some(function(s) {
-          return JSON.stringify(studentY) === JSON.stringify(s) ;
+          return JSON.stringify(studentY) === JSON.stringify(s);
   })) 
   || !(isValidInput(studentY.sId, studentY.fullname, studentY.pId, 
                         studentY.phone, studentY.dob, studentY.gender, 

@@ -1,0 +1,12 @@
+body {
+  background-color: gainsboro;
+}
+
+canvas {
+  border: 2px solid blue;
+  background-color: azure;
+}
+
+/* #car-icon {
+  display: none;
+} */
