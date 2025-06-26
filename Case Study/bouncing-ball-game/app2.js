@@ -101,7 +101,7 @@ class Bar {
   }
 }
  
-function moveEHandler(e, nGame, bar, r_speed){
+function moveEHandler(e, nGame, bar, r_speed) {  
       switch (e.key) {
       case "ArrowLeft":  
           bar.rx -= 40 * r_speed;
