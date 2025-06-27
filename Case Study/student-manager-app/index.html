@@ -62,16 +62,49 @@
           </tr>
           <tr>
             <th>Giới tính</th>
-            <td><input class="info-input" type="text" name="" id="gt" /></td>
+            <td>
+              <label for="Nữ"
+                ><input
+                  class="gender-radio"
+                  type="radio"
+                  name="gioitinh"
+                  id="Nữ"
+                  value="Nữ"
+                />Nữ</label
+              >
+              <label for="Nam"
+                ><input
+                  class="gender-radio"
+                  type="radio"
+                  name="gioitinh"
+                  id="Nam"
+                  value="Nam"
+                />Nam</label
+              >
+              <label for="Khác"
+                ><input
+                  class="gender-radio"
+                  type="radio"
+                  name="gioitinh"
+                  id="Khác"
+                  value="Khác"
+                />Khác</label
+              >
+            </td>
           </tr>
           <tr>
             <th>Lớp</th>
             <td><input class="info-input" type="text" name="" id="lop" /></td>
           </tr>
           <tr>
-            <th>Ảnh</th>
+            <th rowspan="2">Ảnh</th>
             <td>
-              <input class="info-input" type="url" name="" id="anh" />
+              <input class="info-input" type="url" name="anh" id="anh-url" />
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <input class="info-input" type="file" name="anh" id="anh-file" />
             </td>
           </tr>
           <tr>

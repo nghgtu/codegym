@@ -44,9 +44,17 @@ table thead {
 } */
 
 .info-input {
-  width: 200px;
+  width: 250px;
+  height: 20px;
   border-radius: 0.5em;
   margin-bottom: 5px;
+  text-indent: 0.5em;
+  font-size: medium;
+}
+
+.gender-radio {
+  margin: 10px 10px;
+  font-size: large;
 }
 
 #add-student-info {
@@ -84,6 +92,7 @@ button {
   cursor: pointer;
   width: 20%;
   height: 10%;
+  font-size: medium;
 }
 
 .add-btn {
