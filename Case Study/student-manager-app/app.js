@@ -101,7 +101,8 @@ function resetInput() {
   document.getElementById("ngaysinh").value = "2005-01-01";
   document.querySelector("#Nữ").checked = true;
   document.getElementById("lop").value = "USSH110";
-  document.getElementById("anh").value = "";
+  document.getElementById("anh-url").value = "";
+  document.getElementById("anh-file").value = "";
   document.getElementById("dtl").value = 2.0;
 }
 
@@ -112,21 +113,15 @@ function isDuplicated(stdX) {
 }
 
 function isValidInput(_studentId, _fullname, _personalID, _phone, _dob, _gender, _studentClass, _gpa) {
-  if ( (_studentId >= "001" && _studentId <= "99999") 
-      && (_fullname.length >= 5)
-      && (_personalID >= "0010000000" && _personalID <= "999999999999") 
-      && ((_phone >= "0300000000" && _phone <= "0999999999") || _phone == "")
-      && (_dob >= "1950-01-01" && _dob <= "2007-12-31")
-      && (["Nam", "Nữ", "nam", "nữ", "nu", "khác", "Khác", "khac"].some(g => g == _gender) )
-      && (_studentClass.substring(0, 3) == "USS")
-      && ( ( Number(_gpa) >= 0.1 && Number(_gpa) <= 4.0) || Number(_gpa) == 0)  ) {
-        
-        return true;
-      }
-      else {
-        
-        return false;
-      }
+
+  return (_studentId >= "001" && _studentId <= "99999") 
+        && (_fullname.length >= 5)
+        && (_personalID >= "0010000000" && _personalID <= "999999999999") 
+        && ((_phone >= "0300000000" && _phone <= "0999999999") || _phone == "")
+        && (_dob >= "1950-01-01" && _dob <= "2007-12-31")
+        && (["Nam", "Nữ", "nam", "nữ", "nu", "khác", "Khác", "khac"].some(g => g == _gender) )
+        && (_studentClass.substring(0, 3) == "USS")
+        && ( ( Number(_gpa) >= 0.1 && Number(_gpa) <= 4.0) || Number(_gpa) == 0);
 }
 
 function getInputData() {
@@ -138,7 +133,7 @@ function getInputData() {
   let _dob = document.getElementById("ngaysinh").value;
   let _gender = document.querySelector(".gender-radio:checked").value;
   let _studentClass = document.getElementById("lop").value;
-  let _profilePic = document.getElementById("anh").value;
+  let _profilePic = document.getElementById("anh-url").value; // document.getElementById("anh-file").value
   let _gpa = document.getElementById("dtl").value;
 
   if ( isValidInput (_studentId, _fullname, _personalID, _phone, _dob, _gender, _studentClass, _gpa) ) {
@@ -146,39 +141,41 @@ function getInputData() {
         return studentX;
       }
       else {
-        alert("Vui long nhap du lieu hop le1");
+        alert("Dữ liệu nhập vào không hợp lệ, vui lòng nhập lại!");
         return;
       }
 }
 
 function Add() {
-  const studentX = getInputData() 
-  if (!studentX || isDuplicated(studentX)) {
-    alert("Vui long nhap du lieu hop le2");
+  const studentX = getInputData() ;
+  if (isDuplicated(studentX)) {
+    alert("Dữ liệu bị trùng khớp, vui lòng nhập lại!");
     return;
   } else {
-      if ((students.some(function(s) {
-              return JSON.stringify(studentX) === JSON.stringify(s);
-            })) 
-          || !(isValidInput(studentX.studentId, studentX.fullname, studentX.personalID, 
-                          studentX.phone, studentX.dob, studentX.gender, 
-                          studentX.studentClass, studentX.gpa))) {
-      alert("Vui long nhap du lieu hop le3");
-      return;
-    }
-
-    let cf = confirm("Ban co muon ghi nhan su thay doi?");
-    
-      if (cf) {
-        students.push(studentX);
-        updateTable();
-        resetInput();
+      if (students.some(function(s) {
+      return JSON.stringify(studentX) === JSON.stringify(s);
+      })) {
+        alert("Dữ liệu nhập vào đã tồn tại, vui lòng nhập dữ liệu mới");
+        return;
       }
+
+      if (!isValidInput(studentX.studentId, studentX.fullname, studentX.personalID, 
+                            studentX.phone, studentX.dob, studentX.gender, 
+                            studentX.studentClass, studentX.gpa)) {
+        alert("Dữ liệu nhập vào không hợp lệ, vui lòng nhập lại!");
+        return;
+      }
+
+    let cf = confirm("Bạn có muốn ghi nhận sự thay đổi?");
+    
+    if (cf) {
+      students.push(studentX);
+      updateTable();
+      resetInput();
     }
+  }
 }
-/*<td><input type="radio" name="gioitinh" id="gt"  /></td>*/
-/*
-<td><input class="info-input" type="text" name="" id="gt" value="${students[index].gender}" required /></td>*/ 
+
 function Edit(index) {
   let input = document.getElementById("input-section");
   input.innerHTML = "";
@@ -258,7 +255,7 @@ function Edit(index) {
 }
 
 function Delete(index) {
-  let cf = confirm("Ban chac chan muon xoa du lieu nay?");
+  let cf = confirm("Bạn chắc chắn muốn xóa dữ liệu này?");
   if (cf) {
     students.splice(index, 1);
     updateTable();
@@ -270,29 +267,32 @@ function Delete(index) {
 
 function Confirm(index) {
 
-  const studentY = getInputData();
+  const studentX = getInputData();
   
-  if ((students.some(function(s) {
-          return JSON.stringify(studentY) === JSON.stringify(s);
-  })) 
-  || !(isValidInput(studentY.studentId, studentY.fullname, studentY.personalID, 
-                        studentY.phone, studentY.dob, studentY.gender, 
-                        studentY.studentClass, studentY.gpa))) {
-    alert("Vui long nhap du lieu hop le3");
+  if (students.some(function(s) {
+      return JSON.stringify(studentX) === JSON.stringify(s);
+  })) {
+    alert("Dữ liệu nhập vào đã tồn tại, vui lòng nhập dữ liệu mới");
+    return;
+  }
+
+  if (!isValidInput(studentX.studentId, studentX.fullname, studentX.personalID, 
+                        studentX.phone, studentX.dob, studentX.gender, 
+                        studentX.studentClass, studentX.gpa)) {
+    alert("Dữ liệu nhập vào không hợp lệ, vui lòng nhập lại!");
     return;
   } else {
-    let cf = confirm("Ban co muon ghi nhan su thay doi?");
+    let cf = confirm("Bạn có muốn ghi nhận sự thay đổi?");
       if (cf) {
-        students.splice(index, 1, studentY);
+        students.splice(index, 1, studentX);
         updateTable();
         resetInput();
       }
   }
-
 }
 
 function Cancel() {
-  let cf = confirm("Ban co muon huy het su thay doi?");
+  let cf = confirm("Bạn có muốn hủy hết sự thay đổi?");
   if (cf) {
     resetInput();  
   } 

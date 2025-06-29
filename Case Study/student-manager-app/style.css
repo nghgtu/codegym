@@ -16,7 +16,6 @@
 }
 
 table {
-  /* border: 1px solid black; */
   border-collapse: collapse;
   border-radius: 2em;
   border-spacing: 10px;
@@ -26,7 +25,6 @@ table {
 
 table thead {
   font-size: 24px;
-  /* border-spacing: 10px; */
   height: 100px;
 }
 
@@ -38,10 +36,6 @@ table thead {
 #student-list thead {
   padding: 10px 20px;
 }
-
-/* #student-list td {
-  background-color: aliceblue;
-} */
 
 .info-input {
   width: 250px;
@@ -59,18 +53,12 @@ table thead {
 
 #add-student-info {
   width: 25%;
-  /* border-radius: 2em; */
 }
 
 #add-student-info > thead {
-  /* background-color: aliceblue; */
   color: brown;
   width: auto;
 }
-
-/* #add-student-info tbody th {
-  background-color: aliceblue;
-} */
 
 #add-student-info > tbody > tr > th:first-child {
   font-weight: bold;
@@ -100,10 +88,6 @@ button {
   margin: 10px;
 }
 
-/* .save-btn {
-  background-color: gold;
-} */
-
 .del-btn {
   background-color: red;
   width: 40%;
@@ -128,22 +112,3 @@ button {
   width: 100px;
   height: 100px;
 }
-
-/* 
-#add-info-url {
-  background-color: dodgerblue;
-  margin: auto 0.5em;
-  width: fit-content;
-  border-radius: 0.5em;
-  font-size: large;
-}
-
-#add-info-url a {
-  text-decoration: none;
-  color: white;
-}
-
-#add-info-url a:visited {
-  text-decoration: none;
-  color: white;
-} */
