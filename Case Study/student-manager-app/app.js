@@ -94,8 +94,7 @@ function updateTable() {
 
 function resetInput() {
   let next_mssv = Math.max(...students.map(s => s.studentId)) + 1;
-
-  document.getElementById("mssv").value = (next_mssv > 10000) ? "0" : "" + next_mssv;
+  document.getElementById("mssv").value = (next_mssv < 10000 ? "0" : "") + next_mssv;
   document.getElementById("hoten").value = "";
   document.getElementById("cccd").value = "";
   document.getElementById("quequan").value = "Hà Nội";
@@ -116,12 +115,12 @@ function isDuplicated(stdX) {
 
 function isValidInput(_studentId, _fullname, _personalID, _phone, _dob, _gender, _studentClass, _gpa) {
 
-  return (_studentId >= "001" && _studentId <= "99999") 
+  return (_studentId >= "01" && _studentId <= "99999") 
         && (_fullname.length >= 5)
         && (_personalID >= "0010000000" && _personalID <= "999999999999") 
         && ((_phone >= "0300000000" && _phone <= "0999999999") || _phone == "")
         && (_dob >= "1950-01-01" && _dob <= "2007-12-31")
-        && (["Nam", "Nữ", "nam", "nữ", "nu", "khác", "Khác", "khac"].some(g => g == _gender) )
+        && (["Nam", "Nữ", "Khác"].some(g => g == _gender) )
         && (_studentClass.substring(0, 3) == "USS")
         && ( ( Number(_gpa) >= 0.1 && Number(_gpa) <= 4.0) || Number(_gpa) == 0);
 }
@@ -199,8 +198,7 @@ function Edit(index) {
     <td>
       <input
         class="info-input"
-        type="number"
-        name=""
+        type="text"
         id="mssv"
         value="${std.studentId}"
         required
@@ -210,26 +208,26 @@ function Edit(index) {
   </tr>
   <tr>
     <th>Họ tên</th>
-    <td><input class="info-input" type="text" name="hoten" id="hoten" value="${std.fullname}" required /></td>
+    <td><input class="info-input" type="text" id="hoten" value="${std.fullname}" required /></td>
   </tr>
   <tr>
     <th>Mã CCCD</th>
     <td>
-      <input class="info-input" type="number" name="cccd" id="cccd" value="${std.personalID}" required />
+      <input class="info-input" type="number" id="cccd" value="${std.personalID}" required />
     </td>
   </tr>
   <tr>
     <th>Quê quán</th>
-    <td><input class="info-input" type="text" name="quequan" id="quequan" value="${std.hometown}"/></td>
+    <td><input class="info-input" type="text" id="quequan" value="${std.hometown}"/></td>
   </tr>
   <tr>
     <th>Điện thoại</th>
-    <td><input class="info-input" type="number" name="dienthoai" id="dt" value="${std.phone}"/></td>
+    <td><input class="info-input" type="number" id="dt" value="${std.phone}"/></td>
   </tr>
   <tr>
     <th>Ngày sinh</th>
     <td>
-      <input class="info-input" type="date" name="ngaysinh" id="ngaysinh" value="${std.dob}" required />
+      <input class="info-input" type="date" id="ngaysinh" value="${std.dob}" required />
     </td>
   </tr>
   <tr>
@@ -242,7 +240,7 @@ function Edit(index) {
   </tr>
   <tr>
     <th>Lớp</th>
-    <td><input class="info-input" type="text" name="lop" id="lop" value="${std.studentClass}" required/></td>
+    <td><input class="info-input" type="text" id="lop" value="${std.studentClass}" required/></td>
   </tr>
   <tr>
     <th rowspan="2">Ảnh</th>
@@ -250,7 +248,6 @@ function Edit(index) {
       <input
         class="info-input"
         type="file"
-        name="anh"
         id="anh-file"
         accept="image/*"
         value="${std.profilePic}"
@@ -264,7 +261,7 @@ function Edit(index) {
   </tr>  
   <tr>
     <th>Điểm tích lũy</th>
-    <td><input class="info-input" type="number" name="diemtichluy" id="dtl" value="${std.gpa}"/></td>
+    <td><input class="info-input" type="number" id="dtl" value="${std.gpa}"/></td>
   </tr>
   <tr>
     <td colspan="2">

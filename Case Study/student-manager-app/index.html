@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
-    <link rel="import" href="./test.html" />
+    <script src="app.js" defer></script>
     <title>Student Management</title>
   </head>
   <body>
@@ -17,138 +17,121 @@
       <h1 id="page-heading">QUẢN LÝ HỌC VIÊN</h1>
     </header>
     <div>
-      <table id="add-student-info">
-        <thead>
-          <tr>
-            <th colspan="2">Thêm/ Chỉnh sửa học viên</th>
-          </tr>
-        </thead>
-        <tbody id="input-section">
-          <tr>
-            <th>Mã sinh viên</th>
+      <form action="" autocomplete="off">
+        <table id="add-student-info">
+          <thead>
+            <tr>
+              <th colspan="2">Thêm/ Chỉnh sửa học viên</th>
+            </tr>
+          </thead>
+          <tbody id="input-section">
+            <tr>
+              <th>Mã sinh viên</th>
+              <td>
+                <input class="info-input" type="text" id="mssv" autofocus />
+              </td>
+            </tr>
+            <tr>
+              <th>Họ tên</th>
+              <td>
+                <input class="info-input" type="text" id="hoten" />
+              </td>
+            </tr>
+            <tr>
+              <th>Mã CCCD</th>
+              <td>
+                <input class="info-input" type="number" id="cccd" />
+              </td>
+            </tr>
+            <tr>
+              <th>Quê quán</th>
+              <td>
+                <input class="info-input" type="text" id="quequan" />
+              </td>
+            </tr>
+            <tr>
+              <th>Điện thoại</th>
+              <td>
+                <input class="info-input" type="number" id="dt" />
+              </td>
+            </tr>
+            <tr>
+              <th>Ngày sinh</th>
+              <td>
+                <input class="info-input" type="date" id="ngaysinh" />
+              </td>
+            </tr>
+            <tr>
+              <th>Giới tính</th>
+              <td>
+                <label for="Nữ"
+                  ><input
+                    class="gender-radio"
+                    type="radio"
+                    name="gioitinh"
+                    id="Nữ"
+                    value="Nữ"
+                  />Nữ</label
+                >
+                <label for="Nam"
+                  ><input
+                    class="gender-radio"
+                    type="radio"
+                    name="gioitinh"
+                    id="Nam"
+                    value="Nam"
+                  />Nam</label
+                >
+                <label for="Khác"
+                  ><input
+                    class="gender-radio"
+                    type="radio"
+                    name="gioitinh"
+                    id="Khác"
+                    value="Khác"
+                  />Khác</label
+                >
+              </td>
+            </tr>
+            <tr>
+              <th>Lớp</th>
+              <td>
+                <input class="info-input" type="text" id="lop" />
+              </td>
+            </tr>
+            <tr>
+              <th>Ảnh</th>
+              <td>
+                <input
+                  class="info-input"
+                  type="file"
+                  id="anh-file"
+                  accept="image/*"
+                />
+              </td>
+            </tr>
+            <!-- <tr>
             <td>
-              <input
-                class="info-input"
-                type="number"
-                name="mssv"
-                id="mssv"
-                autofocus
-              />
-            </td>
-          </tr>
-          <tr>
-            <th>Họ tên</th>
-            <td>
-              <input class="info-input" type="text" name="hoten" id="hoten" />
-            </td>
-          </tr>
-          <tr>
-            <th>Mã CCCD</th>
-            <td>
-              <input class="info-input" type="number" name="cccd" id="cccd" />
-            </td>
-          </tr>
-          <tr>
-            <th>Quê quán</th>
-            <td>
-              <input
-                class="info-input"
-                type="text"
-                name="quequan"
-                id="quequan"
-              />
-            </td>
-          </tr>
-          <tr>
-            <th>Điện thoại</th>
-            <td>
-              <input
-                class="info-input"
-                type="number"
-                name="dienthoai"
-                id="dt"
-              />
-            </td>
-          </tr>
-          <tr>
-            <th>Ngày sinh</th>
-            <td>
-              <input
-                class="info-input"
-                type="date"
-                name="ngaysinh"
-                id="ngaysinh"
-              />
-            </td>
-          </tr>
-          <tr>
-            <th>Giới tính</th>
-            <td>
-              <label for="Nữ"
-                ><input
-                  class="gender-radio"
-                  type="radio"
-                  name="gioitinh"
-                  id="Nữ"
-                  value="Nữ"
-                />Nữ</label
-              >
-              <label for="Nam"
-                ><input
-                  class="gender-radio"
-                  type="radio"
-                  name="gioitinh"
-                  id="Nam"
-                  value="Nam"
-                />Nam</label
-              >
-              <label for="Khác"
-                ><input
-                  class="gender-radio"
-                  type="radio"
-                  name="gioitinh"
-                  id="Khác"
-                  value="Khác"
-                />Khác</label
-              >
-            </td>
-          </tr>
-          <tr>
-            <th>Lớp</th>
-            <td>
-              <input class="info-input" type="text" name="lop" id="lop" />
-            </td>
-          </tr>
-          <tr>
-            <th>Ảnh</th>
-            <td>
-              <input
-                class="info-input"
-                type="file"
-                name="anh"
-                id="anh-file"
-                accept="image/*"
-              />
-            </td>
-          </tr>
-          <!-- <tr>
-            <td>
-              <input class="info-input" type="url" name="anh" id="anh-url" />
+              <input class="info-input" type="url" id="anh-url" />
             </td>
           </tr> -->
-          <tr>
-            <th>Điểm tích lũy</th>
-            <td><input class="info-input" type="number" name="" id="dtl" /></td>
-          </tr>
-          <tr>
-            <td colspan="2">
-              <button type="button" class="add-btn" onclick="Add()">Add</button>
-            </td>
-          </tr>
-        </tbody>
-      </table>
+            <tr>
+              <th>Điểm tích lũy</th>
+              <td><input class="info-input" type="number" id="dtl" /></td>
+            </tr>
+            <tr>
+              <td colspan="2">
+                <button type="button" class="add-btn" onclick="Add()">
+                  Add
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </form>
     </div>
     <br />
+
     <div>
       <table id="student-list">
         <thead>
@@ -179,4 +162,3 @@
     </div>
   </body>
 </html>
-<script src="app.js"></script>
