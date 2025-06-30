@@ -1,3 +1,5 @@
+let _profilePic = "";
+
 let Student = function (studentId="", fullname="", personalID="", hometown="", phone="",
                         dob="", gender="", studentClass="", profilePic="", gpa="0") {
     this.studentId = studentId;
@@ -133,19 +135,20 @@ function getInputData() {
   let _dob = document.getElementById("ngaysinh").value;
   let _gender = document.querySelector(".gender-radio:checked").value;
   let _studentClass = document.getElementById("lop").value;
-  let _profilePic = "";
-  let imgInput = document.getElementById("anh-file");
-  imgInput.addEventListener("change", function() {
-    const file = imgInput.files[0];
-    if (file) {
-      _profilePic = URL.createObjectURL(file);
-    }
-  })
+  // let _profilePic = "";
+  // let imgInput = document.getElementById("anh-file");
+  // imgInput.addEventListener("change", function() {
+  //   const file = imgInput.files[0];
+  //   if (file) {
+  //     _profilePic = URL.createObjectURL(file);
+  //   }
+  // })
   // document.getElementById("anh-url").value;
   let _gpa = document.getElementById("dtl").value;
 
   if ( isValidInput (_studentId, _fullname, _personalID, _phone, _dob, _gender, _studentClass, _gpa) ) {
         let studentX = new Student(_studentId, _fullname, _personalID ,_hometown, _phone, _dob, _gender, _studentClass, _profilePic, _gpa);
+        _profilePic = '';
         return studentX;
       }
       else {
@@ -279,8 +282,9 @@ function Edit(index) {
   imgInput.addEventListener("change", function() {
     const file = imgInput.files[0];
     if (file) {
-      std.profilePic = URL.createObjectURL(file);
-      // document.getElementById("anh").src = "";
+      _profilePic = URL.createObjectURL(file);
+      console.log(_profilePic);
+      document.getElementById("anh").src = "";
       document.getElementById("anh").src = URL.createObjectURL(file);
     }
   })
@@ -299,9 +303,7 @@ function Delete(index) {
 }
 
 function Confirm(index) {
-
   const studentX = getInputData();
-  
   if (students.some(function(s) {
       return JSON.stringify(studentX) === JSON.stringify(s);
   })) {
