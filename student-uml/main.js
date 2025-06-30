@@ -36,7 +36,7 @@ class Student {
 
     displayInfo() {
         return `<tr>
-                    <td>${this.getId()}<td>
+                    <td>${this.getId()}</td>
                     <td>${this.getName()}</td>
                     <td>${this.getAge()}</td>
                 </tr>`;
@@ -64,4 +64,4 @@ function renderStudentTable() {
     }
 }
 
-window.onload = renderStudentTable();
+window.onload = renderStudentTable;
