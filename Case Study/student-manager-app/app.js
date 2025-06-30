@@ -1,16 +1,16 @@
-let _profilePic = "";
+// let _pfPicUrl = "";
 
 let Student = function (studentId="", fullname="", personalID="", hometown="", phone="",
-                        dob="", gender="", studentClass="", profilePic="", gpa="0") {
+                        dob="", gender="", studentClass="", pfPicUrl="", gpa="0") {
     this.studentId = studentId;
     this.fullname = fullname;
-    this.personalID = personalID;
+    this.personalID = personalID; // 10-12 digits
     this.hometown = hometown;
-    this.phone = phone;
+    this.phone = phone; // 10 digits
     this.dob = dob;
     this.gender = gender; // Nam/Nữ/Khác
     this.studentClass = studentClass;
-    this.profilePic = profilePic; // url
+    this.pfPicUrl = pfPicUrl; 
     this.gpa = gpa;
 }
 
@@ -60,11 +60,9 @@ students = [studentA, studentB, studentC];
 function updateTable() {    
     let sListTable = document.getElementById("show-data-section");
     sListTable.innerHTML = "";
-    let sData = "";
     
     students.forEach((std, index) => {
-      //id='${index}'
-        sData += `<tr>
+        sListTable.innerHTML += `<tr>
             <td>${std.studentId}</td>
             <td>${std.fullname}</td>
             <td>${std.personalID}</td>
@@ -76,7 +74,7 @@ function updateTable() {
             <td>
               <img
                 class="profile-pic"
-                src='${std.profilePic}'
+                src='${std.pfPicUrl}'
                 alt="Ảnh thẻ ${std.fullname}"
               />
             </td>
@@ -86,10 +84,8 @@ function updateTable() {
               <button type="button" class="del-btn" onclick="Delete('${index}')">Delete</button>
             </td>
           </tr>`
-          sData += "<br>";
     });
 
-    sListTable.innerHTML += sData;
 }
 
 function resetInput() {
@@ -117,11 +113,11 @@ function isValidInput(_studentId, _fullname, _personalID, _phone, _dob, _gender,
 
   return (_studentId >= "01" && _studentId <= "99999") 
         && (_fullname.length >= 5)
-        && (_personalID >= "0010000000" && _personalID <= "999999999999") 
+        && (_personalID >= "001000000000" && _personalID <= "999999999999") 
         && ((_phone >= "0300000000" && _phone <= "0999999999") || _phone == "")
         && (_dob >= "1950-01-01" && _dob <= "2007-12-31")
         && (["Nam", "Nữ", "Khác"].some(g => g == _gender) )
-        && (_studentClass.substring(0, 3) == "USS")
+        && (_studentClass.substring(0, 3) == "USS" && _studentClass.length >= 5)
         && ( ( Number(_gpa) >= 0.1 && Number(_gpa) <= 4.0) || Number(_gpa) == 0);
 }
 
@@ -134,26 +130,32 @@ function getInputData() {
   let _dob = document.getElementById("ngaysinh").value;
   let _gender = document.querySelector(".gender-radio:checked").value;
   let _studentClass = document.getElementById("lop").value;
-  // let _profilePic = "";
-  // let imgInput = document.getElementById("anh-file");
-  // imgInput.addEventListener("change", function() {
-  //   const file = imgInput.files[0];
-  //   if (file) {
-  //     _profilePic = URL.createObjectURL(file);
-  //   }
-  // })
-  // document.getElementById("anh-url").value;
+  let _pfPicUrl = "";
+  let imgInput = document.getElementById("anh-file");
+  let imgDisplay = document.getElementById("anh");
+  imgInput.addEventListener("change", function() {
+    const file = imgInput.files[0];
+    if (file) {
+      _pfPicUrl = URL.createObjectURL(file);
+      imgDisplay.src = "";
+      imgDisplay.src = URL.createObjectURL(file);
+    } else {
+      imgDisplay.src = "";
+      imgInput.value = "";
+    }
+  });
+
   let _gpa = document.getElementById("dtl").value;
 
   if ( isValidInput (_studentId, _fullname, _personalID, _phone, _dob, _gender, _studentClass, _gpa) ) {
-        let studentX = new Student(_studentId, _fullname, _personalID ,_hometown, _phone, _dob, _gender, _studentClass, _profilePic, _gpa);
-        _profilePic = '';
+        let studentX = new Student(_studentId, _fullname, _personalID ,_hometown, _phone, _dob, _gender, _studentClass, _pfPicUrl, _gpa);
+        _pfPicUrl = '';
         return studentX;
-      }
-      else {
-        alert("Dữ liệu nhập vào không hợp lệ, vui lòng nhập lại!");
-        return;
-      }
+  }
+  else {
+    alert("Dữ liệu nhập vào không hợp lệ, vui lòng nhập lại!");
+    return;
+  }
 }
 
 function Add() {
@@ -188,10 +190,9 @@ function Add() {
 
 function Edit(index) {
   let input = document.getElementById("input-section");
-  const std = students[index];
   input.innerHTML = "";
-  /*<input class="info-input" type="url" name="anh" id="anh" value="${std.profilePic}"/>
-  <img src="${std.profilePic}" alt="Anh ko hien thi duoc" width="100px" height="100px" id="anh"/>*/
+  
+  const std = students[index];
   input.innerHTML += `
   <tr>
     <th>Mã sinh viên</th>
@@ -250,13 +251,13 @@ function Edit(index) {
         type="file"
         id="anh-file"
         accept="image/*"
-        value="${std.profilePic}"
+        value="${std.pfPicUrl}"
       />
     </td>
   </tr>
   <tr>
     <td>
-      <img src="${std.profilePic}" alt="Ảnh thẻ ${std.fullname}" width="100px" height="100px" id="anh"/>
+      <img src="${std.pfPicUrl}" alt="Ảnh thẻ ${std.fullname}" width="100px" height="100px" id="anh"/>
     </td>
   </tr>  
   <tr>
@@ -272,19 +273,24 @@ function Edit(index) {
         Cancel
       </button>
     </td>
-  </tr>
-  `;
+  </tr>`;
+
   document.getElementById(std.gender).checked = true;
+
   let imgInput = document.getElementById("anh-file");
+  let imgDisplay = document.getElementById("anh");
   imgInput.addEventListener("change", function() {
     const file = imgInput.files[0];
     if (file) {
-      _profilePic = URL.createObjectURL(file);
-      console.log(_profilePic);
-      document.getElementById("anh").src = "";
-      document.getElementById("anh").src = URL.createObjectURL(file);
+      std.pfPicUrl = URL.createObjectURL(file);
+      imgDisplay.src = "";
+      imgDisplay.src = URL.createObjectURL(file);
+    } else {
+      imgDisplay.src = "";
+      imgInput.value = "";
     }
-  })
+  });
+  
 }
 
 function Delete(index) {
