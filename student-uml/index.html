@@ -4,13 +4,22 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="main.js" defer></script>
+    <style>
+      table,
+      th,
+      td {
+        border: 1px solid black;
+        border-collapse: collapse;
+        text-align: center;
+      }
+    </style>
     <title>Demo Student UML</title>
   </head>
   <body>
     <header>
       <h1>Hiển thị danh sách sinh viên</h1>
     </header>
-    <table style="text-align: center; border-collapse: collapse; border: 1px">
+    <table>
       <thead>
         <tr>
           <th>Mã Sinh Viên</th>
@@ -19,11 +28,11 @@
         </tr>
       </thead>
       <tbody id="display-info">
-        <tr>
+        <!-- <tr>
           <td></td>
           <td></td>
           <td></td>
-        </tr>
+        </tr> -->
       </tbody>
     </table>
   </body>
