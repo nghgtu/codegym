@@ -1,9 +1,8 @@
 class Student {
     #age = 18;
     #name = "";
-    #studentId = "0";
+    #studentId = "01";
     
-
     constructor(name, age, studentId) {
         this.#name = name;
         this.#age = age;
@@ -18,8 +17,8 @@ class Student {
         this.#age = age;
     }
 
-    setId(id) {
-        this.#studentId = id;
+    setId(studentId) {
+        this.#studentId = studentId;
     }
 
     getName() {
@@ -35,11 +34,7 @@ class Student {
     }
 
     displayInfo() {
-        return `<tr>
-                    <td>${this.getId()}</td>
-                    <td>${this.getName()}</td>
-                    <td>${this.getAge()}</td>
-                </tr>`;
+        return `${this.getId()} - ${this.getName()} - ${this.getAge()}`;
     }
 }
 
@@ -59,8 +54,11 @@ function renderStudentTable() {
     displayInfoTable.innerHTML = '';
     for(let i = 0; i < students.length; i++) {
         const stdX = students[i];
-        const stdXData = stdX.displayInfo();
-        displayInfoTable.innerHTML += stdXData;
+        displayInfoTable.innerHTML += `<tr>
+                                            <td>${stdX.getId()}</td>
+                                            <td>${stdX.getName()}</td>
+                                            <td>${stdX.getAge()}</td>
+                                        </tr>`;
     }
 }
 
