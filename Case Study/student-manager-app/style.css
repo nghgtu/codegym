@@ -1,113 +1,158 @@
+:root {
+  --primary-bg: #87cefa;
+  --table-bg: azure;
+  --add-bg: dodgerblue;
+  --btn-add: blue;
+  --btn-del: red;
+  --btn-edit: orange;
+  --btn-confirm: lime;
+  --btn-cancel: gray;
+  --btn-text: #fff;
+  --border-radius: 1em;
+  --input-radius: 0.5em;
+}
+
 * {
+  box-sizing: border-box;
   padding: 0;
   margin: 0;
   font-family: Arial, Helvetica, sans-serif;
 }
 
+body {
+  width: 90%;
+  margin: auto;
+}
+
 #background-image {
-  width: 100%;
+  display: block;
 }
 
 #page-heading {
-  font-size: 50px;
+  font-size: 2.5rem;
   font-weight: bold;
   text-align: center;
-  background-color: #87cefa;
+  background-color: var(--primary-bg);
+  padding: 1em 0;
 }
 
 table {
   border-collapse: collapse;
-  border-radius: 2em;
-  text-align: center;
+  border-radius: var(--border-radius);
   margin: 1em auto;
-}
-
-table thead {
-  font-size: 24px;
-  height: 100px;
-}
-
-#student-list {
-  background-color: azure;
   width: 90%;
+  background: var(--table-bg);
+  overflow: hidden;
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.1);
 }
 
-#student-list thead {
-  padding: 10px 20px;
+thead {
+  font-size: 1.25rem;
+  height: 3.5em;
+  background-color: #f3f3f3;
+}
+
+th,
+td {
+  padding: 1em;
+  text-align: center;
 }
 
 .info-input {
-  width: 250px;
-  height: 20px;
-  border-radius: 0.5em;
-  margin-bottom: 5px;
-  text-indent: 0.5em;
-  font-size: medium;
+  width: 100%;
+  max-width: 250px;
+  height: 2em;
+  border-radius: var(--input-radius);
+  margin-bottom: 0.5em;
+  padding-left: 0.5em;
+  font-size: 1rem;
+  border: 1px solid #ccc;
 }
 
 .gender-radio {
-  margin: 10px 10px;
-  font-size: large;
+  margin: 0.5em 1em 0.5em 0;
+  font-size: 1rem;
 }
 
 #add-student-info {
-  width: 25%;
+  width: 100%;
+  max-width: 400px;
+  margin: 2em auto;
+  background-color: var(--add-bg);
+  border-radius: var(--border-radius);
+  color: white;
+  overflow: hidden;
 }
 
-#add-student-info > thead {
-  color: whitesmoke;
-  width: auto;
+#add-student-info thead {
+  text-align: center;
+  color: black;
 }
 
-#add-student-info > tbody > tr > th:first-child {
+#add-student-info th:first-child {
   font-weight: bold;
   font-family: "Times New Roman", Times, serif;
-  font-size: 16px;
+  font-size: 1rem;
   text-align: right;
 }
 
-#add-student-info {
-  background-color: dodgerblue;
-}
-
 button {
-  border: 2px solid rgba(0, 0, 0, 0.74);
+  border: 2px solid rgba(0, 0, 0, 0.5);
   border-radius: 2em;
-  color: white;
-  padding: 0.2em 0.5em;
-  margin: auto 0.5em;
+  color: var(--btn-text);
+  padding: 0.5em 1.2em;
+  margin: 0.25em;
   cursor: pointer;
-  width: 20%;
-  height: 10%;
-  font-size: medium;
+  font-size: 1rem;
+  transition: background 0.2s, color 0.2s;
 }
 
 .add-btn {
-  background-color: blue;
-  margin: 10px;
+  background-color: var(--btn-add);
 }
-
 .del-btn {
-  background-color: red;
-  width: 40%;
+  background-color: var(--btn-del);
 }
-
 .edit-btn {
-  background-color: orange;
-  width: 40%;
+  background-color: var(--btn-edit);
 }
-
 .confirm-btn {
-  background-color: lime;
-  margin: 10px;
+  background-color: var(--btn-confirm);
+  color: #222;
 }
-
 .cancel-btn {
-  background-color: gray;
-  margin: 10px;
+  background-color: var(--btn-cancel);
+}
+button:hover,
+button:focus {
+  filter: brightness(90%);
+  outline: 2px solid #222;
 }
 
 .profile-pic {
   width: 100px;
   height: 100px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 2px solid #ddd;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+  #page-heading {
+    font-size: 1.5rem;
+    padding: 0.5em 0;
+  }
+  table,
+  #add-student-info {
+    width: 98%;
+    font-size: 0.95rem;
+  }
+  .info-input {
+    max-width: 100%;
+  }
+  .profile-pic {
+    width: 70px;
+    height: 70px;
+  }
 }
