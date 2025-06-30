@@ -195,13 +195,13 @@ function resetInput() {
   `;
   let next_mssv = Math.max(...students.map(s => s.studentId)) + 1;
   document.getElementById("mssv").value = (next_mssv < 10000 ? "0" : "") + next_mssv;
-  document.getElementById("hoten").value = "Nugfwehug";
-  document.getElementById("cccd").value = "428715506370";
+  document.getElementById("hoten").value = "";
+  document.getElementById("cccd").value = "";
   document.getElementById("quequan").value = "Hà Nội";
-  document.getElementById("dt").value = "0901909790";
+  document.getElementById("dt").value = "";
   document.getElementById("ngaysinh").value = "2006-01-01";
   document.querySelector("#Nữ").checked = true;
-  document.getElementById("lop").value = "USSH8";
+  document.getElementById("lop").value = "USSH";
   document.getElementById("anh-file").value = "";
   document.getElementById("dtl").value = 2.0;
 
