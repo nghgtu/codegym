@@ -49,7 +49,7 @@ let studentC = new Student(
   "2002-01-22",
   "Nữ",
   "USSL132",
-  "https://znews-photo.zadn.vn/w660/Uploaded/lce_jwqqc/2019_05_30/61103071_2361422507447925_6222318223514140672_n_1.jpg",
+  "https://znews-photo.zadn.vn/w660/Uploaded/lce_jwquequanc/2019_05_30/61103071_2361422507447925_6222318223514140672_n_1.jpg",
   3.25
 );
 
@@ -96,12 +96,12 @@ function resetInput() {
   document.getElementById("mssv").value = (next_mssv > 10000) ? "0" : "" + next_mssv;
   document.getElementById("hoten").value = "";
   document.getElementById("cccd").value = "";
-  document.getElementById("qq").value = "Hà Nội";
+  document.getElementById("quequan").value = "Hà Nội";
   document.getElementById("dt").value = "";
-  document.getElementById("ngaysinh").value = "2005-01-01";
+  document.getElementById("ngaysinh").value = "2006-01-01";
   document.querySelector("#Nữ").checked = true;
-  document.getElementById("lop").value = "USSH110";
-  document.getElementById("anh-url").value = "";
+  document.getElementById("lop").value = "USSH";
+  // document.getElementById("anh-url").value = "";
   document.getElementById("anh-file").value = "";
   document.getElementById("dtl").value = 2.0;
 }
@@ -128,12 +128,20 @@ function getInputData() {
   let _studentId = document.getElementById("mssv").value;
   let _fullname = document.getElementById("hoten").value;
   let _personalID = document.getElementById("cccd").value;
-  let _hometown = document.getElementById("qq").value;
+  let _hometown = document.getElementById("quequan").value;
   let _phone = document.getElementById("dt").value;
   let _dob = document.getElementById("ngaysinh").value;
   let _gender = document.querySelector(".gender-radio:checked").value;
   let _studentClass = document.getElementById("lop").value;
-  let _profilePic = document.getElementById("anh-url").value; // document.getElementById("anh-file").value
+  let _profilePic = "";
+  let imgInput = document.getElementById("anh-file");
+  imgInput.addEventListener("change", function() {
+    const file = imgInput.files[0];
+    if (file) {
+      _profilePic = URL.createObjectURL(file);
+    }
+  })
+  // document.getElementById("anh-url").value;
   let _gpa = document.getElementById("dtl").value;
 
   if ( isValidInput (_studentId, _fullname, _personalID, _phone, _dob, _gender, _studentClass, _gpa) ) {
@@ -147,13 +155,14 @@ function getInputData() {
 }
 
 function Add() {
-  const studentX = getInputData() ;
+  const studentX = getInputData();
   if (isDuplicated(studentX)) {
     alert("Dữ liệu bị trùng khớp, vui lòng nhập lại!");
     return;
-  } else {
+  } 
+  else {
       if (students.some(function(s) {
-      return JSON.stringify(studentX) === JSON.stringify(s);
+        return JSON.stringify(studentX) === JSON.stringify(s);
       })) {
         alert("Dữ liệu nhập vào đã tồn tại, vui lòng nhập dữ liệu mới");
         return;
@@ -166,19 +175,21 @@ function Add() {
         return;
       }
 
-    let cf = confirm("Bạn có muốn ghi nhận sự thay đổi?");
-    
-    if (cf) {
-      students.push(studentX);
-      updateTable();
-      resetInput();
-    }
+      let cf = confirm("Bạn có muốn ghi nhận sự thay đổi?");
+      if (cf) {
+        students.push(studentX);
+        updateTable();
+        resetInput();
+      }
   }
 }
 
 function Edit(index) {
   let input = document.getElementById("input-section");
+  const std = students[index];
   input.innerHTML = "";
+  /*<input class="info-input" type="url" name="anh" id="anh" value="${std.profilePic}"/>
+  <img src="${std.profilePic}" alt="Anh ko hien thi duoc" width="100px" height="100px" id="anh"/>*/
   input.innerHTML += `
   <tr>
     <th>Mã sinh viên</th>
@@ -188,7 +199,7 @@ function Edit(index) {
         type="number"
         name=""
         id="mssv"
-        value="${students[index].studentId}"
+        value="${std.studentId}"
         required
         autofocus
       />
@@ -196,49 +207,61 @@ function Edit(index) {
   </tr>
   <tr>
     <th>Họ tên</th>
-    <td><input class="info-input" type="text" name="" id="hoten" value="${students[index].fullname}" required /></td>
+    <td><input class="info-input" type="text" name="hoten" id="hoten" value="${std.fullname}" required /></td>
   </tr>
   <tr>
     <th>Mã CCCD</th>
     <td>
-      <input class="info-input" type="number" name="" id="cccd" value="${students[index].personalID}" required />
+      <input class="info-input" type="number" name="cccd" id="cccd" value="${std.personalID}" required />
     </td>
   </tr>
   <tr>
     <th>Quê quán</th>
-    <td><input class="info-input" type="text" name="" id="qq" value="${students[index].hometown}"/></td>
+    <td><input class="info-input" type="text" name="quequan" id="quequan" value="${std.hometown}"/></td>
   </tr>
   <tr>
     <th>Điện thoại</th>
-    <td><input class="info-input" type="number" name="" id="dt" value="${students[index].phone}"/></td>
+    <td><input class="info-input" type="number" name="dienthoai" id="dt" value="${std.phone}"/></td>
   </tr>
   <tr>
     <th>Ngày sinh</th>
     <td>
-      <input class="info-input" type="date" name="" id="ngaysinh" value="${students[index].dob}" required />
+      <input class="info-input" type="date" name="ngaysinh" id="ngaysinh" value="${std.dob}" required />
     </td>
   </tr>
   <tr>
     <th>Giới tính</th>
     <td>
       <label for="Nữ"><input class="gender-radio" type="radio" name="gioitinh" id="Nữ" value="Nữ" />Nữ</label>
-      <label for="Nam""><input class="gender-radio" type="radio" name="gioitinh" id="Nam" value="Nam" />Nam</label>
+      <label for="Nam"><input class="gender-radio" type="radio" name="gioitinh" id="Nam" value="Nam" />Nam</label>
       <label for="Khác"><input class="gender-radio" type="radio" name="gioitinh" id="Khác" value="Khác" />Khác</label>
     </td>
   </tr>
   <tr>
     <th>Lớp</th>
-    <td><input class="info-input" type="text" name="" id="lop" value="${students[index].studentClass}" required/></td>
+    <td><input class="info-input" type="text" name="lop" id="lop" value="${std.studentClass}" required/></td>
   </tr>
   <tr>
-    <th>Ảnh</th>
+    <th rowspan="2">Ảnh</th>
     <td>
-      <input class="info-input" type="url" name="" id="anh" value="${students[index].profilePic}"/>
+      <input
+        class="info-input"
+        type="file"
+        name="anh"
+        id="anh-file"
+        accept="image/*"
+        value="${std.profilePic}"
+      />
     </td>
   </tr>
   <tr>
+    <td>
+      <img src="${std.profilePic}" alt="Ảnh thẻ ${std.fullname}" width="100px" height="100px" id="anh"/>
+    </td>
+  </tr>  
+  <tr>
     <th>Điểm tích lũy</th>
-    <td><input class="info-input" type="number" name="" id="dtl" value="${students[index].gpa}"/></td>
+    <td><input class="info-input" type="number" name="diemtichluy" id="dtl" value="${std.gpa}"/></td>
   </tr>
   <tr>
     <td colspan="2">
@@ -251,7 +274,16 @@ function Edit(index) {
     </td>
   </tr>
   `;
-  document.getElementById(students[index].gender).checked = true;
+  document.getElementById(std.gender).checked = true;
+  let imgInput = document.getElementById("anh-file");
+  imgInput.addEventListener("change", function() {
+    const file = imgInput.files[0];
+    if (file) {
+      std.profilePic = URL.createObjectURL(file);
+      // document.getElementById("anh").src = "";
+      document.getElementById("anh").src = URL.createObjectURL(file);
+    }
+  })
 }
 
 function Delete(index) {
@@ -261,6 +293,7 @@ function Delete(index) {
     updateTable();
   } 
   else {
+    resetInput();
     return;
   }
 }
@@ -276,18 +309,19 @@ function Confirm(index) {
     return;
   }
 
-  if (!isValidInput(studentX.studentId, studentX.fullname, studentX.personalID, 
-                        studentX.phone, studentX.dob, studentX.gender, 
-                        studentX.studentClass, studentX.gpa)) {
+  if (!isValidInput(studentX.studentId, studentX.fullname, studentX.personalID, studentX.phone, 
+                    studentX.dob, studentX.gender, studentX.studentClass, studentX.gpa)) {
     alert("Dữ liệu nhập vào không hợp lệ, vui lòng nhập lại!");
     return;
-  } else {
+  } 
+  else {
     let cf = confirm("Bạn có muốn ghi nhận sự thay đổi?");
-      if (cf) {
-        students.splice(index, 1, studentX);
-        updateTable();
-        resetInput();
-      }
+    if (cf) {
+      students.splice(index, 1, studentX);
+      updateTable();
+      resetInput();
+    }
+    return;
   }
 }
 

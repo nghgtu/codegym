@@ -56,7 +56,7 @@ table thead {
 }
 
 #add-student-info > thead {
-  color: brown;
+  color: whitesmoke;
   width: auto;
 }
 
@@ -100,12 +100,12 @@ button {
 
 .confirm-btn {
   background-color: lime;
-  margin-top: 10px;
+  margin: 10px;
 }
 
 .cancel-btn {
   background-color: gray;
-  margin-top: 10px;
+  margin: 10px;
 }
 
 .profile-pic {
