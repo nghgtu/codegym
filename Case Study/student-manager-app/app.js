@@ -1,5 +1,3 @@
-// let _pfPicUrl = "";
-
 let Student = function (studentId="", fullname="", personalID="", hometown="", phone="",
                         dob="", gender="", studentClass="", pfPicUrl="", gpa="0") {
     this.studentId = studentId;
@@ -80,8 +78,8 @@ function updateTable() {
             </td>
             <td>${std.gpa}</td>
             <td>
-              <button type="button" class="edit-btn" onclick="Edit('${index}')">Edit</button>
-              <button type="button" class="del-btn" onclick="Delete('${index}')">Delete</button>
+              <button type="button" class="edit-btn" onclick="Edit('${index}')">Sửa</button>
+              <button type="button" class="del-btn" onclick="Delete('${index}')">Xóa</button>
             </td>
           </tr>`
     });
@@ -89,18 +87,124 @@ function updateTable() {
 }
 
 function resetInput() {
+
+  let input = document.getElementById("input-section");
+  input.innerHTML = "";
+  input.innerHTML += `
+            <tr>
+              <th>Mã sinh viên</th>
+              <td>
+                <input class="info-input" type="text" id="mssv" autofocus />
+              </td>
+            </tr>
+            <tr>
+              <th>Họ tên</th>
+              <td>
+                <input class="info-input" type="text" id="hoten" />
+              </td>
+            </tr>
+            <tr>
+              <th>Mã CCCD</th>
+              <td>
+                <input class="info-input" type="number" id="cccd" />
+              </td>
+            </tr>
+            <tr>
+              <th>Quê quán</th>
+              <td>
+                <input class="info-input" type="text" id="quequan" />
+              </td>
+            </tr>
+            <tr>
+              <th>Điện thoại</th>
+              <td>
+                <input class="info-input" type="number" id="dt" />
+              </td>
+            </tr>
+            <tr>
+              <th>Ngày sinh</th>
+              <td>
+                <input class="info-input" type="date" id="ngaysinh" />
+              </td>
+            </tr>
+            <tr>
+              <th>Giới tính</th>
+              <td>
+                <label for="Nữ"
+                  ><input
+                    class="gender-radio"
+                    type="radio"
+                    name="gioitinh"
+                    id="Nữ"
+                    value="Nữ"
+                  />Nữ</label
+                >
+                <label for="Nam"
+                  ><input
+                    class="gender-radio"
+                    type="radio"
+                    name="gioitinh"
+                    id="Nam"
+                    value="Nam"
+                  />Nam</label
+                >
+                <label for="Khác"
+                  ><input
+                    class="gender-radio"
+                    type="radio"
+                    name="gioitinh"
+                    id="Khác"
+                    value="Khác"
+                  />Khác</label
+                >
+              </td>
+            </tr>
+            <tr>
+              <th>Lớp</th>
+              <td>
+                <input class="info-input" type="text" id="lop" />
+              </td>
+            </tr>
+            <tr>
+              <th>Ảnh</th>
+              <td>
+                <input
+                  class="info-input"
+                  type="file"
+                  id="anh-file"
+                  accept="image/*"
+                />
+              </td>
+            </tr>
+            <!-- <tr>
+            <td>
+              <input class="info-input" type="url" id="anh-url" />
+            </td>
+          </tr> -->
+            <tr>
+              <th>Điểm tích lũy</th>
+              <td><input class="info-input" type="number" id="dtl" /></td>
+            </tr>
+            <tr>
+              <td colspan="2">
+                <button type="button" class="add-btn" onclick="Add()">
+                  Thêm
+                </button>
+              </td>
+            </tr>
+  `;
   let next_mssv = Math.max(...students.map(s => s.studentId)) + 1;
   document.getElementById("mssv").value = (next_mssv < 10000 ? "0" : "") + next_mssv;
-  document.getElementById("hoten").value = "";
-  document.getElementById("cccd").value = "";
+  document.getElementById("hoten").value = "Nugfwehug";
+  document.getElementById("cccd").value = "428715506370";
   document.getElementById("quequan").value = "Hà Nội";
-  document.getElementById("dt").value = "";
+  document.getElementById("dt").value = "0901909790";
   document.getElementById("ngaysinh").value = "2006-01-01";
   document.querySelector("#Nữ").checked = true;
-  document.getElementById("lop").value = "USSH";
-  // document.getElementById("anh-url").value = "";
+  document.getElementById("lop").value = "USSH8";
   document.getElementById("anh-file").value = "";
   document.getElementById("dtl").value = 2.0;
+
 }
 
 function isDuplicated(stdX) {
@@ -131,25 +235,30 @@ function getInputData() {
   let _gender = document.querySelector(".gender-radio:checked").value;
   let _studentClass = document.getElementById("lop").value;
   let _pfPicUrl = "";
+
   let imgInput = document.getElementById("anh-file");
-  let imgDisplay = document.getElementById("anh");
-  imgInput.addEventListener("change", function() {
+  // imgInput.addEventListener("change", function() {
+     
+  // })
+  let imgDisplay = document.createElement("img");
+    imgInput.parentNode.insertBefore(imgDisplay, imgInput.nextSibling);
     const file = imgInput.files[0];
+    
     if (file) {
       _pfPicUrl = URL.createObjectURL(file);
       imgDisplay.src = "";
       imgDisplay.src = URL.createObjectURL(file);
-    } else {
-      imgDisplay.src = "";
-      imgInput.value = "";
     }
-  });
+  
+  // else {
+  //   imgDisplay.src = "";
+  //   imgInput.value = "";
+  // }
 
   let _gpa = document.getElementById("dtl").value;
 
   if ( isValidInput (_studentId, _fullname, _personalID, _phone, _dob, _gender, _studentClass, _gpa) ) {
         let studentX = new Student(_studentId, _fullname, _personalID ,_hometown, _phone, _dob, _gender, _studentClass, _pfPicUrl, _gpa);
-        _pfPicUrl = '';
         return studentX;
   }
   else {
@@ -251,7 +360,7 @@ function Edit(index) {
         type="file"
         id="anh-file"
         accept="image/*"
-        value="${std.pfPicUrl}"
+        value=""
       />
     </td>
   </tr>
@@ -267,10 +376,10 @@ function Edit(index) {
   <tr>
     <td colspan="2">
       <button type="button" class="confirm-btn" onclick="Confirm(${index})">
-        Confirm
+        Nhận
       </button>
       <button type="button" class="cancel-btn" onclick="Cancel()">
-        Cancel
+        Hủy
       </button>
     </td>
   </tr>`;
@@ -285,11 +394,13 @@ function Edit(index) {
       std.pfPicUrl = URL.createObjectURL(file);
       imgDisplay.src = "";
       imgDisplay.src = URL.createObjectURL(file);
-    } else {
-      imgDisplay.src = "";
-      imgInput.value = "";
     }
   });
+   
+  // else {
+  //   imgDisplay.src = "";
+  //   imgInput.value = "";
+  // }
   
 }
 
